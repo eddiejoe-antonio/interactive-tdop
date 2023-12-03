@@ -1,19 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import Navbar from './components/Navbar'
-import { BrowserRouter } from 'react-router-dom'
-import HeroContent from './components/HeroContent'
-import FillerText from './components/FillerText'
+import React from "react"
+import Navbar from "./components/Navbar"
+import Hero from "./components/Hero"
+import Analytics from "./components/Analytics"
+import Newsletter from "./components/Newsletter"
+import HeroLayout from "./components/HeroLayout"
+import { MantineProvider } from '@mantine/core';
+import '@mantine/core/styles.css';
+
+import ButtonApp from "./components/Button"
 
 function App() {
 
   return (
     <>
-    <BrowserRouter>
-      <Navbar />
-    </BrowserRouter>
-    <HeroContent></HeroContent>
+      <MantineProvider>
+        <Navbar />
+        <HeroLayout />
+        {/* <Hero /> */}
+        {/* <Analytics /> */}
+        {/* <Newsletter /> */}
+      </MantineProvider>
     </>
   )
 }
