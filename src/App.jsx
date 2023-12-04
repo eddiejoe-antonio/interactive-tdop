@@ -8,6 +8,7 @@ import { MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
 
 import ButtonApp from "./components/Button"
+import Caro from "./components/Carousel"
 
 function App() {
 
@@ -16,8 +17,9 @@ function App() {
       <MantineProvider>
         <Navbar />
         <HeroLayout />
-        {/* <Hero /> */}
+        <Hero />
         {/* <Analytics /> */}
+        <Caro />
         {/* <Newsletter /> */}
       </MantineProvider>
     </>
