@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {AiOutlineClose, AiOutlineMenu} from 'react-icons/ai'
 import Logo from './Logo'
+import { Menu, MenuItem } from '@mantine/core'
 
 const Navbar = () => {
     const [nav, setNav] =useState(false)
@@ -8,15 +9,17 @@ const Navbar = () => {
         setNav(!nav)
     }
 
+    const [opened, setOpened] = useState(false);
+
   return (
-    <div className='z-100 flex sticky justify-between items-center top-0 h-16 mx-auto shadow-md text-[#111] bg-[#FFFDF6]'>
-      <div className='hidden md:flex ml-10 top-8 w-[75%]'>
+    <div className='z-50 flex sticky justify-between items-center top-0 h-16 mx-auto shadow-md text-[#111] bg-[#FFFDF6]'>
+      <div className='hidden md:flex ml-10 top-8 w-[35%]'>
         <Logo />
       </div>
-      <h1 className='w-full text-xs whitespace-nowrap uppercase font-bold text-[#111] tracking-widest px-4 md:px-4'>The Texas Digital Opportunity Plan</h1>
+      <h1 className='w-full text-xs whitespace-nowrap uppercase font-bold text-[#111] tracking-widest px-4 md:px-0'>The Texas Digital Opportunity Plan</h1>
       <ul className='hidden md:flex'>
-        <li className='p-8 uppercase tracking-widest text-xs'>Navigate</li>
-        <li className='p-8 uppercase tracking-widest text-xs'>About</li>
+          <li className='p-8 uppercase tracking-widest text-xs'><a href='#'>Navigate</a></li>
+        <li className='p-8 uppercase tracking-widest text-xs'><a href='#'>About</a></li>
       </ul>
       <div onClick={handleNav} className='block md:hidden mx-[20px]'>
         {nav ? <AiOutlineClose size={20}/> : <AiOutlineMenu size={20}/>}
