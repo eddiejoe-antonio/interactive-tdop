@@ -2,7 +2,7 @@ import { Menu, Button } from "@mantine/core";
 
 const NavDropDown = () => {
   return ( 
-    <Menu shadow="md" radius='0' width={200}>
+    <Menu shadow="md" radius='0' width={200} position="bottom-start">
     <Menu.Target>
         <Button
         color='#FFFDF6' radius={0} className='uppercase text-xs tracking-widest font-light' 
@@ -10,7 +10,7 @@ const NavDropDown = () => {
         styles={{ label: { color: 'black' } }}
         >Navigate</Button>
     </Menu.Target>
-    <Menu.Dropdown className='bg-[#333] border-b-2 border-[#333]'>
+    <Menu.Dropdown className='bg-[#666] border-b-2 border-[#666]'>
         <Menu.Item color='#dedede' className='uppercase text-xs  text-white'>Geographic Introduction</Menu.Item>
         <Menu.Item color='#dedede' className='uppercase text-xs  text-white'>Interactive TDOP</Menu.Item>
         <Menu.Item color='#dedede' className='uppercase text-xs  text-white'>Data Dashboards</Menu.Item>
