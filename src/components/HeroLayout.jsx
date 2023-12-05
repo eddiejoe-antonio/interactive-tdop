@@ -3,6 +3,9 @@ import heroImg from '../assets/hero.jpg'
 import { Button } from '@mantine/core';
 import CarouselHero from './CarouselHero';
 import ScrollArrow from './ScrollArrow';
+import ButtonApp from './ButtonLight';
+import ButtonLight from './ButtonLight';
+import ButtonDark from './ButtonDark';
 
 const HeroLayout = () => {
   return (
@@ -15,8 +18,8 @@ const HeroLayout = () => {
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos nihil, qui quisquam reprehenderit, maxime dicta officiis saepe provident, aperiam incidunt id quis dolor delectus deserunt accusamus exercitationem ipsum.
                 </p>
                 <div className='flex justify-between py-8'> 
-                    <Button color="dark" radius={0} className='uppercase text-xs italic tracking-widest shadow-md'>Interactive Plan</Button>
-                    <Button color="rgba(255,253,246 )" radius={0} className='uppercase text-xs italic tracking-widest border-2 border-black shadow-md' styles={{ label: { color: 'black' } }}>Data Dashboards</Button>
+                    <ButtonDark text='Interactive Plan'></ButtonDark>
+                    <ButtonLight text='Data Dashboards'></ButtonLight>
                 </div>
                 <div className='mx-auto'>
                     <p className='font-sans'>Scroll to explore the Texas Digital Opportunity Plan</p>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Scrollama, Step } from 'react-scrollama';
-import PageOneText from './PageOneTest';
-import PageTwoText from './PageTwoTest';
+import PageOneText from '../PageOneTest';
+import PageTwoText from '../PageTwoTest';
 import test from '../assets/react.svg'
 
 const ScrollamaDemo = () => {

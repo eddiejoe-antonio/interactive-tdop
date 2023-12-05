@@ -12,7 +12,7 @@ const Navbar = () => {
     const [opened, setOpened] = useState(false);
 
   return (
-    <div className='z-50 flex sticky justify-between items-center top-0 h-16 mx-auto shadow-md text-[#111] bg-[#FFFDF6]'>
+    <div className='z-50 flex sticky justify-between items-center top-0 h-16 mx-auto shadow-md text-[#111] bg-[#FFFDF6] w-screen'>
       <div className='hidden md:flex ml-10 top-8 w-[35%]'>
         <Logo />
       </div>

@@ -5,6 +5,7 @@ import { MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
 import PageOneTest from "./components/PageOneTest"
 import PageTwoText from "./components/PageTwoTest"
+import PageThreeTest from "./components/PageThreeTest";
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <HeroLayout />
         <PageOneTest />
         <PageTwoText />
+        <PageThreeTest />
       </MantineProvider>
     </>
   )

@@ -1,19 +1,18 @@
-import { Card, Image, Text, Badge, Button, Group, Collapse, Accordion, AccordionItem, AccordionChevron } from '@mantine/core';
+import { Card, Image, Accordion, AccordionItem } from '@mantine/core';
 
 
 const CardTerms = ({img, altText, title, description}) => {
     return ( 
-        <Card>
+        <Card shadow="sm" padding="sm" radius="0">
             <Card.Section>
                 <Image src={img}
-                height={160}
                 alt={altText}
                 />
             </Card.Section>
             <Accordion>
                 <AccordionItem
                 value={title}>
-                    <Accordion.Control>{title}</Accordion.Control>
+                    <Accordion.Control className='text-bold'>{title}</Accordion.Control>
                     <Accordion.Panel>
                         {description}
                     </Accordion.Panel>
