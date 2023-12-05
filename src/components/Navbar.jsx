@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import {AiOutlineClose, AiOutlineMenu} from 'react-icons/ai'
 import Logo from './Logo'
-import { Menu, MenuItem } from '@mantine/core'
+import { Menu, Button } from '@mantine/core'
+import NavDropDown from './NavDropdown'
 
 const Navbar = () => {
     const [nav, setNav] =useState(false)
@@ -17,9 +18,9 @@ const Navbar = () => {
         <Logo />
       </div>
       <h1 className='w-full text-xs whitespace-nowrap uppercase font-bold text-[#111] tracking-widest px-4 md:px-0'><a href='#'>The Texas Digital Opportunity Plan</a></h1>
-      <ul className='hidden md:flex'>
-          <li className='p-8 uppercase tracking-widest text-xs'><a href='#'>Navigate</a></li>
-        <li className='p-8 uppercase tracking-widest text-xs'><a href='https://comptroller.texas.gov/programs/broadband/'>About</a></li>
+      <ul className='hidden md:flex items-center'>
+        <li className='p-8 uppercase tracking-widest text-xs'><NavDropDown /></li>
+        <li className='p-8 uppercase tracking-widest text-xs'><a href='#'>About</a></li>
       </ul>
       <div onClick={handleNav} className='block md:hidden mx-[20px]'>
         {nav ? <AiOutlineClose size={20}/> : <AiOutlineMenu size={20}/>}
