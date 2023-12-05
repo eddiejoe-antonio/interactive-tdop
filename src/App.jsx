@@ -5,8 +5,6 @@ import { MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
 import PageOneTest from "./components/PageOneTest"
 import PageTwoText from "./components/PageTwoTest"
-import ScrollamaDemo from "./components/ScrollamaDemo";
-import DotsNav from "./components/DotsNav";
 
 function App() {
 
@@ -17,8 +15,6 @@ function App() {
         <HeroLayout />
         <PageOneTest />
         <PageTwoText />
-        {/* <ScrollamaDemo /> */}
-        {/* <DotsNav numOfSections={6} /> */}
       </MantineProvider>
     </>
   )

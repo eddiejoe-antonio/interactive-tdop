@@ -16,10 +16,10 @@ const Navbar = () => {
       <div className='hidden md:flex ml-10 top-8 w-[35%]'>
         <Logo />
       </div>
-      <h1 className='w-full text-xs whitespace-nowrap uppercase font-bold text-[#111] tracking-widest px-4 md:px-0'>The Texas Digital Opportunity Plan</h1>
+      <h1 className='w-full text-xs whitespace-nowrap uppercase font-bold text-[#111] tracking-widest px-4 md:px-0'><a href='#'>The Texas Digital Opportunity Plan</a></h1>
       <ul className='hidden md:flex'>
           <li className='p-8 uppercase tracking-widest text-xs'><a href='#'>Navigate</a></li>
-        <li className='p-8 uppercase tracking-widest text-xs'><a href='#'>About</a></li>
+        <li className='p-8 uppercase tracking-widest text-xs'><a href='https://comptroller.texas.gov/programs/broadband/'>About</a></li>
       </ul>
       <div onClick={handleNav} className='block md:hidden mx-[20px]'>
         {nav ? <AiOutlineClose size={20}/> : <AiOutlineMenu size={20}/>}
