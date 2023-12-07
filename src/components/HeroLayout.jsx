@@ -6,6 +6,7 @@ import ScrollArrow from './ScrollArrow';
 import ButtonApp from './ButtonLight';
 import ButtonLight from './ButtonLight';
 import ButtonDark from './ButtonDark';
+import { Link } from 'react-router-dom';
 
 const HeroLayout = () => {
   return (
@@ -24,7 +25,7 @@ const HeroLayout = () => {
                 <div className='mx-auto'>
                     <p className='font-sans'>Scroll to explore the Texas Digital Opportunity Plan</p>
                     <div className='flex justify-center py-8'>
-                        <ScrollArrow />
+                    <Link to='intro'><ScrollArrow /></Link>
                     </div>
                 </div>
             </div>
