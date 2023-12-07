@@ -10,6 +10,12 @@ const IntroCards = {
         altText: 'Affordability',
         title: 'Affordability',
         description: 'Broadband service is affordable if the cost to maintain always-on, high-speed service in the home or a business is not a barrier to subscription. Devices are affordable if the cost for a device that meets a household or business needs is not a barrier.',
+    },
+    Adoption :{
+        img: 'Adoption.jpg',
+        altText: 'Adoption',
+        title: 'Adoption',
+        description: 'Broadband service is affordable if the cost to maintain always-on, high-speed service in the home or a business is not a barrier to subscription. Devices are affordable if the cost for a device that meets a household or business needs is not a barrier.',
     }
 }
 
