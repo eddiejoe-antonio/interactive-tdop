@@ -3,6 +3,7 @@ import SidebarItems from './SidebarItems'
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
+
 function Sidebar(props, {defaultActive}) {
     const [activeIndex, setActiveIndex] = useState(defaultActive || 1);
     return (
@@ -12,6 +13,7 @@ function Sidebar(props, {defaultActive}) {
                 SidebarItems.map((item, index)=> (
                     <Link to={item.route}>
                     <div key={item.key} active={index = activeIndex} className="py-2 text-xs hover:font-bold">
+                    {/* <div key={item.key} active={index = activeIndex} className={props.route ? `font-semibold` : `font-regular`}> */}
                         <p>{item.name}</p>
                     </div>
                     </Link>
