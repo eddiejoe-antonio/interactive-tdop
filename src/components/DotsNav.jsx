@@ -3,7 +3,7 @@ import { Link } from 'react-scroll';
 
 const DotsNav = ({ sections, activeSection, onSectionClick, activeDotColor, regularDotColor }) => {
   return (
-    <div className="z-10 hidden md:flex md:fixed right-10 top-1/2 transform -translate-y-1/2 p-4 flex flex-col items-end">
+    <div className="z-10 hidden md:flex md:fixed right-10 top-1/2 transform -translate-y-1/2 p-4 flex-col items-end">
       {sections.map((section, index) => (
         <Link
           key={index}

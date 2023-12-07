@@ -3,16 +3,19 @@ import IntroPage from '../pages/IntroPage';
 import VisionPage from '../pages/VisionPage';
 import NeedsAndAssetsPage from '../pages/NeedsAndAssetsPage'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ScrollToTop from './ScrollToTop';
 
 export default function Router () {
     return (
         <BrowserRouter>
+        <ScrollToTop>
             <Routes>
                 <Route path="/" element={<HeroLayout />} />
                 <Route path="intro" element={<IntroPage />} />
                 <Route path="vision" element={<VisionPage />} />
                 <Route path="needsandassets" element={<NeedsAndAssetsPage />} />
             </Routes>
+        </ScrollToTop>
       </BrowserRouter>
     )
 }
