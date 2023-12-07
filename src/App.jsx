@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import Section1 from './components/Test/Section1';
 import Section2 from './components/Test/Section2';
 import Section3 from './components/Test/Section3';
+import Section4 from './components/Test/Section4';
 import DotsNav from './components/DotsNav';
 import { MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
@@ -16,7 +17,7 @@ import HeroLayout from './components/HeroLayout'
 
 const App = () => {
   const sections = [<PageOneTest/>, <PageTwoText />, <PageThreeTest />];
-  // const sections = [<Section1 />, <Section2 />, <Section3 />];
+  // const sections = [<Section1 />, <Section2 />, <Section3 />, <Section4 />];
   const [activeSection, setActiveSection] = useState(0);
 
   const handleSectionClick = (index) => {
