@@ -1,9 +1,8 @@
 import React from 'react'
-import heroImg from '../assets/hero.jpg'
 
-const PageOneText = () => {
+const IntroOne = () => {
   return (
-    <div className='w-full bg-black h-screen px-4 font-sans'>
+    <div className='w-full bg-[#010101] ]h-screen px-4 font-sans'>
         <div className='max-w-[1240px] grid md:grid-cols-12 grid-rows-3 md:grid-rows-2'>
             <div className='flex flex-col col-start-4 col-span-6 justify-center items-center py-20 md:py-40'>
                 <p className='text-white'>
@@ -24,4 +23,4 @@ const PageOneText = () => {
   )
 }
 
-export default PageOneText
+export default IntroOne

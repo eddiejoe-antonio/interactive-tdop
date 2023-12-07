@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <div className='z-40 flex sticky justify-between items-center top-0 h-16 mx-auto shadow-md text-[#111] bg-[#FFFDF6] w-screen'>
       <div className='hidden md:flex ml-10 top-8 w-contain'>
-        <Logo />
+        <a href="https://comptroller.texas.gov/programs/broadband/"><Logo /></a>
       </div>
       <Link to='/'><h1 className='w-full text-xs whitespace-nowrap uppercase font-bold text-[#111] tracking-widest px-4'>The Texas Digital Opportunity Plan</h1></Link>
       <ul className='hidden md:flex items-center'>

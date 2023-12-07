@@ -4,15 +4,14 @@ import DotsNav from '../components/DotsNav';
 import { Element as ScrollElement, Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
 import { MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
-import PageThreeTest from '../components/PageThreeTest'
-import HeroLayout from '../components/HeroLayout'
+import NeedsOne from './content/NeedsOne';
 import Sidebar from '../components/Sidebar'
 import Navbar from '../components/Navbar';
-import PageFourTest from '../components/PageFourTest';
+
 
 
 const VisionPage = () => {
-  const sections = [<PageThreeTest />, <PageFourTest />];
+  const sections = [<NeedsOne />];
   const [activeSection, setActiveSection] = useState(0);
 
   const handleSectionClick = (index) => {

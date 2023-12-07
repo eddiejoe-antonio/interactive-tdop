@@ -4,14 +4,14 @@ import DotsNav from '../components/DotsNav';
 import { Element as ScrollElement, Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
 import { MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
-import VisionOne from './content/VisionOne';
+import StakeholderOne from './content/StakeholderOne';
 import Sidebar from '../components/Sidebar'
 import Navbar from '../components/Navbar';
-import VisionTwo from './content/VisionTwo';
+import StrategiesOne from './content/StrategiesOne';
 
 
-const VisionPage = () => {
-  const sections = [<VisionOne />, <VisionTwo />];
+const StrategiesPage = () => {
+  const sections = [<StrategiesOne />];
   const [activeSection, setActiveSection] = useState(0);
 
   const handleSectionClick = (index) => {
@@ -43,4 +43,4 @@ const VisionPage = () => {
   )
 };
 
-export default VisionPage
+export default StrategiesPage

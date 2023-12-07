@@ -1,9 +1,9 @@
 import React from 'react'
 import { useDisclosure } from '@mantine/hooks';
-import CardTerms from './CardTerms';
-import IntroCard from './introCard';
+import CardTerms from '../../components/CardTerms';
+import IntroCard from '../../components/IntroCard';
 
-const PageTwoText = () => {
+const IntroTwo = () => {
   const [opened, { toggle }] = useDisclosure(false);
   return (
     <div className='w-full h-full bg-[#FFFDF6] px-4 font-sans'>
@@ -29,4 +29,4 @@ const PageTwoText = () => {
   )
 }
 
-export default PageTwoText;
+export default IntroTwo;

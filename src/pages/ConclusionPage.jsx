@@ -4,14 +4,13 @@ import DotsNav from '../components/DotsNav';
 import { Element as ScrollElement, Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
 import { MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
-import VisionOne from './content/VisionOne';
 import Sidebar from '../components/Sidebar'
 import Navbar from '../components/Navbar';
-import VisionTwo from './content/VisionTwo';
+import ConclusionOne from './content/ConclusionOne';
 
 
-const VisionPage = () => {
-  const sections = [<VisionOne />, <VisionTwo />];
+const ConclusionPage = () => {
+  const sections = [<ConclusionOne />];
   const [activeSection, setActiveSection] = useState(0);
 
   const handleSectionClick = (index) => {
@@ -22,7 +21,7 @@ const VisionPage = () => {
   return (
     <>
       <Navbar />
-      <Sidebar />
+      <Sidebar className='text-white'/>
       <div className="app flex">
         <DotsNav
           sections={sections}
@@ -43,4 +42,4 @@ const VisionPage = () => {
   )
 };
 
-export default VisionPage
+export default ConclusionPage

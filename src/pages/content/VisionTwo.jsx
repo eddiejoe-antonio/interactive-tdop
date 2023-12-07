@@ -1,11 +1,11 @@
-import TexasStripes from './TexasStripes';
-import CardTerms from './CardTerms';
-import IntroCards from './introCard';
+import TexasStripes from '../../components/TexasStripes';
+import CardTerms from '../../components/CardTerms';
+import IntroCards from '../../components/IntroCard';
 import 'react-dropdown/style.css';
 import { Menu, Button } from '@mantine/core'
 
 
-const PageFourTest = () => {
+const VisionTwo = () => {
     const options = [
         'one', 'two', 'three'
       ];
@@ -32,4 +32,4 @@ const PageFourTest = () => {
      );
 }
  
-export default PageFourTest;
+export default VisionTwo;

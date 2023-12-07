@@ -2,17 +2,15 @@
 import React, { useState, useEffect } from 'react';
 import DotsNav from '../components/DotsNav';
 import { Element as ScrollElement, Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
-import { MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
-import PageOneTest from "../components/PageOneTest"
-import PageTwoText from "../components/PageTwoTest"
-import HeroLayout from '../components/HeroLayout'
+import IntroOne from './content/IntroOne';
+import IntroTwo from './content/IntroTwo';
 import Sidebar from '../components/Sidebar'
 import Navbar from '../components/Navbar';
 
 
 const IntroPage = () => {
-  const sections = [<PageOneTest/>, <PageTwoText />];
+  const sections = [<IntroOne/>, <IntroTwo />];
   const [activeSection, setActiveSection] = useState(0);
 
   const handleSectionClick = (index) => {

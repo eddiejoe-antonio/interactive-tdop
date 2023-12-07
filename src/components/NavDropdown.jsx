@@ -11,9 +11,9 @@ const NavDropDown = () => {
         >Navigate</Button>
     </Menu.Target>
     <Menu.Dropdown className='bg-[#666] border-b-2 border-[#666]'>
-        <Menu.Item color='#dedede' className='uppercase text-xs  text-white'>Geographic Introduction</Menu.Item>
-        <Menu.Item color='#dedede' className='uppercase text-xs  text-white'>Interactive TDOP</Menu.Item>
-        <Menu.Item color='#dedede' className='uppercase text-xs  text-white'>Data Dashboards</Menu.Item>
+        <Menu.Item color='#dedede' className='uppercase text-xs py-10 text-white'>Geographic Introduction</Menu.Item>
+        <Menu.Item color='#dedede' className='uppercase text-xs py-10 text-white'>Interactive TDOP</Menu.Item>
+        <Menu.Item color='#dedede' className='uppercase text-xs py-10 text-white'>Data Dashboards</Menu.Item>
     </Menu.Dropdown>
 </Menu>
    );
