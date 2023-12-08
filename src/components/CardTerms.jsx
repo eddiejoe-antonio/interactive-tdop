@@ -1,12 +1,13 @@
 import { Card, Image, Accordion, AccordionItem } from '@mantine/core';
 
 
-const CardTerms = ({img, altText, title, description}) => {
+const CardTerms = ({img, altText, title, description, height}) => {
     return ( 
         <Card shadow="sm" padding="sm" radius="0">
             <Card.Section>
                 <Image src={img}
                 alt={altText}
+                style={{ height: '400px', objectFit: 'cover' }}
                 />
             </Card.Section>
             <Accordion>

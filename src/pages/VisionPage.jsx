@@ -8,7 +8,6 @@ import Sidebar from '../components/Sidebar'
 import Navbar from '../components/Navbar';
 import VisionOne from './content/VisionOne'
 import VisionTwo from './content/VisionTwo';
-import VisionThree from './content/VisionThree';
 import ScrollableTitle from '../components/ScrollableTitle';
 import IntroCards from '../components/IntroCard';
 
@@ -18,7 +17,7 @@ const VisionPage = () => {
   altText={IntroCards.Test.altText}
   title={IntroCards.Test.title}
   />
-  const sections = [header, <VisionOne />, <VisionTwo />, <VisionThree />];
+  const sections = [header, <VisionOne />, <VisionTwo />];
   const [activeSection, setActiveSection] = useState(0);
 
   const handleSectionClick = (index) => {

@@ -3,7 +3,7 @@ import React from 'react'
 const IntroOne = () => {
   return (
     <div className='w-full bg-[#010101] h-full px-4 font-sans'>
-        <div className='max-w-[1240px] grid md:grid-cols-12 grid-rows-3 md:grid-rows-2'>
+        <div className='grid md:grid-cols-12 grid-rows-3 md:grid-rows-2'>
             <div className='flex flex-col col-start-4 col-span-6 justify-center items-center py-20 md:py-40'>
                 <p className='text-white'>
                 Access to digital opportunity is not available for all Americans. In the State of Texas, some Texans thrive online, while others struggle just to connect.

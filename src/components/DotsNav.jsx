@@ -9,7 +9,7 @@ const DotsNav = ({ sections, activeSection, isActive, onSectionClick, activeDotC
         <Link
           key={index}
           to={`section${index + 1}`}
-          isActive={activeSection === index}
+          isActive={section = index}
           smooth={true}
           duration={500}
           className={`dot w-3 h-3 rounded-full mb-4 cursor-pointer ${isActive ? `bg-${activeDotColor}` : `bg-${regularDotColor}`}`}

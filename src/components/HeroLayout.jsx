@@ -23,7 +23,7 @@ const HeroLayout = () => {
                     <ButtonLight text='Data Dashboards'></ButtonLight>
                 </div>
                 <div className='mx-auto'>
-                    <p className='font-sans'>Scroll to explore the Texas Digital Opportunity Plan</p>
+                    <p className='font-sans'>Click to explore the Texas Digital Opportunity Plan</p>
                     <div className='flex justify-center py-8'>
                     <Link to='intro'><ScrollArrow /></Link>
                     </div>
