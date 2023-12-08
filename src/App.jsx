@@ -7,13 +7,15 @@ import IntroPage from './pages/IntroPage';
 import VisionPage from './pages/VisionPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Router from './components/Router';
+import ScrollableComponent from './components/ScrollableComponent';
 
 
 const App = () => {
   return (
-    <MantineProvider>
-      <Router />
-    </MantineProvider>
+    <ScrollableComponent />
+    // <MantineProvider>
+    //   <Router />
+    // </MantineProvider>
     // <MantineProvider>
     //   <HeroLayout></HeroLayout>
     //   {/* <IntroPage /> */}
