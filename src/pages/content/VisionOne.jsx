@@ -8,14 +8,9 @@ import IntroCards from '../../components/IntroCard';
 const VisionOne = () => {
     return ( 
         <>
-        <ScrollableTitle
-        img={IntroCards.Test.img}
-        altText={IntroCards.Test.altText}
-        title={IntroCards.Test.title}
-        />
         <div className='w-full h-full bg-[#FFFDF6] px-4 font-sans'>
             <div className='max-w-[1240px] grid md:grid-cols-12'>
-                <div className='flex flex-col md:col-start-4 md:col-span-6 justify-center items-center pt-20 md:pb-20'>
+                <div className='flex flex-col md:col-start-4 md:col-span-6 justify-center items-center pt-[40vh] md:pb-20'>
                     {/* <h1 className='md:text-6xl sm:text-2xl text-2xl py-6 font-light uppercase tracking-widest'>Vision and Purpose</h1> */}
                     <TexasStripes />
                     <p className='py-12 font-sans'>

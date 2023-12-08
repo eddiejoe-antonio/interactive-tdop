@@ -19,7 +19,7 @@ const ScrollableTitle = ({img, altText, title}) => {
     };
   }, []);
 
-  const titleTop = Math.min(initialPosition, -(scrollPosition - (window.innerHeight*1.25)));
+  const titleTop = Math.round(Math.min(initialPosition, -(scrollPosition - (window.innerHeight*1.25))));
 
   return (
     <div className="scrollable-container relative w-full h-screen" style={{
