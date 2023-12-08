@@ -7,10 +7,18 @@ import IntroOne from './content/IntroOne';
 import IntroTwo from './content/IntroTwo';
 import Sidebar from '../components/Sidebar'
 import Navbar from '../components/Navbar';
+import ScrollableTitle from '../components/ScrollableTitle';
+import IntroCards from '../components/IntroCards';
 
 
 const IntroPage = () => {
-  const sections = [<IntroOne/>, <IntroTwo />];
+  const header =
+  <ScrollableTitle 
+  img={IntroCards.Header.img}
+  altText={IntroCards.Header.altText}
+  title={IntroCards.Header.title}
+  />
+  const sections = [header, <IntroOne/>, <IntroTwo />];
   const [activeSection, setActiveSection] = useState(0);
 
   const handleSectionClick = (index) => {

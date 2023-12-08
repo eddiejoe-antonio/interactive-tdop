@@ -1,4 +1,10 @@
 const VisionCards = {
+    Header :{
+        img: 'Vision.jpg',
+        altText: 'Vision',
+        title: 'Vision and Purpose',
+        description: '',
+    },
     Business :{
         img: 'Business.jpg',
         altText: 'Business',

@@ -2,8 +2,6 @@ import TexasStripes from '../../components/TexasStripes';
 import 'react-dropdown/style.css';
 import { Menu, Button } from '@mantine/core'
 import ScrollableTitle from '../../components/ScrollableTitle';
-import IntroCards from '../../components/IntroCard';
-
 
 const VisionOne = () => {
     return ( 

@@ -5,13 +5,22 @@ import { Element as ScrollElement, Link as ScrollLink, animateScroll as scroll }
 import { MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
 import NeedsOne from './content/NeedsOne';
+import NeedsCards from '../components/NeedsCards';
 import Sidebar from '../components/Sidebar'
 import Navbar from '../components/Navbar';
+import ScrollableTitle from '../components/ScrollableTitle';
+import NeedsTwo from './content/NeedsTwo';
 
 
 
 const VisionPage = () => {
-  const sections = [<NeedsOne />];
+  const header =
+  <ScrollableTitle 
+  img={NeedsCards.Header.img}
+  altText={NeedsCards.Header.altText}
+  title={NeedsCards.Header.title}
+  />
+  const sections = [header, <NeedsOne />, <NeedsTwo />];
   const [activeSection, setActiveSection] = useState(0);
 
   const handleSectionClick = (index) => {

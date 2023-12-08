@@ -9,13 +9,14 @@ import Navbar from '../components/Navbar';
 import VisionOne from './content/VisionOne'
 import VisionTwo from './content/VisionTwo';
 import ScrollableTitle from '../components/ScrollableTitle';
-import IntroCards from '../components/IntroCard';
+import VisionCards from '../components/VisionCards';
 
 const VisionPage = () => {
-  const header = <ScrollableTitle         
-  img={IntroCards.Test.img}
-  altText={IntroCards.Test.altText}
-  title={IntroCards.Test.title}
+  const header = 
+  <ScrollableTitle         
+  img={VisionCards.Header.img}
+  altText={VisionCards.Header.altText}
+  title={VisionCards.Header.title}
   />
   const sections = [header, <VisionOne />, <VisionTwo />];
   const [activeSection, setActiveSection] = useState(0);
