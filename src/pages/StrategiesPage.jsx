@@ -4,14 +4,22 @@ import DotsNav from '../components/DotsNav';
 import { Element as ScrollElement, Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
 import { MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
-import StakeholderOne from './content/StakeholderOne';
 import Sidebar from '../components/Sidebar'
 import Navbar from '../components/Navbar';
 import StrategiesOne from './content/StrategiesOne';
+import StrategiesTwo from './content/StrategiesTwo';
+import StrategiesCards from '../components/StrategiesCards';
+import ScrollableTitle from '../components/ScrollableTitle';
 
 
 const StrategiesPage = () => {
-  const sections = [<StrategiesOne />];
+  const header =
+  <ScrollableTitle 
+  img={StrategiesCards.Header.img}
+  altText={StrategiesCards.Header.altText}
+  title={StrategiesCards.Header.title}
+  />
+  const sections = [header, <StrategiesOne />, <StrategiesTwo />];
   const [activeSection, setActiveSection] = useState(0);
 
   const handleSectionClick = (index) => {

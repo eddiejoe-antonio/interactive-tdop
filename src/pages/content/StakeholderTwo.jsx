@@ -2,9 +2,8 @@ import React from 'react'
 import { useDisclosure } from '@mantine/hooks';
 import CardTerms from '../../components/CardTerms';
 import IntroCards from '../../components/IntroCards';
-import VisionCards from '../../components/VisionCards';
 
-const IntroTwo = () => {
+const StakeholderTwo = () => {
   const [opened, { toggle }] = useDisclosure(false);
 
   return (
@@ -12,10 +11,7 @@ const IntroTwo = () => {
         <div className='max-w-[1240px] grid md:grid-cols-12'>
             <div className='flex flex-col col-start-4 col-span-6 justify-center items-center pt-20 md:pb-20'>
                 <p className=''>
-                There are many factors that will help the state achieve progress on digital opportunity. Each introduces a new concept that can be challenging to understand.
-                <br />  
-                <br />
-                Click on the images to see a definition of each of the key terms and topics in the BDO’s vision for digital opportunity or scroll down to continue.
+                Click on the images to read about the stakeholders who took part in this plan or scroll on to learn more about the Texas Digital Opportunity Plan. 
                 </p>
             </div>
         </div>
@@ -45,4 +41,4 @@ const IntroTwo = () => {
   )
 }
 
-export default IntroTwo;
+export default StakeholderTwo;

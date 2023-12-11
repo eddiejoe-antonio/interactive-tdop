@@ -7,10 +7,11 @@ import '@mantine/core/styles.css';
 import StakeholderOne from './content/StakeholderOne';
 import Sidebar from '../components/Sidebar'
 import Navbar from '../components/Navbar';
+import StakeholderTwo from './content/StakeholderTwo';
 
 
 const StakeholderEngagementPage = () => {
-  const sections = [<StakeholderOne />];
+  const sections = [<StakeholderOne />, <StakeholderTwo />];
   const [activeSection, setActiveSection] = useState(0);
 
   const handleSectionClick = (index) => {

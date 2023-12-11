@@ -7,10 +7,18 @@ import '@mantine/core/styles.css';
 import Sidebar from '../components/Sidebar'
 import Navbar from '../components/Navbar';
 import ConclusionOne from './content/ConclusionOne';
+import ConclusionCards from '../components/ConclusionCards';
+import ScrollableTitle from '../components/ScrollableTitle';
 
 
 const ConclusionPage = () => {
-  const sections = [<ConclusionOne />];
+  const header =
+  <ScrollableTitle 
+  img={ConclusionCards.Header.img}
+  altText={ConclusionCards.Header.altText}
+  title={ConclusionCards.Header.title}
+  />
+  const sections = [header, <ConclusionOne />];
   const [activeSection, setActiveSection] = useState(0);
 
   const handleSectionClick = (index) => {
@@ -21,7 +29,7 @@ const ConclusionPage = () => {
   return (
     <>
       <Navbar />
-      <Sidebar className='text-white'/>
+      <Sidebar />
       <div className="app flex">
         <DotsNav
           sections={sections}

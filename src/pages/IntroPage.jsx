@@ -7,6 +7,7 @@ import IntroOne from './content/IntroOne';
 import IntroTwo from './content/IntroTwo';
 import Sidebar from '../components/Sidebar'
 import Navbar from '../components/Navbar';
+import ScrollArrow from '../components/ScrollArrow'
 import ScrollableTitle from '../components/ScrollableTitle';
 import IntroCards from '../components/IntroCards';
 

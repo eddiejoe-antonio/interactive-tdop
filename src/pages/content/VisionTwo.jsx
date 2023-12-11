@@ -20,7 +20,7 @@ const VisionTwo = () => {
                     </p>
                 </div>
             </div>
-            <div className='flex md:grid md:grid-cols-12 gap-2'>
+            <div className='block md:grid md:grid-cols-12 gap-2'>
                 <div className='flex flex-col col-start-4 col-span-2 items-center mb-[5vh]'>
                 <CardTerms img={VisionCards.Business.img} altText={VisionCards.Business.altText} title={VisionCards.Business.title} description={VisionCards.Business.description} />
                 </div>
@@ -31,7 +31,7 @@ const VisionTwo = () => {
                 <CardTerms img={VisionCards.Accessibility.img} altText={VisionCards.Accessibility.altText} title={VisionCards.Accessibility.title} description={VisionCards.Accessibility.description} />
                 </div>
             </div>
-            <div className='flex md:grid md:grid-cols-12 gap-2 mb-[40vh]'>
+            <div className='block md:grid md:grid-cols-12 gap-2 mb-[40vh]'>
             <div className='flex flex-col col-start-4 col-span-2 items-center pt-0 md:pb-0'>
                 <CardTerms img={VisionCards.Civic_Engagement.img} altText={VisionCards.Civic_Engagement.altText} title={VisionCards.Civic_Engagement.title} description={VisionCards.Civic_Engagement.description} />
                 </div>

@@ -11,12 +11,10 @@ const StakeholderOne = () => {
                     <h1 className='md:text-6xl sm:text-2xl text-2xl py-6 font-light uppercase tracking-widest'>Stakeholder Engagement</h1>
                     <TexasStripes />
                     <p className='py-12 font-sans'>
-                    The TDOP sets the BDO’s vision and goals for digital opportunity in the state, assesses the current state of access and barriers to digital opportunities, outlines how the BDO will collaborate with stakeholders to address challenges, and describes the strategies and actions the BDO will take to realize its vision and goals.  
-                    </p>
+                    The BDO led a strategy for collaboration and stakeholder engagement that built on Texans’ diversity and bridged its geographies.
+                  </p>
                     <p className='py-12'>
-                    The BDO’s vision for digital opportunity is:
-                    <br /><br />
-                    <strong>“Improve quality of life and promote economic growth by enabling fast, reliable, and affordable broadband connectivity for all residents and businesses, and by promoting universal broadband adoption and access to digital skills development.”</strong>
+                    Through the engagement process described in this chapter, thousands of Texans – including individuals from all walks of life and the diverse organizations that serve them – have shared their experiences, and informed this plan.  
                     </p>
                 </div>
             </div>
