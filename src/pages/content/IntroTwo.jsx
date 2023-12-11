@@ -26,18 +26,18 @@ const IntroTwo = () => {
                 <CardTerms img={IntroCards.Affordability.img} altText={IntroCards.Affordability.altText} title={IntroCards.Affordability.title} description={IntroCards.Affordability.description} />
                 </div>
                 <div className='flex flex-col col-start-8 col-span-2 items-center'>
-                <CardTerms img={VisionCards.Accessibility.img} altText={VisionCards.Accessibility.altText} title={VisionCards.Accessibility.title} description={VisionCards.Accessibility.description} />
+                <CardTerms img={IntroCards.Digital_Literacy.img} altText={IntroCards.Digital_Literacy.altText} title={IntroCards.Digital_Literacy.title} description={IntroCards.Digital_Literacy.description} />
                 </div>
             </div>
             <div className='flex md:grid md:grid-cols-12 gap-2 mb-[40vh]'>
             <div className='flex flex-col col-start-4 col-span-2 items-center pt-0 md:pb-0'>
-                <CardTerms img={VisionCards.Civic_Engagement.img} altText={VisionCards.Civic_Engagement.altText} title={VisionCards.Civic_Engagement.title} description={VisionCards.Civic_Engagement.description} />
+                <CardTerms img={IntroCards.Devices.img} altText={IntroCards.Devices.altText} title={IntroCards.Devices.title} description={IntroCards.Devices.description} />
                 </div>
                 <div className='flex flex-col col-start-6 col-span-2 items-center pt-0 md:pb-0'>
-                <CardTerms img={VisionCards.Workforce.img} altText={VisionCards.Workforce.altText} title={VisionCards.Workforce.title} description={VisionCards.Workforce.description} />
+                <CardTerms img={IntroCards.Cybersecurity.img} altText={IntroCards.Cybersecurity.altText} title={IntroCards.Cybersecurity.title} description={IntroCards.Cybersecurity.description} />
                 </div>
                 <div className='flex flex-col col-start-8 col-span-2 items-center pt-0 md:pb-0'>
-                <CardTerms img={VisionCards.Health.img} altText={VisionCards.Health.altText} title={VisionCards.Health.title} description={VisionCards.Health.description} />
+                <CardTerms img={IntroCards.Adoption.img} altText={IntroCards.Adoption.altText} title={IntroCards.Adoption.title} description={IntroCards.Adoption.description} />
                 </div>
             </div>
     </div>

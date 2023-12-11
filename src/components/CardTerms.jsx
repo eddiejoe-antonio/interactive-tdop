@@ -7,7 +7,7 @@ const CardTerms = ({img, altText, title, description, height}) => {
             <Card.Section>
                 <Image src={img}
                 alt={altText}
-                style={{ height: '400px', objectFit: 'cover' }}
+                style={{ height: '50vh', objectFit: 'cover' }}
                 />
             </Card.Section>
             <Accordion>
