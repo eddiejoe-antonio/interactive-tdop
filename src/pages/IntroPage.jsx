@@ -7,7 +7,6 @@ import IntroOne from './content/IntroOne';
 import IntroTwo from './content/IntroTwo';
 import Sidebar from '../components/Sidebar'
 import Navbar from '../components/Navbar';
-import ScrollArrow from '../components/ScrollArrow'
 import ScrollableTitle from '../components/ScrollableTitle';
 import IntroCards from '../components/IntroCards';
 
@@ -15,9 +14,9 @@ import IntroCards from '../components/IntroCards';
 const IntroPage = () => {
   const header =
   <ScrollableTitle 
-  img={IntroCards.Header.img}
-  altText={IntroCards.Header.altText}
-  title={IntroCards.Header.title}
+    img={IntroCards.Header.img}
+    altText={IntroCards.Header.altText}
+    title={IntroCards.Header.title}
   />
   const sections = [header, <IntroOne/>, <IntroTwo />];
   const [activeSection, setActiveSection] = useState(0);
@@ -29,16 +28,15 @@ const IntroPage = () => {
 
   return (
     <>
-      <Navbar />
-      <Sidebar />
+      {/* <Navbar /> */}
       <div className="app flex">
-        <DotsNav
+        {/* <DotsNav
           sections={sections}
           activeSection={activeSection}
           onSectionClick={handleSectionClick}
           activeDotColor="#666"
           regularDotColor="#ececec"
-        />
+        /> */}
         <div className="content flex-1">
           {sections.map((section, index) => (
             <ScrollElement key={index} name={`section${index + 1}`}>

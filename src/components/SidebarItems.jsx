@@ -2,32 +2,32 @@ const SidebarItems = [
     {
         key: 0,
         name: "Intro",
-        route: '/intro'
+        route: 'intro'
     },
     {
         key: 1,
         name: "Vision",
-        route: '/vision'
+        route: 'vision'
     },
     {
         key: 2,
         name: "Needs and Assets",
-        route: '/needsandassets'
+        route: 'needsandassets'
     },
     {
         key: 3,
         name: "Stakeholder Engagement",
-        route: '/stakeholderengagement'
+        route: 'stakeholderengagement'
     },
     {
         key: 4,
         name: "Strategies",
-        route: '/strategies'
+        route: 'strategies'
     },
     {
         key: 5,
         name: "Conclusion",
-        route: '/conclusion'
+        route: 'conclusion'
     },
 ];
 

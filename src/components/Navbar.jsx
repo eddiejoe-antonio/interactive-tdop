@@ -11,7 +11,7 @@ const Navbar = () => {
         setNav(!nav)
     }
 
-    const [opened, setOpened] = useState(false);
+  const [opened, setOpened] = useState(false);
 
   return (
     <div className='z-40 flex sticky justify-between items-center top-0 h-16 mx-auto shadow-md text-[#111] bg-[#FFFDF6] w-screen'>
