@@ -21,7 +21,7 @@ const Navbar = () => {
       <Link to='/'><h1 className='w-full text-xs whitespace-nowrap uppercase font-bold text-[#111] tracking-widest px-4'>The Texas Digital Opportunity Plan</h1></Link>
       <ul className='hidden md:flex items-center'>
         <li className='p-8 uppercase tracking-widest text-xs'><NavDropDown /></li>
-        <Link to='/'><li className='p-8 uppercase tracking-widest text-xs'>About</li></Link>
+        <Link to='/about'><li className='p-8 uppercase tracking-widest text-xs'>About</li></Link>
       </ul>
       <div onClick={handleNav} className='block md:hidden mx-[20px]'>
         {nav ? <AiOutlineClose size={20}/> : <AiOutlineMenu size={20}/>}

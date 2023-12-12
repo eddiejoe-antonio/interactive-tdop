@@ -17,7 +17,7 @@ function Sidebar(props, { defaultActive }) {
             smooth={true}
             offset={0} // Adjust the offset as needed to ensure proper scrolling to the section
             duration={500}
-            className={`py-20 text-xs hover:text-[#dedede] ${
+            className={`p-1 text-xs hover:text-[#dedede] ${
               index === activeIndex ? 'font-bold' : 'font-regular'
             }`}
             activeClass="font-bold"

@@ -1,7 +1,7 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import one from '../assets/1.jpg'
-import two from '../assets/2.jpg'
+import two from '../assets/2.avif'
 import three from '../assets/3.avif'
 
 const CarouselHero = () => {

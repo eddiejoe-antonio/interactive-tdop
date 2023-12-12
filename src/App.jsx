@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
 import { Routes, Route } from 'react-router-dom';
@@ -13,11 +13,32 @@ import ConclusionPage from './pages/ConclusionPage';
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
 import DotsNav from './components/DotsNav';
+import { useInView } from 'react-intersection-observer';
+
+const FadeInSection = ({ children }) => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2, // Adjust as needed
+  });
+
+  const props = {
+    style: {
+      opacity: inView ? 1 : 0,
+      transition: 'opacity 0.5s',
+    },
+  };
+
+  return (
+    <div ref={ref} {...props}>
+      {children}
+    </div>
+  );
+};
 
 const App = () => {
   const [currentSection, setCurrentSection] = useState(0);
+  const [calculatedSection, setCalculatedSection] = useState(0);
   const [showNav, setShowNav] = useState(false);
-  // const [calculatedSection, setCalculatedSection] = useState(0)
 
   const sectionData = [
     { name: 'hero', sections: 0 },
@@ -33,7 +54,9 @@ const App = () => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const newSection = Math.floor(scrollPosition / window.innerHeight);
+      const calcSection = Math.floor(scrollPosition / (window.innerHeight*3))
       setCurrentSection(newSection);
+      setCalculatedSection(calcSection);
       setShowNav(newSection >= 1);
     };
 
@@ -58,17 +81,20 @@ const App = () => {
       {showNav && <Sidebar />}
       {showNav && <Navbar />}
       <Routes>
+        <Route path="/about" element={<HeroLayout />} />
         <Route
           path="/"
           element={
             <>
               {sectionData.map((section, index) => (
                 <Element key={index} name={section.name}>
-                  {getPageComponent(section.name)}
+                  <FadeInSection>
+                    {getPageComponent(section.name, index)}
+                  </FadeInSection>
                 </Element>
               ))}
               <DotsNav
-                totalSections={0}
+                totalSections={sectionData[calculatedSection].sections}
                 activeSection={currentSection}
                 onDotClick={(index) =>
                   scrollToSection(`section${index + 1}`)
@@ -82,12 +108,11 @@ const App = () => {
   );
 };
 
+
 const getPageComponent = (sectionName) => {
   switch (sectionName) {
     case 'hero':
-      {
         return <HeroLayout />;
-      }
     case 'intro':
       return <IntroPage />;
     case 'vision':

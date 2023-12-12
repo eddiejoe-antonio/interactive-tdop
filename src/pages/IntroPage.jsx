@@ -1,22 +1,21 @@
-// App.js
-import React, { useState, useEffect } from 'react';
+// IntroPage.js
+import React, { useState } from 'react';
 import DotsNav from '../components/DotsNav';
-import { Element as ScrollElement, Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
-import '@mantine/core/styles.css';
+import { Element as ScrollElement, animateScroll as scroll } from 'react-scroll';
 import IntroOne from './content/IntroOne';
 import IntroTwo from './content/IntroTwo';
 import ScrollableTitle from '../components/ScrollableTitle';
 import IntroCards from '../components/IntroCards';
 
-
 const IntroPage = () => {
-  const header =
-  <ScrollableTitle 
-    img={IntroCards.Header.img}
-    altText={IntroCards.Header.altText}
-    title={IntroCards.Header.title}
-  />
-  const sections = [<IntroOne/>, <IntroTwo />];
+  const header = (
+    <ScrollableTitle
+      img={IntroCards.Header.img}
+      altText={IntroCards.Header.altText}
+      title={IntroCards.Header.title}
+    />
+  );
+  const sections = [<IntroOne />, <IntroTwo />];
   const [activeSection, setActiveSection] = useState(0);
 
   const handleSectionClick = (index) => {
@@ -26,8 +25,14 @@ const IntroPage = () => {
 
   return (
     <>
-      {/* <Navbar /> */}
       <div className="app flex">
+        <DotsNav
+          sections={sections}
+          activeSection={activeSection}
+          onSectionClick={handleSectionClick}
+          activeDotColor="#666"
+          regularDotColor="#ececec"
+        />
         <div className="content flex-1">
           {sections.map((section, index) => (
             <ScrollElement key={index} name={`section${index + 1}`}>
@@ -37,7 +42,7 @@ const IntroPage = () => {
         </div>
       </div>
     </>
-  )
+  );
 };
 
-export default IntroPage
+export default IntroPage;

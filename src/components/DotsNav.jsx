@@ -13,17 +13,17 @@ const DotsNav = ({ totalSections, activeSection, onDotClick }) => {
     <div className="dots-nav fixed right-10 top-1/2 transform -translate-y-1/2 flex flex-col items-center">
       {dots.map((dot) => (
         <ScrollLink
-  key={dot}
-  to={`section${dot}`}
-  spy={true}
-  smooth={true}
-  offset={0}
-  duration={500}
-  className={`dot mb-4 w-4 h-4 rounded-full cursor-pointer ${
-    activeSection === dot ? 'bg-blue-500' : 'bg-gray-300'
-  }`}
-  onClick={() => onDotClick(dot)}
-/>
+          key={dot}
+          to={`section${dot}`}
+          spy={true}
+          smooth={true}
+          offset={0}
+          duration={500}
+          className={`dot mb-4 w-4 h-4 rounded-full cursor-pointer ${
+            activeSection === dot ? 'bg-blue-500' : 'bg-gray-300'
+          }`}
+          onClick={() => onDotClick(dot)}
+        />
 
       ))}
     </div>
