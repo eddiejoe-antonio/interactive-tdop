@@ -18,7 +18,7 @@ import { useInView } from 'react-intersection-observer';
 const FadeInSection = ({ children }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.2, // Adjust as needed
+    threshold: 0.01, // Adjust as needed
   });
 
   const props = {
@@ -107,7 +107,6 @@ const App = () => {
     </MantineProvider>
   );
 };
-
 
 const getPageComponent = (sectionName) => {
   switch (sectionName) {
