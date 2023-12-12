@@ -14,7 +14,6 @@ const StrategiesPage = () => {
   const header =
   <ScrollableTitle 
   img={StrategiesCards.Header.img}
-  altText={StrategiesCards.Header.altText}
   title={StrategiesCards.Header.title}
   />
   const sections = [header, <StrategiesOne />, <StrategiesTwo />];

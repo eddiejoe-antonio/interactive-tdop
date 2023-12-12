@@ -9,7 +9,7 @@ const ConclusionOne = () => {
     return ( 
         <div className='w-full h-screen px-4 font-sans'>
             <div className='max-w-[1240px] grid md:grid-cols-12'>
-                <div className='flex flex-col md:col-start-4 md:col-span-6 justify-center items-center pt-[40vh]'>
+                <div className='flex flex-col md:col-start-4 md:col-span-6 justify-center items-center pt-[10vh]'>
                     <TexasStripes />
                     <p className='py-12 font-sans'>
                     The Texas Digital Opportunity Plan presents this set of strategies in response to specific digital needs statewide.

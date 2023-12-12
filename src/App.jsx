@@ -17,6 +17,7 @@ import DotsNav from './components/DotsNav';
 const App = () => {
   const [currentSection, setCurrentSection] = useState(0);
   const [showNav, setShowNav] = useState(false);
+  // const [calculatedSection, setCalculatedSection] = useState(0)
 
   const sectionData = [
     { name: 'hero', sections: 0 },
@@ -51,10 +52,6 @@ const App = () => {
     });
   };
 
-  const getCurrentSectionData = () => {
-    console.log(currentSection);
-    return sectionData[currentSection] || {};
-  };
 
   return (
     <MantineProvider>
@@ -71,7 +68,7 @@ const App = () => {
                 </Element>
               ))}
               <DotsNav
-                totalSections={currentSection}
+                totalSections={0}
                 activeSection={currentSection}
                 onDotClick={(index) =>
                   scrollToSection(`section${index + 1}`)
@@ -88,7 +85,9 @@ const App = () => {
 const getPageComponent = (sectionName) => {
   switch (sectionName) {
     case 'hero':
-      return <HeroLayout />;
+      {
+        return <HeroLayout />;
+      }
     case 'intro':
       return <IntroPage />;
     case 'vision':

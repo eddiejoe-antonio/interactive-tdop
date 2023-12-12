@@ -1,8 +1,8 @@
 const StakeholderCards = {
     Header :{
-        img: 'Strategies.webp',
-        altText: 'Implementation Strategies',
-        title: 'Implementation Strategies',
+        img: 'StakeholderEngagement.jpg',
+        altText: 'Stakeholder Engagement',
+        title: 'Stakeholder Engagement',
         description: '',
     },
     Broadband :{

@@ -6,10 +6,17 @@ import { MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
 import StakeholderOne from './content/StakeholderOne';
 import StakeholderTwo from './content/StakeholderTwo';
+import ScrollableTitle from '../components/ScrollableTitle';
+import StakeholderCards from '../components/StakeholderCards'
 
 
 const StakeholderEngagementPage = () => {
-  const sections = [<StakeholderOne />, <StakeholderTwo />];
+  const header =
+  <ScrollableTitle 
+  img={StakeholderCards.Header.img}
+  title={StakeholderCards.Header.title}
+  />
+  const sections = [header, <StakeholderOne />, <StakeholderTwo />];
   const [activeSection, setActiveSection] = useState(0);
 
   const handleSectionClick = (index) => {
