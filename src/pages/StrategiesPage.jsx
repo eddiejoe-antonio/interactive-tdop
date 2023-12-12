@@ -4,8 +4,6 @@ import DotsNav from '../components/DotsNav';
 import { Element as ScrollElement, Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
 import { MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
-import Sidebar from '../components/Sidebar'
-import Navbar from '../components/Navbar';
 import StrategiesOne from './content/StrategiesOne';
 import StrategiesTwo from './content/StrategiesTwo';
 import StrategiesCards from '../components/StrategiesCards';
@@ -31,13 +29,6 @@ const StrategiesPage = () => {
     <>
       {/* <Navbar /> */}
       <div className="app flex">
-        {/* <DotsNav
-          sections={sections}
-          activeSection={activeSection}
-          onSectionClick={handleSectionClick}
-          activeDotColor="#666"
-          regularDotColor="#ececec"
-        /> */}
         <div className="content flex-1">
           {sections.map((section, index) => (
             <ScrollElement key={index} name={`section${index + 1}`}>

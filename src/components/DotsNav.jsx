@@ -1,25 +1,28 @@
 // DotsNav.js
+import React, { useEffect, useState } from 'react';
+import { Link as ScrollLink, scroller } from 'react-scroll';
 
-import React from 'react';
-import { Link } from 'react-scroll';
+const DotsNav = ({ totalSections, activeSection, onDotClick }) => {
+  const [dots, setDots] = useState([]);
 
-const DotsNav = ({ sections, activeSection, onSectionClick, activeDotColor, regularDotColor }) => {
-  if (!sections || sections.length === 0) {
-    return null; // Render nothing if there are no sections
-  }
+  useEffect(() => {
+    setDots(Array.from({ length: totalSections }, (_, index) => index + 1));
+  }, [totalSections]);
 
   return (
-    <div className="z-10 hidden md:flex md:fixed right-10 top-1/2 transform -translate-y-1/2 p-4 flex-col items-end">
-      {sections.map((_, index) => (
-        <Link
-          key={index}
-          to={`section${index + 1}`}
-          isActive={index === activeSection}
+    <div className="dots-nav fixed right-10 top-1/2 transform -translate-y-1/2 flex flex-col items-center">
+      {dots.map((dot) => (
+        <ScrollLink
+          key={dot}
+          to={`section${dot}`}
+          spy={true}
           smooth={true}
+          offset={0}
           duration={500}
-          className={`dot w-3 h-3 rounded-full mb-4 cursor-pointer ${index === activeSection ? `bg-${activeDotColor}` : `bg-${regularDotColor}`}`}
-          style={{ backgroundColor: index === activeSection ? activeDotColor : regularDotColor }}
-          onClick={() => onSectionClick(index)}
+          className={`dot mb-4 w-4 h-4 rounded-full cursor-pointer ${
+            activeSection === dot - 1 ? 'bg-blue-500' : 'bg-gray-300'
+          }`}
+          onClick={() => onDotClick(dot - 1)}
         />
       ))}
     </div>
@@ -27,30 +30,3 @@ const DotsNav = ({ sections, activeSection, onSectionClick, activeDotColor, regu
 };
 
 export default DotsNav;
-
-
-
-// import React from 'react';
-// import { Link } from 'react-scroll';
-
-// const DotsNav = ({ sections, activeSection, isActive, onSectionClick, activeDotColor, regularDotColor }) => {
-  
-//   return (
-//     <div className="z-10 hidden md:flex md:fixed right-10 top-1/2 transform -translate-y-1/2 p-4 flex-col items-end">
-//       {sections.map((section, index) => (
-//         <Link
-//           key={index}
-//           to={`section${index + 1}`}
-//           isActive={section = index}
-//           smooth={true}
-//           duration={500}
-//           className={`dot w-3 h-3 rounded-full mb-4 cursor-pointer ${isActive ? `bg-${activeDotColor}` : `bg-${regularDotColor}`}`}
-//           style={{ backgroundColor: index === activeSection ? activeDotColor : regularDotColor }}
-//           onClick={() => onSectionClick(index)}
-//         />
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default DotsNav;

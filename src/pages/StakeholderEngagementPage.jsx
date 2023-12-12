@@ -5,8 +5,6 @@ import { Element as ScrollElement, Link as ScrollLink, animateScroll as scroll }
 import { MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
 import StakeholderOne from './content/StakeholderOne';
-import Sidebar from '../components/Sidebar'
-import Navbar from '../components/Navbar';
 import StakeholderTwo from './content/StakeholderTwo';
 
 
@@ -23,13 +21,6 @@ const StakeholderEngagementPage = () => {
     <>
       {/* <Navbar /> */}
       <div className="app flex">
-        {/* <DotsNav
-          sections={sections}
-          activeSection={activeSection}
-          onSectionClick={handleSectionClick}
-          activeDotColor="#666"
-          regularDotColor="#ececec"
-        /> */}
         <div className="content flex-1">
           {sections.map((section, index) => (
             <ScrollElement key={index} name={`section${index + 1}`}>

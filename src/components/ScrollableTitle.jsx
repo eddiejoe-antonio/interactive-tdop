@@ -24,8 +24,8 @@ const ScrollableTitle = ({img, altText, title}) => {
   return (
     <div className="relative w-full h-screen" style={{
       background: `url(${img})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
-      <div className={`fixed top-0 left-1/2 transform -translate-x-1/2 p-4 z-10 ${isScrolled ? 'text-black' : 'text-white'}`} style={{ top: `${titleTop}px` }}>
-        <h1 className="md:text-6xl text-4xl py-6 font-light uppercase tracking-widest">{title}</h1>
+      <div className={`fixed top-0 left-1/2 transform -translate-x-1/2 p-4 z-10 ${isScrolled ? 'text-black' : 'text-white'}`}>
+        <h1 className="hidden md:text-6xl text-4xl py-6 font-light uppercase tracking-widest">{title}</h1>
       </div>
     </div>
   );

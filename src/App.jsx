@@ -1,9 +1,7 @@
-// App.js
-
 import React, { useEffect, useState } from 'react';
 import { MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { Element, scroller } from 'react-scroll';
 import HeroLayout from './components/HeroLayout';
 import IntroPage from './pages/IntroPage';
@@ -13,48 +11,37 @@ import StakeholderEngagementPage from './pages/StakeholderEngagementPage';
 import StrategiesPage from './pages/StrategiesPage';
 import ConclusionPage from './pages/ConclusionPage';
 import Sidebar from './components/Sidebar';
-import DotsNav from './components/DotsNav';
 import Navbar from './components/Navbar';
-
-const sectionRoutes = {
-  '/': 'section0',
-  '/intro': 'section1',
-  '/vision': 'section2',
-  '/needsandassets': 'section3',
-  '/stakeholderengagement': 'section4',
-  '/strategies': 'section5',
-  '/conclusion': 'section6',
-};
+import DotsNav from './components/DotsNav';
 
 const App = () => {
   const [currentSection, setCurrentSection] = useState(0);
-  const [showSidebar, setShowSidebar] = useState(false);
-  const [showNavbar, setShowNavbar] = useState(false);
+  const [showNav, setShowNav] = useState(false);
 
+  const sectionData = [
+    { name: 'hero', sections: 0 },
+    { name: 'intro', sections: 3 },
+    { name: 'vision', sections: 3 },
+    { name: 'needsandassets', sections: 3 },
+    { name: 'stakeholderengagement', sections: 2 },
+    { name: 'strategies', sections: 3 },
+    { name: 'conclusion', sections: 2 },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
-      // Calculate the current section based on scroll position
       const scrollPosition = window.scrollY;
       const newSection = Math.floor(scrollPosition / window.innerHeight);
-
-      // Update currentSection state
       setCurrentSection(newSection);
-
-      // Check if the user has scrolled past the "intro" section
-      setShowSidebar(newSection >= 1); // Set to true after scrolling past "intro"
-      setShowNavbar(newSection >= 1); // Set to true after scrolling past "intro"
+      setShowNav(newSection >= 1);
     };
 
-    // Add scroll event listener
     window.addEventListener('scroll', handleScroll);
 
-    // Remove event listener on component unmount
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
 
   const scrollToSection = (sectionName) => {
     scroller.scrollTo(sectionName, {
@@ -63,56 +50,60 @@ const App = () => {
       smooth: 'easeInOutQuart',
     });
   };
-  
+
+  const getCurrentSectionData = () => {
+    console.log(currentSection);
+    return sectionData[currentSection] || {};
+  };
 
   return (
     <MantineProvider>
-      {showSidebar && <Sidebar />}
-      {showNavbar && (
-        <Router>
-          <Navbar />
-        </Router>
-      )}
-      <Router>
-        <Routes>
-          {/* <Route path='/' element={
-            <Element name="hero">
-              <HeroLayout />
-            </Element>
-          } /> */}
-          <Route
-            path="/"
-            element={
-              <>
-                <Element name="hero">
-                  <HeroLayout />
+      {showNav && <Sidebar />}
+      {showNav && <Navbar />}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              {sectionData.map((section, index) => (
+                <Element key={index} name={section.name}>
+                  {getPageComponent(section.name)}
                 </Element>
-                <Element name="intro">
-                  <IntroPage />
-                </Element>
-                <Element name="vision">
-                  <VisionPage />
-                </Element>
-                <Element name="needsandassets">
-                  <NeedsAndAssetsPage />
-                </Element>
-                <Element name="stakeholderengagement">
-                  <StakeholderEngagementPage />
-                </Element>
-                <Element name="strategies">
-                  <StrategiesPage />
-                </Element>
-                <Element name="conclusion">
-                  <ConclusionPage />
-                  {currentSection === sectionRoutes['/conclusion'] && <DotsNav />}
-                </Element>
-              </>
-            }
-          />
-        </Routes>
-      </Router>
+              ))}
+              <DotsNav
+                totalSections={currentSection}
+                activeSection={currentSection}
+                onDotClick={(index) =>
+                  scrollToSection(`section${index + 1}`)
+                }
+              />
+            </>
+          }
+        />
+      </Routes>
     </MantineProvider>
   );
+};
+
+const getPageComponent = (sectionName) => {
+  switch (sectionName) {
+    case 'hero':
+      return <HeroLayout />;
+    case 'intro':
+      return <IntroPage />;
+    case 'vision':
+      return <VisionPage />;
+    case 'needsandassets':
+      return <NeedsAndAssetsPage />;
+    case 'stakeholderengagement':
+      return <StakeholderEngagementPage />;
+    case 'strategies':
+      return <StrategiesPage />;
+    case 'conclusion':
+      return <ConclusionPage />;
+    default:
+      return null;
+  }
 };
 
 export default App;

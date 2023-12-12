@@ -5,8 +5,6 @@ import { Element as ScrollElement, Link as ScrollLink, animateScroll as scroll }
 import '@mantine/core/styles.css';
 import IntroOne from './content/IntroOne';
 import IntroTwo from './content/IntroTwo';
-import Sidebar from '../components/Sidebar'
-import Navbar from '../components/Navbar';
 import ScrollableTitle from '../components/ScrollableTitle';
 import IntroCards from '../components/IntroCards';
 
@@ -30,13 +28,6 @@ const IntroPage = () => {
     <>
       {/* <Navbar /> */}
       <div className="app flex">
-        {/* <DotsNav
-          sections={sections}
-          activeSection={activeSection}
-          onSectionClick={handleSectionClick}
-          activeDotColor="#666"
-          regularDotColor="#ececec"
-        /> */}
         <div className="content flex-1">
           {sections.map((section, index) => (
             <ScrollElement key={index} name={`section${index + 1}`}>
