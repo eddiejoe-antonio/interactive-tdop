@@ -3,6 +3,7 @@ import { Scrollama, Step } from 'react-scrollama';
 import NeedsOne from './content/NeedsOne';
 import VisionTwo from './content/VisionTwo';
 import VisionOne from './content/VisionOne';
+import one from '../assets/1.jpg'
 
 const CustomComponent1 = () => (
   <div>
@@ -22,7 +23,7 @@ const content = [
   'Today, 32% of Texan households do not subscribe to broadband internet. Certain regions of Texas have higher rates of availability, while others are lower.',
   <CustomComponent1 />,
   <CustomComponent2 />,
-  <VisionOne />,
+  <NeedsOne />,
   <VisionTwo />,
 ];
 

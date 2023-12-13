@@ -10,8 +10,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <MantineProvider>
     <Router>
-      <TestScroll />
-      {/* <App /> */}
+      {/* <TestScroll /> */}
+      <App />
     </Router>
     </MantineProvider>
   </React.StrictMode>,
