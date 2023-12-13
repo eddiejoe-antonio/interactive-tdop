@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Scrollama, Step } from 'react-scrollama';
 import NeedsOne from './content/NeedsOne';
 import VisionTwo from './content/VisionTwo';
 import VisionOne from './content/VisionOne';
-import one from '../assets/1.jpg'
+import one from '../assets/1.jpg';
 
 const CustomComponent1 = () => (
   <div>
@@ -39,6 +39,8 @@ const TestScroll = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [progress, setProgress] = useState(0);
   const [scrollytellingCompleted, setScrollytellingCompleted] = useState(false);
+  console.log(scrollytellingCompleted);
+
 
   const onStepEnter = ({ data, progress }) => {
     setActiveStep(data);
@@ -50,15 +52,40 @@ const TestScroll = () => {
     }
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const containerTop = document.querySelector('.overall').getBoundingClientRect().top;
+      // console.log(containerTop);
+      // const lastStepTop = document.querySelector(`[data="${content.length - 1}"]`).getBoundingClientRect().top;
+
+      // Check if the container is at top-0
+      if (containerTop == 50) {
+        setScrollytellingCompleted(!scrollytellingCompleted);
+      }
+
+      // // Check if the last step is at top-0
+      // if (lastStepTop === 0) {
+      //   setScrollytellingCompleted(true);
+      // }
+    };
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <div className='overall'>
-      <div className="block md:flex h-[100vh]">
-        <div className="flex-1 overflow-y-scroll h-screen sticky top-0">
+    <div className='overall h-screen'>
+      <div className={`block md:flex h-[100vh] ${scrollytellingCompleted ? 'scrollable' : 'sticky'}`}>
+        <div className={`flex-1 overflow-y-scroll h-screen ${scrollytellingCompleted ? 'scrollable' : 'sticky'}`}>
           <Scrollama onStepEnter={onStepEnter} offset={0.5}>
             {text.map((item, index) => (
               <Step key={index} data={index}>
                 <div className="p-8 border-b h-screen">
-                  {/* Your scrolling content */}
                   <div className='ml-[50%] mt-[35%] font-sans' style={{ opacity: 1 - progress, transform: `translateY(${100 * progress}%)` }}>
                     {item}
                   </div>
@@ -67,8 +94,7 @@ const TestScroll = () => {
             ))}
           </Scrollama>
         </div>
-        <div className={`flex-1 h-full ${scrollytellingCompleted ? 'scrollable' : 'sticky'}`}>
-          {/* New content based on active step */}
+        <div className="flex-1 h-full">
           {content[activeStep]}
         </div>
       </div>
