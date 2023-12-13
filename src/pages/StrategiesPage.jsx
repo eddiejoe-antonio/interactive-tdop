@@ -35,6 +35,11 @@ const StrategiesPage = () => {
             </ScrollElement>
           ))}
         </div>
+        {/* <DotsNav
+        totalSections={sections.length}
+        activeSection={index}
+        onDotClick={(index) => scrollToSection(`section${index + 1}`)}
+      /> */}
       </div>
     </>
   )

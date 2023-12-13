@@ -26,7 +26,6 @@ const StakeholderEngagementPage = () => {
 
   return (
     <>
-      {/* <Navbar /> */}
       <div className="app flex">
         <div className="content flex-1">
           {sections.map((section, index) => (

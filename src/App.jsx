@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+// App.js
+import React, { useEffect, useState } from 'react';
 import { MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
-import { Routes, Route } from 'react-router-dom';
 import { Element, scroller } from 'react-scroll';
 import HeroLayout from './components/HeroLayout';
 import IntroPage from './pages/IntroPage';
@@ -37,26 +37,23 @@ const FadeInSection = ({ children }) => {
 
 const App = () => {
   const [currentSection, setCurrentSection] = useState(0);
-  const [calculatedSection, setCalculatedSection] = useState(0);
   const [showNav, setShowNav] = useState(false);
 
   const sectionData = [
-    { name: 'hero', sections: 0 },
-    { name: 'intro', sections: 3 },
-    { name: 'vision', sections: 3 },
-    { name: 'needsandassets', sections: 3 },
-    { name: 'stakeholderengagement', sections: 2 },
-    { name: 'strategies', sections: 3 },
-    { name: 'conclusion', sections: 2 },
+    { name: 'hero', component: <HeroLayout /> },
+    { name: 'intro', component: <IntroPage /> },
+    { name: 'vision', component: <VisionPage /> },
+    { name: 'needsandassets', component: <NeedsAndAssetsPage /> },
+    { name: 'stakeholderengagement', component: <StakeholderEngagementPage /> },
+    { name: 'strategies', component: <StrategiesPage /> },
+    { name: 'conclusion', component: <ConclusionPage /> },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const newSection = Math.floor(scrollPosition / window.innerHeight);
-      const calcSection = Math.floor(scrollPosition / (window.innerHeight*3))
       setCurrentSection(newSection);
-      setCalculatedSection(calcSection);
       setShowNav(newSection >= 1);
     };
 
@@ -75,58 +72,22 @@ const App = () => {
     });
   };
 
-
   return (
     <MantineProvider>
       {showNav && <Sidebar />}
       {showNav && <Navbar />}
-      <Routes>
-        <Route path="/about" element={<HeroLayout />} />
-        <Route
-          path="/"
-          element={
-            <>
-              {sectionData.map((section, index) => (
-                <Element key={index} name={section.name}>
-                  <FadeInSection>
-                    {getPageComponent(section.name, index)}
-                  </FadeInSection>
-                </Element>
-              ))}
-              <DotsNav
-                totalSections={sectionData[calculatedSection].sections}
-                activeSection={currentSection}
-                onDotClick={(index) =>
-                  scrollToSection(`section${index + 1}`)
-                }
-              />
-            </>
-          }
-        />
-      </Routes>
+      {sectionData.map((section, index) => (
+        <Element key={index} name={section.name}>
+          <FadeInSection>{section.component}</FadeInSection>
+        </Element>
+      ))}
+      {/* <DotsNav
+        totalSections={sectionData.length}
+        activeSection={currentSection}
+        onDotClick={(index) => scrollToSection(`section${index + 1}`)}
+      /> */}
     </MantineProvider>
   );
-};
-
-const getPageComponent = (sectionName) => {
-  switch (sectionName) {
-    case 'hero':
-        return <HeroLayout />;
-    case 'intro':
-      return <IntroPage />;
-    case 'vision':
-      return <VisionPage />;
-    case 'needsandassets':
-      return <NeedsAndAssetsPage />;
-    case 'stakeholderengagement':
-      return <StakeholderEngagementPage />;
-    case 'strategies':
-      return <StrategiesPage />;
-    case 'conclusion':
-      return <ConclusionPage />;
-    default:
-      return null;
-  }
 };
 
 export default App;
