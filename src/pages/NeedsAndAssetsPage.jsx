@@ -6,7 +6,6 @@ import '@mantine/core/styles.css';
 import NeedsOne from './content/NeedsOne';
 import NeedsCards from '../components/NeedsCards';
 import ScrollableTitle from '../components/ScrollableTitle';
-import NeedsTwo from './content/NeedsTwo';
 import ScrollytellingComponent from '../components/ScrollytellingComponent';
 import GoalsSection from '../components/GoalsSection';
 
@@ -25,7 +24,7 @@ const VisionPage = () => {
   description={NeedsCards.Goal1.description}
   />
 
-  const sections = [header, <NeedsOne />, <NeedsTwo />, header2, <ScrollytellingComponent />];
+  const sections = [header, <NeedsOne />, header2, <ScrollytellingComponent />];
   const [activeSection, setActiveSection] = useState(0);
 
   const handleSectionClick = (index) => {

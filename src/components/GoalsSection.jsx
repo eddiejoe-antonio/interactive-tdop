@@ -25,7 +25,7 @@ const GoalsSection = ({ img, description, title }) => {
         <p className='text-white font-sans'>{description}</p>
         <div className='mt-[10vh] flex justify-between'>
           <KPIContainer goal={NeedsCards.KPI1_1.goal} kpi={NeedsCards.KPI1_1.kpi} description={NeedsCards.KPI1_1.text} className='flex-1'/>
-          <KPIContainer goal={NeedsCards.KPI1_1.goal} kpi={NeedsCards.KPI1_1.kpi} description={NeedsCards.KPI1_1.text} className='flex-1'/>
+          <KPIContainer goal={NeedsCards.KPI1_2.goal} kpi={NeedsCards.KPI1_2.kpi} description={NeedsCards.KPI1_2.text} className='flex-1'/>
           <KPIContainer goal={NeedsCards.KPI1_1.goal} kpi={NeedsCards.KPI1_1.kpi} description={NeedsCards.KPI1_1.text} className='flex-1'/>
         </div>
       </div>

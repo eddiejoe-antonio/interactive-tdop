@@ -2,7 +2,7 @@ const NeedsCards = {
     Header :{
         img: 'Needs.jpg',
         altText: 'Needs and Assets',
-        title: 'Needs and Assets',
+        title: 'DIGITAL OPPORTUNITY NEEDS AND ASSETS',
         description: '',
     },
     Goal1 :{
@@ -15,6 +15,11 @@ const NeedsCards = {
         goal: 'Goal 1',
         kpi: 'KPI 1.1',
         text: 'Increase the percentage of Texans with reliable broadband available in their homes',
+    },
+    KPI1_2 :{
+        goal: 'Goal 1',
+        kpi: 'KPI 1.2',
+        text: 'Decrease the percentage of individuals that cite cost as a barrier to home internet service',
     }
 }
 
