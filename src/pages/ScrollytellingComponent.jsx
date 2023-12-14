@@ -1,15 +1,16 @@
 import React, { PureComponent } from 'react';
 import injectSheet from 'react-jss';
 import { Scrollama, Step } from 'react-scrollama';
+import one from '../assets/1.jpg'
+import two from '../assets/2.avif'
+import three from '../assets/3.avif'
+import four from '../assets/3.jpg'
+import NeedsOne from './content/NeedsOne';
+
 
 const styles = {
-  pageSubtitle: {
-    textAlign: 'center',
-    fontSize: 22,
-    color: '#888',
-  },
   graphicContainer: {
-    padding: '40vh 2vw 20vh',
+    padding: '10vh 2vw 20vh',
     display: 'flex',
     justifyContent: 'space-between',
   },
@@ -19,13 +20,11 @@ const styles = {
     width: '100%',
     height: '60vh',
     top: '20vh',
-    backgroundColor: '#aaa',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     '& p': {
       fontSize: '5rem',
-      fontWeight: 700,
       textAlign: 'center',
       color: '#fff',
     },
@@ -34,7 +33,7 @@ const styles = {
     flexBasis: '35%',
   },
   step: {
-    margin: '0 auto 3rem auto',
+    margin: '0 auto 3rem 10rem',
     padding: '180px 0',
     border: '1px solid #333',
     '& p': {
@@ -47,57 +46,46 @@ const styles = {
       marginBottom: 0,
     },
   },
-  button: {
-    backgroundColor: '#3773ac',
-    color: 'white',
-    borderRadius: '4px',
-    cursor: 'pointer',
-    padding: '6px',
-    textAlign: 'center',
-    display: 'block',
-    maxWidth: 220,
-    margin: '10px auto 30px',
-    fontSize: 19,
-    lineHeight: '28px',
-    textDecoration: 'none',
-  },
-  subhed: {
-    maxWidth: 600,
-    margin: '10px auto 15px',
-    fontSize: 22,
-    lineHeight: '28px',
-    '& a': {
-      color: 'black',
-    },
-    textAlign: 'center',
-  },
 };
 
 class Demo extends PureComponent {
   state = {
     data: 0,
-    steps: [10, 20, 30],
-    progress: 0,
   };
 
   onStepEnter = e => {
-    const { data, entry, direction} = e;
-    this.setState({ data });
+    this.setState({ data: e.data });
   };
 
-  onStepExit = ({ direction, data }) => {
-    if (direction === 'up' && data === this.state.steps[0]) {
-      this.setState({ data: 0 });
+  renderCustomContent = (content) => {
+    if (React.isValidElement(content)) {
+      return content;
+    } else if (typeof content === 'string') {
+      return <img src={content} alt="" />;
+    } else {
+      return <p>{content}</p>;
     }
-  };
-
-  onStepProgress = ({ progress }) => {
-    this.setState({ progress });
-  };
+  }
 
   render() {
-    const { data, steps, progress } = this.state;
     const { classes } = this.props;
+    const { data } = this.state;
+
+    const textContent = [
+      'Today, 32% of Texan households do not subscribe to broadband internet...',
+      'Yesterday, 32% of Texan households did not subscribe to broadband internet...',
+      'In three years...',
+      'Step 4 Content',
+      'Step 5 Content',
+    ];
+
+    const customContent = [
+      <img src={one} alt="Description of image one" />,
+      <NeedsOne />,
+      <img src={two} alt="Description of image two" />,
+      <img src={three} alt="Description of image three" />,
+      <img src={four} alt="Description of image three" />,
+    ];
 
     return (
       <div>
@@ -106,32 +94,19 @@ class Demo extends PureComponent {
           <div className={classes.scroller}>
             <Scrollama
               onStepEnter={this.onStepEnter}
-              onStepExit={this.onStepExit}
-              progress
-              onStepProgress={this.onStepProgress}
-              offset="400px"
+              offset="0.5"
             >
-              {steps.map(value => {
-                const isVisible = value === data;
-                const background = isVisible
-                  ? `rgba(44,127,184, ${progress})`
-                  : 'white';
-                const visibility = isVisible ? 'visible' : 'hidden';
-                return (
-                  <Step data={value} key={value}>
-                    <div className={classes.step} style={{ background }}>
-                      <p>step value: {value}</p>
-                      <p style={{ visibility }}>
-                        {Math.round(progress * 1000) / 10 + '%'}
-                      </p>
-                    </div>
-                  </Step>
-                );
-              })}
+              {textContent.map((value, index) => (
+                <Step data={index} key={index}>
+                  <div className={classes.step}>
+                    <p>{value}</p>
+                  </div>
+                </Step>
+              ))}
             </Scrollama>
           </div>
           <div className={classes.graphic}>
-            <p>{data}</p>
+            {this.renderCustomContent(customContent[data])}
           </div>
         </div>
       </div>
