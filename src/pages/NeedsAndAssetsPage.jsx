@@ -9,6 +9,7 @@ import ScrollableTitle from '../components/ScrollableTitle';
 import NeedsTwo from './content/NeedsTwo';
 import TestScroll from './TestScroll';
 import Scrollytelling from './Scrollytelling';
+import ScrollytellingComponent from './ScrollytellingComponent';
 
 
 const VisionPage = () => {
@@ -18,7 +19,7 @@ const VisionPage = () => {
   altText={NeedsCards.Header.altText}
   title={NeedsCards.Header.title}
   />
-  const sections = [header, <NeedsOne />, <NeedsTwo />, <TestScroll />];
+  const sections = [header, <NeedsOne />, <NeedsTwo />, <ScrollytellingComponent />];
   const [activeSection, setActiveSection] = useState(0);
 
   const handleSectionClick = (index) => {

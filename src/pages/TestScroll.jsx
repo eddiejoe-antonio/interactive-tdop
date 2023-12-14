@@ -79,7 +79,7 @@ const TestScroll = () => {
   }, []);
 
   return (
-    <div className='overall h-screen'>
+    <div className='overall h-screen w-screen'>
       <div className={`block md:flex h-[100vh] ${scrollytellingCompleted ? 'scrollable' : 'sticky'}`}>
         <div className={`flex-1 overflow-y-scroll h-screen ${scrollytellingCompleted ? 'scrollable' : 'sticky'}`}>
           <Scrollama onStepEnter={onStepEnter} offset={0.5}>
