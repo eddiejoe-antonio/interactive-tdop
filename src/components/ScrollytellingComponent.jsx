@@ -1,11 +1,6 @@
 import React, { PureComponent } from 'react';
 import injectSheet from 'react-jss';
 import { Scrollama, Step } from 'react-scrollama';
-import one from '../assets/1.jpg'
-import two from '../assets/2.avif'
-import three from '../assets/3.avif'
-import four from '../assets/3.jpg'
-import NeedsOne from '../pages/content/NeedsOne';
 import ScrollContainer from './ScrollContainer';
 import TestBar from '../assets/testbar.png'
 import BlankMap from '../assets/txMapBlank.png'
@@ -16,39 +11,6 @@ import dumbellB from '../assets/dumbellB.png'
 import swarmA from '../assets/swarmA.png'
 import swarmB from '../assets/swarmB.png'
 
-
-const styles = {
-  graphic: {
-    flexBasis: '80%',
-    position: 'sticky',
-    width: '100%',
-    height: '100vh',
-    top: '2vh',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    '& img': {
-      maxHeight: '80%',
-      maxWidth: '80%',
-      objectFit: 'contain',
-    }
-  },
-  scroller: {
-    flexBasis: '20%',
-  },
-  step: {
-    margin: '0 auto 2rem 15rem',
-    padding: '200px 0',
-    '& p': {
-      fontSize: '1rem',
-      margin: 0,
-    },
-    '&:last-child': {
-      marginBottom: 0,
-    },
-  },
-
-};
 
 class Demo extends PureComponent {
   state = {
@@ -63,7 +25,7 @@ class Demo extends PureComponent {
     if (React.isValidElement(content)) {
       return content;
     } else if (typeof content === 'string') {
-      return <img src={content} alt="" />;
+      return <img src={content} alt="" className="max-h-[80%] max-w-[80%] object-contain" />;
     } else {
       return <p>{content}</p>;
     }
@@ -95,7 +57,7 @@ class Demo extends PureComponent {
     ];
 
     return (
-      <div className='px-2 py-10 w-screen'>
+      <div className='px-2 py-[10vh] w-screen'>
         {/* Beginning of Scrolling Code */}
         <div className='block md:flex md:justify-between'>
         <div className='md:flex-basis-30% mb-10 px-[5vw] md:mb-0'>
@@ -105,22 +67,28 @@ class Demo extends PureComponent {
             >
               {textContent.map((value, index) => (
                 <Step data={index} key={index}>
-                  <div className={classes.step}>
+                  <div className='p-[10rem]'>
                     {value}
                   </div>
                 </Step>
               ))}
             </Scrollama>
           </div>
-                    {/* Graphic section */}
-
-          <div className={classes.graphic}>
+          {/* Graphic section */}
+          <div className='w-[100%] md:flex-basis-80% h-screen sticky top-[2vh] flex items-center justify-center'>
             {this.renderCustomContent(customContent[data])}
           </div>
+          {/* graphic: {
+    '& img': {
+      maxHeight: '80%',
+      maxWidth: '80%',
+      objectFit: 'contain',
+    }
+  }, */}
         </div>
       </div>
     );
   }
 }
 
-export default injectSheet(styles)(Demo);
+export default Demo;

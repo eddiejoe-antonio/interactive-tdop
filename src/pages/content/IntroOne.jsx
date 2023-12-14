@@ -3,7 +3,7 @@ import TexasStripes from '../../components/TexasStripes';
 
 const IntroOne = () => {
   return (
-        <div className='w-screen h-screen bg-[#111] text-white px-4 font-sans'>
+        <div className='w-screen h-full md:h-screen bg-[#111] text-white px-4 font-sans'>
             <div className=' grid md:grid-cols-12'>
                 <div className='flex flex-col md:col-start-4 md:col-span-6 justify-center items-center pt-[10vh]'>
                     {/* <TexasStripes /> */}
