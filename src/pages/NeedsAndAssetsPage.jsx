@@ -8,6 +8,7 @@ import NeedsCards from '../components/NeedsCards';
 import ScrollableTitle from '../components/ScrollableTitle';
 import NeedsTwo from './content/NeedsTwo';
 import ScrollytellingComponent from '../components/ScrollytellingComponent';
+import GoalsSection from '../components/GoalsSection';
 
 
 const VisionPage = () => {
@@ -17,7 +18,14 @@ const VisionPage = () => {
   altText={NeedsCards.Header.altText}
   title={NeedsCards.Header.title}
   />
-  const sections = [header, <NeedsOne />, <NeedsTwo />, <ScrollytellingComponent />];
+  const header2 = <GoalsSection   
+  img={NeedsCards.Goal1.img}
+  altText={NeedsCards.Goal1.altText}
+  title={NeedsCards.Goal1.title} 
+  description={NeedsCards.Goal1.description}
+  />
+
+  const sections = [header, <NeedsOne />, <NeedsTwo />, header2, <ScrollytellingComponent />];
   const [activeSection, setActiveSection] = useState(0);
 
   const handleSectionClick = (index) => {

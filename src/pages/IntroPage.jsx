@@ -26,13 +26,7 @@ const IntroPage = () => {
   return (
     <>
       <div className="app flex">
-        <DotsNav
-          sections={sections}
-          activeSection={activeSection}
-          onSectionClick={handleSectionClick}
-          activeDotColor="#666"
-          regularDotColor="#ececec"
-        />
+      <DotsNav sections={sections} activeSection={activeSection} onSectionClick={handleSectionClick} />
         <div className="content flex-1">
           {sections.map((section, index) => (
             <ScrollElement key={index} name={`section${index + 1}`}>

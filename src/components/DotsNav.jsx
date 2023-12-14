@@ -1,30 +1,20 @@
-// DotsNav.js
-import React, { useEffect, useState } from 'react';
-import { Link as ScrollLink, scroller } from 'react-scroll';
+import React from 'react';
+import { Link as ScrollLink } from 'react-scroll';
 
-const DotsNav = ({ totalSections, activeSection, onDotClick }) => {
-  const [dots, setDots] = useState([]);
-
-  useEffect(() => {
-    setDots(Array.from({ length: totalSections }, (_, index) => index + 1));
-  }, [totalSections]);
-
+const DotsNav = ({ sections, activeSection, onSectionClick }) => {
   return (
-    <div className="dots-nav fixed right-10 top-1/2 transform -translate-y-1/2 flex flex-col items-center">
-      {dots.map((dot) => (
+    <div className="fixed right-4 top-1/2 transform -translate-y-1/2 z-50">
+      {sections.map((_, index) => (
         <ScrollLink
-          key={dot}
-          to={`section${dot}`}
-          spy={true}
+          key={index}
+          to={`section${index + 1}`}
           smooth={true}
-          offset={0}
           duration={500}
-          className={`dot mb-4 w-4 h-4 rounded-full cursor-pointer ${
-            activeSection === dot ? 'bg-blue-500' : 'bg-gray-300'
+          className={`block w-3 h-3 mb-3 rounded-full cursor-pointer ${
+            activeSection === index ? 'bg-blue-500' : 'bg-gray-400'
           }`}
-          onClick={() => onDotClick(dot)}
+          onClick={() => onSectionClick(index)}
         />
-
       ))}
     </div>
   );
