@@ -11,6 +11,8 @@ import TestBar from '../assets/testbar.png'
 import BlankMap from '../assets/txMapBlank.png'
 import RegionsMap from '../assets/txMapRegions.png'
 import ComparativeMap from '../assets/txMapComparative.png'
+import dumbellA from '../assets/dumbellA.png'
+import dumbellB from '../assets/dumbellB.png'
 
 
 const styles = {
@@ -19,7 +21,7 @@ const styles = {
     position: 'sticky',
     width: '100%',
     height: '100vh',
-    top: '0vh',
+    top: '2vh',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -74,24 +76,22 @@ class Demo extends PureComponent {
       Certain regions of Texas have higher rates of availability, while others are lower. ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability' imgHolder={TestBar}/> ,
       <ScrollContainer text='Click the map at right to learn more about the issues in your region!' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability' imgHolder={TestBar}/>,
       <ScrollContainer text='Select any two geographies to compare the issues below.  ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
-      <ScrollContainer text='Today, 32% of Texan households do not subscribe to broadband internet. 
-      Certain regions of Texas have higher rates of availability, while others are lower. ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
-      <ScrollContainer text='Today, 32% of Texan households do not subscribe to broadband internet. 
-      Certain regions of Texas have higher rates of availability, while others are lower. ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
+      <ScrollContainer text='In particular, lack of available or adequate internet service is more prevalent among rural residents, veterans, low-income households, and aging individuals.  ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
+      <ScrollContainer text='In particular, lack of available or adequate internet service is more prevalent among rural residents, veterans, low-income households, and aging individuals. ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
     ];
 
     const customContent = [
       <img src={BlankMap} alt="Description of image one" />,
       <img src={RegionsMap} alt="Description of image three" />,
       <img src={ComparativeMap} alt="Description of image two" />,
-      <img src={three} alt="Description of image three" />,
-      <img src={four} alt="Description of image three" />,
+      <img src={dumbellA} alt="Description of image three" />,
+      <img src={dumbellB} alt="Description of image three" />,
     ];
 
     return (
       <div>
         {/* Beginning of Scrolling Code */}
-        <div className='px-[2vw] py-[10vh] flex justify-between w-screen'>
+        <div className='px-[2vw] py-[10vh] block md:flex justify-between w-screen'>
           <div className={classes.scroller}>
             <Scrollama
               onStepEnter={this.onStepEnter}
