@@ -13,6 +13,8 @@ import RegionsMap from '../assets/txMapRegions.png'
 import ComparativeMap from '../assets/txMapComparative.png'
 import dumbellA from '../assets/dumbellA.png'
 import dumbellB from '../assets/dumbellB.png'
+import swarmA from '../assets/swarmA.png'
+import swarmB from '../assets/swarmB.png'
 
 
 const styles = {
@@ -78,6 +80,8 @@ class Demo extends PureComponent {
       <ScrollContainer text='Select any two geographies to compare the issues below.  ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
       <ScrollContainer text='In particular, lack of available or adequate internet service is more prevalent among rural residents, veterans, low-income households, and aging individuals.  ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
       <ScrollContainer text='In particular, lack of available or adequate internet service is more prevalent among rural residents, veterans, low-income households, and aging individuals. ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
+      <ScrollContainer text='In particular, lack of available or adequate internet service is more prevalent among rural residents, veterans, low-income households, and aging individuals. ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
+      <ScrollContainer text='In particular, lack of available or adequate internet service is more prevalent among rural residents, veterans, low-income households, and aging individuals. ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
     ];
 
     const customContent = [
@@ -86,12 +90,14 @@ class Demo extends PureComponent {
       <img src={ComparativeMap} alt="Description of image two" />,
       <img src={dumbellA} alt="Description of image three" />,
       <img src={dumbellB} alt="Description of image three" />,
+      <img src={swarmA} alt="Description of image three" />,
+      <img src={swarmB} alt="Description of image three" />,
     ];
 
     return (
       <div>
         {/* Beginning of Scrolling Code */}
-        <div className='px-[2vw] py-[10vh] block md:flex justify-between w-screen'>
+        <div className='px-[2vw] py-[10vh] grid md:flex justify-between w-screen'>
           <div className={classes.scroller}>
             <Scrollama
               onStepEnter={this.onStepEnter}
