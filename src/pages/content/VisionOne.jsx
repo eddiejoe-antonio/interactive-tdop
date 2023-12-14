@@ -7,7 +7,7 @@ const VisionOne = () => {
     return ( 
         <>
         <div className='w-full h-full bg-[#FFFDF6] px-4 font-sans'>
-            <div className='max-w-[1240px] grid md:grid-cols-12'>
+            <div className='grid md:grid-cols-12'>
                 <div className='flex flex-col md:col-start-4 md:col-span-6 justify-center items-center pt-[10vh]'>
                     {/* <h1 className='md:text-6xl sm:text-2xl text-2xl py-6 font-light uppercase tracking-widest'>Vision and Purpose</h1> */}
                     <TexasStripes />

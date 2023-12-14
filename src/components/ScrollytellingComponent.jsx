@@ -19,7 +19,7 @@ import swarmB from '../assets/swarmB.png'
 
 const styles = {
   graphic: {
-    flexBasis: '50%',
+    flexBasis: '80%',
     position: 'sticky',
     width: '100%',
     height: '100vh',
@@ -34,7 +34,7 @@ const styles = {
     }
   },
   scroller: {
-    flexBasis: '40%',
+    flexBasis: '20%',
   },
   step: {
     margin: '0 auto 2rem 15rem',
@@ -80,8 +80,8 @@ class Demo extends PureComponent {
       <ScrollContainer text='Select any two geographies to compare the issues below.  ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
       <ScrollContainer text='In particular, lack of available or adequate internet service is more prevalent among rural residents, veterans, low-income households, and aging individuals.  ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
       <ScrollContainer text='In particular, lack of available or adequate internet service is more prevalent among rural residents, veterans, low-income households, and aging individuals. ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
-      <ScrollContainer text='In particular, lack of available or adequate internet service is more prevalent among rural residents, veterans, low-income households, and aging individuals. ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
-      <ScrollContainer text='In particular, lack of available or adequate internet service is more prevalent among rural residents, veterans, low-income households, and aging individuals. ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
+      <ScrollContainer text='The State of Texas is targeting that 80% of Texans subscribe to reliable broadband in their homes by 2030.  ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
+      <ScrollContainer text='The State of Texas is targeting that 80% of Texans subscribe to reliable broadband in their homes by 2030. ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
     ];
 
     const customContent = [
@@ -95,10 +95,10 @@ class Demo extends PureComponent {
     ];
 
     return (
-      <div>
+      <div className='px-2 py-10 w-screen'>
         {/* Beginning of Scrolling Code */}
-        <div className='px-[2vw] py-[10vh] grid md:flex justify-between w-screen'>
-          <div className={classes.scroller}>
+        <div className='block md:flex md:justify-between'>
+        <div className='md:flex-basis-30% mb-10 px-[5vw] md:mb-0'>
             <Scrollama
               onStepEnter={this.onStepEnter}
               offset="0.5"
@@ -112,6 +112,8 @@ class Demo extends PureComponent {
               ))}
             </Scrollama>
           </div>
+                    {/* Graphic section */}
+
           <div className={classes.graphic}>
             {this.renderCustomContent(customContent[data])}
           </div>
