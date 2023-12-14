@@ -29,6 +29,7 @@ const styles = {
       maxHeight: '80%',
       maxWidth: '80%',
       objectFit: 'contain',
+      layout: 'fill',
     }
   },
   scroller: {
