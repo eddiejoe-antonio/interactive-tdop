@@ -10,6 +10,7 @@ import ScrollContainer from './ScrollContainer';
 import TestBar from '../assets/testbar.png'
 import BlankMap from '../assets/txMapBlank.png'
 import RegionsMap from '../assets/txMapRegions.png'
+import ComparativeMap from '../assets/txMapComparative.png'
 
 
 const styles = {
@@ -33,7 +34,7 @@ const styles = {
   },
   step: {
     margin: '0 auto 2rem 15rem',
-    padding: '180px 0',
+    padding: '200px 0',
     '& p': {
       fontSize: '1rem',
       margin: 0,
@@ -71,9 +72,8 @@ class Demo extends PureComponent {
     const textContent = [
       <ScrollContainer text='Today, 32% of Texan households do not subscribe to broadband internet. 
       Certain regions of Texas have higher rates of availability, while others are lower. ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability' imgHolder={TestBar}/> ,
-      <ScrollContainer text='Click the map at right to learn more about the issues in your region!' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
-      <ScrollContainer text='Today, 32% of Texan households do not subscribe to broadband internet. 
-      Certain regions of Texas have higher rates of availability, while others are lower. ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
+      <ScrollContainer text='Click the map at right to learn more about the issues in your region!' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability' imgHolder={TestBar}/>,
+      <ScrollContainer text='Select any two geographies to compare the issues below.  ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
       <ScrollContainer text='Today, 32% of Texan households do not subscribe to broadband internet. 
       Certain regions of Texas have higher rates of availability, while others are lower. ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
       <ScrollContainer text='Today, 32% of Texan households do not subscribe to broadband internet. 
@@ -83,7 +83,7 @@ class Demo extends PureComponent {
     const customContent = [
       <img src={BlankMap} alt="Description of image one" />,
       <img src={RegionsMap} alt="Description of image three" />,
-      <img src={two} alt="Description of image two" />,
+      <img src={ComparativeMap} alt="Description of image two" />,
       <img src={three} alt="Description of image three" />,
       <img src={four} alt="Description of image three" />,
     ];
@@ -91,7 +91,7 @@ class Demo extends PureComponent {
     return (
       <div>
         {/* Beginning of Scrolling Code */}
-        <div className='px-[2vw] py-[10vh] flex justify-between'>
+        <div className='px-[2vw] py-[10vh] flex justify-between w-screen'>
           <div className={classes.scroller}>
             <Scrollama
               onStepEnter={this.onStepEnter}
