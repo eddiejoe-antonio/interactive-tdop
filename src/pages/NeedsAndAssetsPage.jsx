@@ -7,9 +7,7 @@ import NeedsOne from './content/NeedsOne';
 import NeedsCards from '../components/NeedsCards';
 import ScrollableTitle from '../components/ScrollableTitle';
 import NeedsTwo from './content/NeedsTwo';
-import TestScroll from './TestScroll';
-import Scrollytelling from './Scrollytelling';
-import ScrollytellingComponent from './ScrollytellingComponent';
+import ScrollytellingComponent from '../components/ScrollytellingComponent';
 
 
 const VisionPage = () => {
