@@ -10,6 +10,7 @@ import ScrollableTitle from '../components/ScrollableTitle';
 import VisionCards from '../components/VisionCards';
 
 const VisionPage = () => {
+
   const header = 
   <ScrollableTitle         
   img={VisionCards.Header.img}
@@ -30,8 +31,8 @@ const VisionPage = () => {
       <div className="app flex">
         <div className="content flex-1">
           {sections.map((section, index) => (
-            <ScrollElement key={index} name={`section${index + 1}`}>
-              {section}
+      <ScrollElement key={index} name={`vision-section${index + 1}`}>
+      {section}
             </ScrollElement>
           ))}
         </div>

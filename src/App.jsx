@@ -35,23 +35,22 @@ const FadeInSection = ({ children }) => {
   );
 };
 
+  
 const App = () => {
+  const [currentPage, setCurrentPage] = useState('');
   const [currentSection, setCurrentSection] = useState(0);
   const [showNav, setShowNav] = useState(false);
+  
 
-  const sectionData = [
-    { name: 'hero', component: <HeroLayout /> },
-    { name: 'intro', component: <IntroPage /> },
-    { name: 'vision', component: <VisionPage /> },
-    { name: 'needsandassets', component: <NeedsAndAssetsPage /> },
-    { name: 'stakeholderengagement', component: <StakeholderEngagementPage /> },
-    { name: 'strategies', component: <StrategiesPage /> },
-    { name: 'conclusion', component: <ConclusionPage /> },
-  ];
+  const handlePageChange = (pageName, sections) => {
+    if (currentPage.name !== pageName || currentPage.sections !== sections) {
+      setCurrentPage({ name: pageName, sections: sections });
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
+      const scrollPosition = window.scrollY + window.innerHeight / 2; // Adjust as needed
       const newSection = Math.floor(scrollPosition / window.innerHeight);
       setCurrentSection(newSection);
       setShowNav(newSection >= 1);
@@ -64,28 +63,51 @@ const App = () => {
     };
   }, []);
 
-  const scrollToSection = (sectionName) => {
-    scroller.scrollTo(sectionName, {
-      duration: 800,
-      delay: 0,
-      smooth: 'easeInOutQuart',
-    });
-  };
 
   return (
     <MantineProvider>
-      {showNav && <Sidebar />}
-      {showNav && <Navbar />}
-      {sectionData.map((section, index) => (
-        <Element key={index} name={section.name}>
-          <FadeInSection>{section.component}</FadeInSection>
-        </Element>
-      ))}
-      {/* <DotsNav
-        totalSections={sectionData.length}
-        activeSection={currentSection}
-        onDotClick={(index) => scrollToSection(`section${index + 1}`)}
-      /> */}
+    {showNav && <Sidebar currentPage={currentPage} />}
+    {showNav && <Navbar />}
+    <Element name="hero">
+        <FadeInSection>
+          <HeroLayout setCurrentPage={setCurrentPage} />
+        </FadeInSection>
+      </Element>
+      <Element name="intro">
+        <FadeInSection>
+        <IntroPage handlePageChange={handlePageChange} />
+        </FadeInSection>
+      </Element>
+      <Element name="vision">
+        <FadeInSection>
+        <VisionPage handlePageChange={handlePageChange} />
+        </FadeInSection>
+      </Element>
+      <Element name="needsandassets">
+        <FadeInSection>
+        <NeedsAndAssetsPage handlePageChange={handlePageChange} />
+        </FadeInSection>
+      </Element>
+      <Element name="stakeholderengagement">
+        <FadeInSection>
+        <StakeholderEngagementPage handlePageChange={handlePageChange} />
+        </FadeInSection>
+      </Element>
+      <Element name="strategies">
+        <FadeInSection>
+        <StrategiesPage handlePageChange={handlePageChange} />
+        </FadeInSection>
+      </Element>
+      <Element name="conclusion">
+        <FadeInSection>
+        <ConclusionPage handlePageChange={handlePageChange} />
+        </FadeInSection>
+      </Element>
+    {/* {sectionData.map((section, index) => (
+      <Element key={index} name={section.name}>
+        <FadeInSection>{section.component}</FadeInSection>
+      </Element>
+    ))} */}
     </MantineProvider>
   );
 };

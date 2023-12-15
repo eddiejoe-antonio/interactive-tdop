@@ -3,7 +3,7 @@ import { Link as ScrollLink } from 'react-scroll';
 
 const DotsNav = ({ sections, activeSection, onSectionClick }) => {
   return (
-    <div className="fixed right-4 top-1/2 transform -translate-y-1/2 z-50">
+    <div className="hidden md:visible md:fixed right-4 top-1/2 transform -translate-y-1/2 z-50">
       {sections.map((_, index) => (
         <ScrollLink
           key={index}

@@ -8,7 +8,8 @@ import ConclusionCards from '../components/ConclusionCards';
 import ScrollableTitle from '../components/ScrollableTitle';
 
 
-const ConclusionPage = () => {
+const ConclusionPage = ({handlePageChange}) => {
+  const [localSections, setLocalSections] = useState(['section1', 'section2', 'section3']);
   const header =
   <ScrollableTitle 
   img={ConclusionCards.Header.img}
@@ -22,6 +23,11 @@ const ConclusionPage = () => {
     setActiveSection(index);
     scroll.scrollTo(`section${index + 1}`, { smooth: true, duration: 500 });
   };
+
+  useEffect(() => {
+    // Call handlePageChange when VisionPage mounts
+    handlePageChange('intro', localSections);
+  }, []);
 
   return (
     <>

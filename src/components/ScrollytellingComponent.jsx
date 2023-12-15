@@ -59,7 +59,7 @@ class Demo extends PureComponent {
     return (
       <div className='px-2 py-[10vh] w-screen'>
         {/* Beginning of Scrolling Code */}
-        <div className='block md:flex md:justify-between'>
+        <div className='hidden md:flex md:justify-between'>
         <div className='md:flex-basis-30% mb-10 px-[5vw] md:mb-0'>
             <Scrollama
               onStepEnter={this.onStepEnter}

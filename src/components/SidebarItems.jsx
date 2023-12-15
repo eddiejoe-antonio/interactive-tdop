@@ -2,7 +2,7 @@ const SidebarItems = [
     {
         key: 0,
         name: "Intro",
-        route: 'intro'
+        route: 'intro',
     },
     {
         key: 1,

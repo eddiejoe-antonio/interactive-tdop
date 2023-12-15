@@ -10,7 +10,13 @@ import StrategiesCards from '../components/StrategiesCards';
 import ScrollableTitle from '../components/ScrollableTitle';
 
 
-const StrategiesPage = () => {
+const StrategiesPage = ({ handlePageChange }) => {
+  const [localSections, setLocalSections] = useState(['section1', 'section2']);
+
+  useEffect(() => {
+    // Call handlePageChange when VisionPage mounts
+    handlePageChange('strategies', localSections);
+  }, []);
   const header =
   <ScrollableTitle 
   img={StrategiesCards.Header.img}

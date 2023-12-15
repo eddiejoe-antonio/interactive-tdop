@@ -1,5 +1,5 @@
 // IntroPage.js
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DotsNav from '../components/DotsNav';
 import { Element as ScrollElement, animateScroll as scroll } from 'react-scroll';
 import IntroOne from './content/IntroOne';
@@ -8,7 +8,7 @@ import ScrollableTitle from '../components/ScrollableTitle';
 import IntroCards from '../components/IntroCards';
 
 const IntroPage = () => {
-  const header = (
+    const header = (
     <ScrollableTitle
       img={IntroCards.Header.img}
       altText={IntroCards.Header.altText}
@@ -23,14 +23,14 @@ const IntroPage = () => {
     scroll.scrollTo(`section${index + 1}`, { smooth: true, duration: 500 });
   };
 
+
   return (
     <>
       <div className="app flex">
-      <DotsNav sections={sections} activeSection={activeSection} onSectionClick={handleSectionClick} />
         <div className="content flex-1">
           {sections.map((section, index) => (
-            <ScrollElement key={index} name={`section${index + 1}`}>
-              {section}
+      <ScrollElement key={index} name={`intro-section${index + 1}`}>
+      {section}
             </ScrollElement>
           ))}
         </div>
