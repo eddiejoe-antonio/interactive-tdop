@@ -28,7 +28,7 @@ function Sidebar({ currentPage }) {
       </div>
 
       {/* Secondary Navigation - Right Side */}
-      {currentPage && currentPage.sections && (
+      {/* {currentPage && currentPage.sections && (
         <div className="z-50 hidden md:flex md:fixed right-10 top-1/2 transform -translate-y-1/2 w-40 flex-col uppercase">
           {currentPage.sections.map((section, index) => (
             <Link
@@ -43,7 +43,7 @@ function Sidebar({ currentPage }) {
             </Link>
           ))}
         </div>
-      )}
+      )} */}
     </>
   );
 }

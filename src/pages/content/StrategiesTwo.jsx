@@ -2,6 +2,7 @@ import React from 'react'
 import { useDisclosure } from '@mantine/hooks';
 import CardTerms from '../../components/CardTerms';
 import IntroCards from '../../components/IntroCards';
+import StrategiesCards from '../../components/StrategiesCards';
 
 const StrategiesTwo = () => {
   const [opened, { toggle }] = useDisclosure(false);
@@ -16,26 +17,26 @@ const StrategiesTwo = () => {
             </div>
         </div>
         <div className='block md:grid md:grid-cols-12 gap-2'>
-                <div className='flex flex-col col-start-4 col-span-2 items-center mb-[5vh]'>
-                <CardTerms img={IntroCards.Broadband.img} altText={IntroCards.Broadband.altText} title={IntroCards.Broadband.title} description={IntroCards.Broadband.description} />
+                <div className='flex flex-col col-start-4 col-span-3 items-center mb-[5vh]'>
+                <CardTerms img={StrategiesCards.Statewide.img} altText={StrategiesCards.Statewide.altText} title={StrategiesCards.Statewide.title} description={StrategiesCards.Statewide.description} />
                 </div>
-                <div className='flex flex-col col-start-6 col-span-2 items-center'>
-                <CardTerms img={IntroCards.Affordability.img} altText={IntroCards.Affordability.altText} title={IntroCards.Affordability.title} description={IntroCards.Affordability.description} />
-                </div>
-                <div className='flex flex-col col-start-8 col-span-2 items-center'>
-                <CardTerms img={IntroCards.Digital_Literacy.img} altText={IntroCards.Digital_Literacy.altText} title={IntroCards.Digital_Literacy.title} description={IntroCards.Digital_Literacy.description} />
+                <div className='flex flex-col col-start-7 col-span-3 items-center'>
+                <CardTerms img={StrategiesCards.Promotion.img} altText={StrategiesCards.Promotion.altText} title={StrategiesCards.Promotion.title} description={StrategiesCards.Promotion.description} />
                 </div>
             </div>
-            <div className='block md:grid md:grid-cols-12 gap-2 mb-[40vh]'>
-            <div className='flex flex-col col-start-4 col-span-2 items-center pt-0 md:pb-0'>
-                <CardTerms img={IntroCards.Devices.img} altText={IntroCards.Devices.altText} title={IntroCards.Devices.title} description={IntroCards.Devices.description} />
+            <div className='block md:grid md:grid-cols-12 gap-2'>
+                <div className='flex flex-col col-start-4 col-span-3 items-center'>
+                  <CardTerms img={StrategiesCards.Local.img} altText={StrategiesCards.Local.altText} title={StrategiesCards.Local.title} description={StrategiesCards.Local.description} />
                 </div>
-                <div className='flex flex-col col-start-6 col-span-2 items-center pt-0 md:pb-0'>
-                <CardTerms img={IntroCards.Cybersecurity.img} altText={IntroCards.Cybersecurity.altText} title={IntroCards.Cybersecurity.title} description={IntroCards.Cybersecurity.description} />
+                <div className='flex flex-col col-start-7 col-span-3 items-center'>
+                  <CardTerms img={StrategiesCards.Living_Plan.img} altText={StrategiesCards.Living_Plan.altText} title={StrategiesCards.Living_Plan.title} description={StrategiesCards.Living_Plan.description} />
                 </div>
-                <div className='flex flex-col col-start-8 col-span-2 items-center pt-0 md:pb-0'>
-                <CardTerms img={IntroCards.Adoption.img} altText={IntroCards.Adoption.altText} title={IntroCards.Adoption.title} description={IntroCards.Adoption.description} />
-                </div>
+            </div>
+            <div className='grid md:grid-cols-12'>
+              <div className='flex flex-col col-start-4 col-span-6 justify-center items-center md:pt-[10vh] md:pb-[40vh]'>
+              <p>The BDO’s four strategies will be implemented in collaboration with State agencies, local
+              partners, community members, and others from the Texas digital opportunity ecosystem. </p>
+              </div>
             </div>
     </div>
   )

@@ -2,6 +2,7 @@ import React from 'react'
 import { useDisclosure } from '@mantine/hooks';
 import CardTerms from '../../components/CardTerms';
 import IntroCards from '../../components/IntroCards';
+import StakeholderCards from '../../components/StakeholderCards';
 
 const StakeholderTwo = () => {
   const [opened, { toggle }] = useDisclosure(false);
@@ -16,27 +17,21 @@ const StakeholderTwo = () => {
             </div>
         </div>
         <div className='block md:grid md:grid-cols-12 gap-2'>
-                <div className='flex flex-col col-start-4 col-span-2 items-center mb-[5vh]'>
-                <CardTerms img={IntroCards.Broadband.img} altText={IntroCards.Broadband.altText} title={IntroCards.Broadband.title} description={IntroCards.Broadband.description} />
+                <div className='flex flex-col col-start-4 col-span-3 items-center mb-[5vh]'>
+                <CardTerms img={StakeholderCards.Covered_Populations.img} altText={StakeholderCards.Covered_Populations.altText} title={StakeholderCards.Covered_Populations.title} description={StakeholderCards.Covered_Populations.description} />
                 </div>
-                <div className='flex flex-col col-start-6 col-span-2 items-center'>
-                <CardTerms img={IntroCards.Affordability.img} altText={IntroCards.Affordability.altText} title={IntroCards.Affordability.title} description={IntroCards.Affordability.description} />
+                <div className='flex flex-col col-start-7 col-span-3 items-center'>
+                <CardTerms img={StakeholderCards.Outcome_Areas.img} altText={StakeholderCards.Outcome_Areas.altText} title={StakeholderCards.Outcome_Areas.title} description={StakeholderCards.Outcome_Areas.description} />
                 </div>
-                <div className='flex flex-col col-start-8 col-span-2 items-center'>
-                <CardTerms img={IntroCards.Digital_Literacy.img} altText={IntroCards.Digital_Literacy.altText} title={IntroCards.Digital_Literacy.title} description={IntroCards.Digital_Literacy.description} />
+        </div>
+        <div className='block md:grid md:grid-cols-12 gap-2 mb-[40vh]'>
+                <div className='flex flex-col col-start-4 col-span-3 items-center mb-[5vh]'>
+                <CardTerms img={StakeholderCards.Regions_Texas.img} altText={StakeholderCards.Regions_Texas.altText} title={StakeholderCards.Regions_Texas.title} description={StakeholderCards.Regions_Texas.description} />
                 </div>
-            </div>
-            <div className='block md:grid md:grid-cols-12 gap-2 mb-[40vh]'>
-            <div className='flex flex-col col-start-4 col-span-2 items-center pt-0 md:pb-0'>
-                <CardTerms img={IntroCards.Devices.img} altText={IntroCards.Devices.altText} title={IntroCards.Devices.title} description={IntroCards.Devices.description} />
+                <div className='flex flex-col col-start-7 col-span-3 items-center'>
+                <CardTerms img={StakeholderCards.Tribal_Engagements.img} altText={StakeholderCards.Tribal_Engagements.altText} title={StakeholderCards.Tribal_Engagements.title} description={StakeholderCards.Tribal_Engagements.description} />
                 </div>
-                <div className='flex flex-col col-start-6 col-span-2 items-center pt-0 md:pb-0'>
-                <CardTerms img={IntroCards.Cybersecurity.img} altText={IntroCards.Cybersecurity.altText} title={IntroCards.Cybersecurity.title} description={IntroCards.Cybersecurity.description} />
-                </div>
-                <div className='flex flex-col col-start-8 col-span-2 items-center pt-0 md:pb-0'>
-                <CardTerms img={IntroCards.Adoption.img} altText={IntroCards.Adoption.altText} title={IntroCards.Adoption.title} description={IntroCards.Adoption.description} />
-                </div>
-            </div>
+        </div>
     </div>
   )
 }

@@ -5,41 +5,29 @@ const StakeholderCards = {
         title: 'Stakeholder Engagement',
         description: '',
     },
-    Broadband :{
-        img: 'Broadband.webp',
-        altText: 'Broadband',
-        title: 'Broadband',
-        description: 'Reliable, available internet with download speeds of at least 100 mbps and upload speeds of 20 mbps is considered broadband service.',
+    Covered_Populations :{
+        img: 'Covered Populations.jpg',
+        altText: 'Covered Populations',
+        title: 'Covered Populations',
+        description: 'Covered populations include Texans who historically have, according to federal statistics, faced higher barriers to digital opportunity. This includes immigrants, low-income households, veterans, and other groups. These groups are defined by the 2023 federal Digital Equity Act.',
     },
-    Affordability :{
-        img: 'Affordability.jpg',
-        altText: 'Affordability',
-        title: 'Affordability',
-        description: 'Broadband service is affordable if the cost to maintain always-on, high-speed service in the home or a business is not a barrier to subscription. Devices are affordable if the cost for a device that meets a household or business needs is not a barrier.',
+    Outcome_Areas :{
+        img: 'Outcome Area Task Forces.jpg',
+        altText: 'Outcome Area Task Forces',
+        title: 'Outcome Area Task Forces',
+        description: 'The BDO developed task forces of experts and informed citizens to focus on the six state priority outcome areas described above',
     },
-    Adoption :{
-        img: 'Adoption.jpeg',
-        altText: 'Adoption',
-        title: 'Adoption',
-        description: 'Internet adoption refers to the share of households that subscribe to the internet.',
+    Regions_Texas :{
+        img: 'Regions of Texas.jpeg',
+        altText: 'Regions of the State of Texas',
+        title: 'Regions of the State of Texas',
+        description: `As Texans, we are proud of our diversity. The BDO consulted residents and community leaders from all 12 of Texas’ Economic Regions in the process of developing this plan. Click on your region in maps, charts, or through the "Dive Deeper" button to get a better sense of the issues in your community.`,
     },
-    Digital_Literacy :{
-        img: 'DigitalLiteracy.jpg',
-        altText: 'Digital Literacy',
-        title: 'Digital Literacy',
-        description: 'The skills associated with using technology to enable users to find, evaluate, organize, create, and communicate information.',
-    },
-    Devices :{
-        img: 'Devices.jpg',
-        altText: 'Access to Devices and Technical Support',
-        title: 'Access to Devices and Technical Support',
-        description: 'Access to internet-connected devices and resources, tools, or individuals who can assist with technological issues.',
-    },
-    Cybersecurity :{
-        img: 'Cybersecurity.jpg',
-        altText: 'Cybersecurity',
-        title: 'Cybersecurity',
-        description: 'Cybersecurity is defined as security online. This includes privacy and protection from scams, harassement, and other risks that can come with online connectivity.',
+    Tribal_Engagements :{
+        img: 'Tribal Engagements.jpg',
+        altText: 'Tribal Engagements',
+        title: 'Tribal Engagements',
+        description: 'The BDO consulted with leaders of tribal nations within the State of Texas to ensure coordination between the state’s efforts and those of these sovereign nations.',
     },
 }
 
