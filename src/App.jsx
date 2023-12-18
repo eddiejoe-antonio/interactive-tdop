@@ -43,9 +43,7 @@ const App = () => {
   
 
   const handlePageChange = (pageName, sections) => {
-    if (currentPage.name !== pageName || currentPage.sections !== sections) {
-      setCurrentPage({ name: pageName, sections: sections });
-    }
+    setCurrentPage({ name: pageName, sections });
   };
 
   useEffect(() => {

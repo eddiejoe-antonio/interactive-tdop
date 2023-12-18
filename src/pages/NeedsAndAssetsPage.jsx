@@ -10,7 +10,7 @@ import ScrollytellingComponent from '../components/ScrollytellingComponent';
 import GoalsSection from '../components/GoalsSection';
 
 
-const VisionPage = () => {
+const NeedsAndAssetsPage = () => {
   const header =
   <ScrollableTitle 
   img={NeedsCards.Header.img}
@@ -47,4 +47,4 @@ const VisionPage = () => {
   )
 };
 
-export default VisionPage
+export default NeedsAndAssetsPage

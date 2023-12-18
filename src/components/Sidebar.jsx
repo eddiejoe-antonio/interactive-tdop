@@ -3,7 +3,6 @@ import SidebarItems from './SidebarItems';
 import { Link } from "react-scroll";
 
 function Sidebar({ currentPage }) {
-  console.log(currentPage);
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
@@ -27,13 +26,12 @@ function Sidebar({ currentPage }) {
         ))}
       </div>
 
-      {/* Secondary Navigation - Right Side */}
-      {/* {currentPage && currentPage.sections && (
+      {/* {currentPage && currentPage.sections && currentPage.sections.length > 0 && (
         <div className="z-50 hidden md:flex md:fixed right-10 top-1/2 transform -translate-y-1/2 w-40 flex-col uppercase">
           {currentPage.sections.map((section, index) => (
             <Link
-              key={index}
-              to={`${currentPage.name}-${section}`} // e.g., "intro-section1"
+              key={section}
+              to={section} // section identifier
               smooth={true}
               offset={0}
               duration={500}

@@ -10,6 +10,8 @@ import dumbellA from '../assets/dumbellA.png'
 import dumbellB from '../assets/dumbellB.png'
 import swarmA from '../assets/swarmA.png'
 import swarmB from '../assets/swarmB.png'
+import Fetch from './Fetch';
+import MapContainer from './MapContainer';
 
 
 class Demo extends PureComponent {
@@ -47,7 +49,9 @@ class Demo extends PureComponent {
     ];
 
     const customContent = [
-      <img src={BlankMap} alt="Description of image one" />,
+      <MapContainer />,
+      // <Fetch />,
+      // <img src={BlankMap} alt="Description of image one" />,
       <img src={RegionsMap} alt="Description of image three" />,
       <img src={ComparativeMap} alt="Description of image two" />,
       <img src={dumbellA} alt="Description of image three" />,
