@@ -10,7 +10,7 @@ import {
 } from "recharts";
 
 export default function Chart({ data }) {
-    console.log(data);
+    // console.log(data);
     
     return (
         <ResponsiveContainer width="100%" height={400} className='px-[0vw]'>

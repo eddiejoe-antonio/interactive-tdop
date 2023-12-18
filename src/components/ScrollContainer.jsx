@@ -10,8 +10,8 @@ const ScrollContainer = ({title, text, buttonText, imgHolder}) => {
                 <p className="font-sans">{text}</p>
             </div>
             <div className="mt-[10vh] bg-red">
-                {/* <Fetch /> */}
-                <img src={imgHolder} />
+                <Fetch />
+                {/* <img src={imgHolder} /> */}
             </div>
             <div className="mt-[20vh]">
                 <ButtonLight classname='mt-50vh' text={buttonText} />

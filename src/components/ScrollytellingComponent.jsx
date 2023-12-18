@@ -52,7 +52,8 @@ class Demo extends PureComponent {
       <MapContainer />,
       // <Fetch />,
       // <img src={BlankMap} alt="Description of image one" />,
-      <img src={RegionsMap} alt="Description of image three" />,
+      // <img src={RegionsMap} alt="Description of image three" />,
+      <MapContainer />,
       <img src={ComparativeMap} alt="Description of image two" />,
       <img src={dumbellA} alt="Description of image three" />,
       <img src={dumbellB} alt="Description of image three" />,
@@ -82,13 +83,6 @@ class Demo extends PureComponent {
           <div className='w-[100%] md:flex-basis-80% h-screen sticky top-[2vh] flex items-center justify-center'>
             {this.renderCustomContent(customContent[data])}
           </div>
-          {/* graphic: {
-    '& img': {
-      maxHeight: '80%',
-      maxWidth: '80%',
-      objectFit: 'contain',
-    }
-  }, */}
         </div>
       </div>
     );
