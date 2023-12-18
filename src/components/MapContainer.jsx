@@ -12,7 +12,7 @@ const MapContainer = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('https://data.austintexas.gov/resource/xaxa-886r.json');
+                const response = await fetch('https://data.texas.gov/resource/sw7f-2kkd.json');
                 const data = await response.json();
                 console.log(data);
                 setData(data);
@@ -30,7 +30,7 @@ const MapContainer = () => {
             container: mapContainer.current,
             style: 'mapbox://styles/mapbox/light-v11',
             center: [-97.7431, 30.2672], // Coordinates for Austin, Texas
-            zoom: 10,
+            zoom: 5,
         });
     }, []);
 
@@ -42,16 +42,12 @@ const MapContainer = () => {
             features: data.map(item => ({
                 type: 'Feature',
                 geometry: {
-                    type: 'Point',
-                    coordinates: [parseFloat(item.location_1.longitude), parseFloat(item.location_1.latitude)]
+                    type: 'MultiPolygon',
+                    coordinates: item.the_geom.coordinates
                 },
-                properties: {
-                    // include other properties you might need
-                    poolName: item.pool_name,
-                    phone: item.phone
-                }
             }))
         };
+        console.log(geojsonData);
     
         map.current.on('load', () => {
             map.current.addSource('austin-data', {
@@ -61,15 +57,17 @@ const MapContainer = () => {
     
             map.current.addLayer({
                 id: 'austin-layer',
-                type: 'circle', // Change as per your dataset
+                type: 'fill', // Change as per your dataset
                 source: 'austin-data',
                 paint: {
-                    'circle-opacity': 0.9,
-                    'circle-color': '#0000ff',
-                    'circle-stroke-color': '#fff',
-                    "circle-stroke-width": 1
+                    'fill-color': '#666',
+                    'fill-outline-color': '#fff',
+                    'fill-opacity': 0.5,
                 }
-            });
+            },
+            'settlement-subdivision-label', // Add layer below labels,
+            );
+            
         });
     }, [data]);
 
