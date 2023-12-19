@@ -2,11 +2,12 @@ import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import { bbox } from '@turf/turf';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import CountySelector from './CountySelector'; // Import the new component
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiZWRkaWVqb2VhbnRvbmlvIiwiYSI6ImNscGhtbmo1cTAzbjcyanRiMG9wcWJuZWIifQ.yG4IQ3nHdGUlgZCBkq9-Jw';
 
 
-const MapContainer = () => {
+const MapContainer = ({apiID}) => {
     const mapContainer = useRef(null);
     const map = useRef(null);
     const [data, setData] = useState(null);
@@ -152,7 +153,7 @@ useEffect(() => {
     };
 
     return (
-        <div className="relative h-screen w-full">
+        <div className='relative w-full h-screen'>
             <select value={selectedCounty} onChange={handleCountySelect} 
                     className="absolute top-10 left-0 m-5 h-10 z-10 border-radius-10 shadow-xl">
                 <option value="">Select a county</option>

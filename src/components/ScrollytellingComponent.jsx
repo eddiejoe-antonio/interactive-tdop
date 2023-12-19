@@ -12,6 +12,7 @@ import swarmA from '../assets/swarmA.png'
 import swarmB from '../assets/swarmB.png'
 import Fetch from './Fetch';
 import MapContainer from './MapContainer';
+import DumbbellChart from './DumbbellChart'
 
 
 class ScrollytellingComponent extends PureComponent {
@@ -37,9 +38,17 @@ class ScrollytellingComponent extends PureComponent {
     const { classes } = this.props;
     const { data } = this.state;
 
+    const dataDumbbell = [
+      { name: "Item A", startValue: 1000, endValue: 5400 },
+      { name: "Item B", startValue: 1000, endValue: 5398 },
+      { name: "Item C", startValue: 1000, endValue: 3500 },
+      { name: "Item D", startValue: 1000, endValue: 7500 },
+      // ... more data ...
+  ];
+
     const textContent = [
       <ScrollContainer text='Today, 32% of Texan households do not subscribe to broadband internet. 
-      Certain regions of Texas have higher rates of availability, while others are lower. ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability' imgHolder={TestBar}/> ,
+      Certain regions of Texas have higher rates of availability, while others are lower.' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability' imgHolder={TestBar}/> ,
       <ScrollContainer text='Click the map at right to learn more about the issues in your region!' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability' imgHolder={TestBar}/>,
       <ScrollContainer text='Select any two geographies to compare the issues below.  ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
       <ScrollContainer text='In particular, lack of available or adequate internet service is more prevalent among rural residents, veterans, low-income households, and aging individuals.  ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
@@ -55,7 +64,8 @@ class ScrollytellingComponent extends PureComponent {
       // <img src={RegionsMap} alt="Description of image three" />,
       <MapContainer />,
       <img src={ComparativeMap} alt="Description of image two" />,
-      <img src={dumbellA} alt="Description of image three" />,
+      <DumbbellChart data={dataDumbbell} />,
+      // <img src={dumbellA} alt="Description of image three" />,
       <img src={dumbellB} alt="Description of image three" />,
       <img src={swarmA} alt="Description of image three" />,
       <img src={swarmB} alt="Description of image three" />,
