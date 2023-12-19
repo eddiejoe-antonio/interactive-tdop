@@ -1,6 +1,6 @@
 const NeedsCards = {
     Header :{
-        img: 'Needs.jpg',
+        img: 'NeedsAndAssets.avif',
         altText: 'Needs and Assets',
         title: 'DIGITAL OPPORTUNITY NEEDS AND ASSETS',
         description: '',

@@ -17,7 +17,7 @@ const IntroPage = ({handlePageChange}) => {
       title={IntroCards.Header.title}
     />
   );
-  const sections = [<IntroOne />, <IntroTwo />, <Fetch />];
+  const sections = [<IntroOne />, <IntroTwo />];
   const [activeSection, setActiveSection] = useState(0);
 
   const handleSectionClick = (index) => {

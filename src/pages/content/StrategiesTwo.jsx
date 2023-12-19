@@ -1,7 +1,6 @@
 import React from 'react'
 import { useDisclosure } from '@mantine/hooks';
 import CardTerms from '../../components/CardTerms';
-import IntroCards from '../../components/IntroCards';
 import StrategiesCards from '../../components/StrategiesCards';
 
 const StrategiesTwo = () => {
@@ -29,7 +28,10 @@ const StrategiesTwo = () => {
                   <CardTerms img={StrategiesCards.Local.img} altText={StrategiesCards.Local.altText} title={StrategiesCards.Local.title} description={StrategiesCards.Local.description} />
                 </div>
                 <div className='flex flex-col col-start-7 col-span-3 items-center'>
-                  <CardTerms img={StrategiesCards.Living_Plan.img} altText={StrategiesCards.Living_Plan.altText} title={StrategiesCards.Living_Plan.title} description={StrategiesCards.Living_Plan.description} />
+                  <CardTerms img={StrategiesCards.Living_Plan.img} 
+                  altText={StrategiesCards.Living_Plan.altText} 
+                  title={StrategiesCards.Living_Plan.title} 
+                  description={StrategiesCards.Living_Plan.description} />
                 </div>
             </div>
             <div className='grid md:grid-cols-12'>

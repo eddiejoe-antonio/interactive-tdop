@@ -14,7 +14,7 @@ import Fetch from './Fetch';
 import MapContainer from './MapContainer';
 
 
-class Demo extends PureComponent {
+class ScrollytellingComponent extends PureComponent {
   state = {
     data: 0,
   };
@@ -89,4 +89,4 @@ class Demo extends PureComponent {
   }
 }
 
-export default Demo;
+export default ScrollytellingComponent;
