@@ -11,7 +11,7 @@ const MapContainer = () => {
     const map = useRef(null);
     const [data, setData] = useState(null);
     const [selectedCounty, setSelectedCounty] = useState('');
-    
+
     useEffect(() => {
         const fetchDatas = async () => {
           const requestBody = [
@@ -63,6 +63,10 @@ useEffect(() => {
             };
         }),
     };
+    const tooltip = new mapboxgl.Popup({
+        closeButton: false,
+        closeOnClick: false
+    });
     // console.log(geojsonData);
 
     // Now we wait for the map to load
@@ -85,14 +89,39 @@ useEffect(() => {
             'paint': {
                 'fill-color': ['step', ['get', 'ALAND'],
                     '#ffffff',
-                    2000000000, '#ccedf5',
-                    5000000000, '#99daea',
-                    7500000000, '#66c7e0',
-                    10000000000, '#33b5d5',
-                    15000000000, '#00a2ca'],
-                'fill-opacity': 0.6,
-                'fill-outline-color': 'white'
+                    2000000000, '#C9DCF7',
+                    5000000000, '#96AFD3',
+                    7500000000, '#6481B0',
+                    10000000000, '#32548C',
+                    15000000000, '#002768'],
+                'fill-opacity': 0.75            }
+        },
+        'settlement-subdivision-label', // Add layer below labels,
+        );
+
+        map.current.on('mousemove', 'regionLayer', (e) => {
+            if (e.features.length > 0) {
+                const feature = e.features[0];
+
+                // Set tooltip contents
+                tooltip.setLngLat(e.lngLat)
+                       .setHTML(`<strong>${feature.properties.NAME} County </strong><hr />Land Area: ${feature.properties.ALAND}`)
+                       .addTo(map.current);
+
+                // Highlight the hovered feature
+                map.current.setPaintProperty('regionLayer', 'fill-opacity', [
+                    'case',
+                    ['==', ['get', 'NAME'], feature.properties.NAME],
+                    0.8, // Darken the selected region
+                    0.6  // Original opacity for others
+                ]);
             }
+        });
+
+        map.current.on('mouseleave', 'regionLayer', () => {
+            tooltip.remove();
+            // Reset the layer style on mouse leave
+            map.current.setPaintProperty('regionLayer', 'fill-opacity', 0.6);
         });
     });
 }, [data]); 
