@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Chart from '../Chart';
+import Chart from './Chart';
 
 const Fetch = ({ requestBody }) => {
     const [data, setData] = useState();

@@ -39,10 +39,10 @@ class ScrollytellingComponent extends PureComponent {
     const { data } = this.state;
 
     const dataDumbbell = [
-      { name: "Item A", startValue: 1000, endValue: 5400 },
-      { name: "Item B", startValue: 1000, endValue: 5398 },
-      { name: "Item C", startValue: 1000, endValue: 3500 },
-      { name: "Item D", startValue: 1000, endValue: 7500 },
+      { name: "Rural Residents", startValue: 1000, endValue: 5400 },
+      { name: "Veterans", startValue: 1000, endValue: 5398 },
+      { name: "Low-Income Households", startValue: 1000, endValue: 3500 },
+      { name: "Aging Individuals", startValue: 1000, endValue: 7500 },
       // ... more data ...
   ];
 
