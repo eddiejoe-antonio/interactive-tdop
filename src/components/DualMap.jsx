@@ -31,7 +31,7 @@ const DualMap = () => {
               body: JSON.stringify(requestBody) // Add the body here
             })
           const data = await res.json();
-            console.log(data);
+            // console.log(data);
           setData(data?.boundaries[2021]);
         };
         fetchDatas();
@@ -44,8 +44,7 @@ useEffect(() => {
         container: mapContainer1.current,
         style: 'mapbox://styles/mapbox/light-v11',
         center: [-99.7431, 31.2672], // Coordinates for Map 1
-        zoom: 4.75,
-        minZoom: 4
+        zoom: 4.75
       });
     }
 
@@ -54,8 +53,7 @@ useEffect(() => {
         container: mapContainer2.current,
         style: 'mapbox://styles/mapbox/light-v11',
         center: [-99.7431, 31.2672], // Coordinates for Map 2
-        zoom: 4.75,
-        minZoom: 4
+        zoom: 4.75
       });
     }
   }, []);
