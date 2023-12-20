@@ -214,7 +214,7 @@ useEffect(() => {
         map2.current.on('mouseleave', 'regionLayer', () => {
             tooltip.remove();
             // Reset the layer style on mouse leave
-            map2.current.setPaintProperty('regionLayer', 'fill-opacity', 0.6);
+            map2.current.setPaintProperty('regionLayer', 'fill-opacity', 0.75);
         });
     });
 }, [data]); 
