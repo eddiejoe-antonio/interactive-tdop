@@ -143,7 +143,7 @@ const MapContainer = () => {
     
                     // Set tooltip contents
                     tooltip.setLngLat(e.lngLat)
-                           .setHTML(`<strong>${feature.properties.NAME} County </strong><hr />Households: ${feature.properties.households}`)
+                           .setHTML(`<strong>${feature.properties.NAME} County </strong><hr />Total Households: ${feature.properties.households}`)
                            .addTo(map.current);
     
                     // Highlight the hovered feature
