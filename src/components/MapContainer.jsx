@@ -62,7 +62,7 @@ const MapContainer = () => {
 
     useEffect(() => {
         if (!map.current || !boundaryData || !choroplethData) return;
-        // console.log(boundaryData);
+        console.log(boundaryData);
         // console.log(choroplethData.dataView.data);
         const boundaryDataArray = Object.values(boundaryData);
 
@@ -87,6 +87,7 @@ const MapContainer = () => {
                     geometry: boundaryItem.feature.geometry,
                     properties: {
                         ...choroplethItem,
+                        ...boundaryItem.feature.properties,
                     },
                 });
             } else {
@@ -129,6 +130,37 @@ const MapContainer = () => {
                     'fill-opacity': 0.75
                 }
             }, 'settlement-subdivision-label');
+
+            const tooltip = new mapboxgl.Popup({
+                closeButton: false,
+                closeOnClick: false
+            });
+
+            map.current.on('mousemove', 'regionLayer', (e) => {
+                if (e.features.length > 0) {
+                    const feature = e.features[0];
+                    console.log(feature.properties);
+    
+                    // Set tooltip contents
+                    tooltip.setLngLat(e.lngLat)
+                           .setHTML(`<strong>${feature.properties.NAME} County </strong><hr />Households: ${feature.properties.households}`)
+                           .addTo(map.current);
+    
+                    // Highlight the hovered feature
+                    map.current.setPaintProperty('regionLayer', 'fill-opacity', [
+                        'case',
+                        ['==', ['get', 'households'], feature.properties.households],
+                        0.8, // Darken the selected region
+                        0.6  // Original opacity for others
+                    ]);
+                }
+            });
+    
+            map.current.on('mouseleave', 'regionLayer', () => {
+                tooltip.remove();
+                // Reset the layer style on mouse leave
+                map.current.setPaintProperty('regionLayer', 'fill-opacity', 0.6);
+            });
             
         });
     }, [boundaryData, choroplethData]);
