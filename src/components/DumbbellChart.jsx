@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { ScatterChart, Scatter, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 
 const CustomScatter = (props) => {
@@ -27,6 +27,7 @@ const CustomScatter = (props) => {
 
 
 const DumbbellChart = ({ data }) => {
+
     return (
         <ResponsiveContainer width="100%" height={600}>
             <ScatterChart

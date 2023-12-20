@@ -7,7 +7,7 @@ import CountySelector from './CountySelector'; // Import the new component
 mapboxgl.accessToken = 'pk.eyJ1IjoiZWRkaWVqb2VhbnRvbmlvIiwiYSI6ImNscGhtbmo1cTAzbjcyanRiMG9wcWJuZWIifQ.yG4IQ3nHdGUlgZCBkq9-Jw';
 
 
-const MapContainer = ({apiID}) => {
+const MapContainer = () => {
     const mapContainer = useRef(null);
     const map = useRef(null);
     const [data, setData] = useState(null);
@@ -16,11 +16,11 @@ const MapContainer = ({apiID}) => {
     useEffect(() => {
         const fetchDatas = async () => {
           const requestBody = [
-              {
-                  "geoId": "48",
-                  "id": "654d5449886c8eda0686e97c"
-              }
-          ]
+            {
+                "geoId": "48",
+                "id": "6582102b903ab0943c07dbf8"
+            }
+        ]
   
           const res = await fetch("https://api.hra-dashtest.com/v3/reports/6509fa55a9a3fc8b698e0cba/output/region-boundaries", {
               method: 'POST',
@@ -28,7 +28,7 @@ const MapContainer = ({apiID}) => {
               body: JSON.stringify(requestBody) // Add the body here
             })
           const data = await res.json();
-          // console.log(data.charts[0].dataView.data[0]);
+            console.log(data);
           setData(data?.boundaries[2021]);
         };
         fetchDatas();
@@ -161,7 +161,7 @@ useEffect(() => {
                     <option key={index} value={county.name}>{county.name}</option>
                 ))}
             </select>
-            <div ref={mapContainer} className="map-container h-full w-full" />
+            <div ref={mapContainer} className="h-full w-full" />
         </div>
     );
 }
