@@ -13,7 +13,7 @@ export default function Chart({ data }) {
     // console.log(data);
     
     return (
-        <ResponsiveContainer width="100%" height={400} className='px-[0vw]'>
+        <ResponsiveContainer width="100%" height={300} className='px-[0vw]'>
         <BarChart data={data}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="year" />

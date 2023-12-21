@@ -49,7 +49,6 @@ const MapContainer = () => {
         fetchBoundaryData();
         fetchChoroplethData();
     }, []);
-    console.log(choroplethData);
 
     const aggregatedChoroplethData = useMemo(() => {
         return choroplethData ? choroplethData.dataView.data.reduce((acc, item) => {
@@ -80,12 +79,8 @@ const MapContainer = () => {
     }, []);
 
     useEffect(() => {
-        if (!map.current || !boundaryData || !choroplethData) return;
-        console.log(boundaryData);
-        console.log(choroplethData.dataView.data);
+        if (!map.current || !boundaryData || !choroplethData) return;        
         const boundaryDataArray = Object.values(boundaryData);
-
-        const choroplethGeoIds = choroplethData.dataView.data.map(item => item.geo_id);
 
         // Initialize an array to store the features
         const features = [];
@@ -110,7 +105,6 @@ const MapContainer = () => {
             type: 'FeatureCollection',
             features,
         };
-        console.log(geojsonData);
 
         map.current.on('load', () => {
             if (map.current.getSource('regionData')) {
@@ -153,7 +147,12 @@ const MapContainer = () => {
     
                     // Set tooltip contents
                     tooltip.setLngLat(e.lngLat)
-                           .setHTML(`<strong>${feature.properties.NAME} County </strong><hr />Households with No Internet Subscription: ${feature.properties.households_no_internet}`)
+                           .setHTML(`      
+                           <strong class="font-sans uppercase">${feature.properties.NAME} County</strong>
+                           <hr class="my-2"/>
+                           Households with No Internet Subscription: 
+                           <span class="font-bold">${feature.properties.households_no_internet}</span>
+                           `)
                            .addTo(map.current);
     
                     // Highlight the hovered feature

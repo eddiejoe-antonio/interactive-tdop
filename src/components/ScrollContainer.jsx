@@ -1,15 +1,9 @@
 import React from "react";
 import ButtonLight from "./ButtonLight";
 import Fetch from "./Fetch.jsx";
+import SingleStackedBarChart from "./TestChart.jsx";
 
 const ScrollContainer = ({title, text, buttonText, imgHolder}) => {
-    const data = [
-        { name: "Item A", startValue: 3000, endValue: 6400 },
-        { name: "Item B", startValue: 3000, endValue: 8398 },
-        { name: "Item C", startValue: 3000, endValue: 9800 },
-        // ... more data ...
-    ];
-
     return ( 
         <div className="h-screen">
             <div>
@@ -18,11 +12,12 @@ const ScrollContainer = ({title, text, buttonText, imgHolder}) => {
             </div>
             <div className="mt-[10vh] bg-red">
                 {/* <DumbbellChart data={data}/> */}
-               <Fetch />
+                <SingleStackedBarChart width={400} height={50} value={68} />
+               {/* <Fetch /> */}
                 {/* <TestChart /> */}
                 {/* <img src={imgHolder} /> */}
             </div>
-            <div className="mt-[20vh]">
+            <div className="mt-[10vh]">
                 <ButtonLight classname='mt-50vh' text={buttonText} />
             </div>
         </div>
