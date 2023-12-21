@@ -24,7 +24,7 @@ const NeedsAndAssetsPage = () => {
   description={NeedsCards.Goal1.description}
   />
 
-  const sections = [header, <NeedsOne />, header2, <ScrollytellingComponent />, header2, <ScrollytellingComponent />];
+  const sections = [header, <NeedsOne />, header2, <ScrollytellingComponent />];
   const [activeSection, setActiveSection] = useState(0);
 
   const handleSectionClick = (index) => {

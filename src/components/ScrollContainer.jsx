@@ -1,9 +1,6 @@
 import React from "react";
 import ButtonLight from "./ButtonLight";
-import Fetch from "./Fetch";
-import CountySelector from "./CountySelector";
-import TestChart from "./TestChart";
-import DumbbellChart from "./DumbbellChart";
+import Fetch from "./Fetch.jsx";
 
 const ScrollContainer = ({title, text, buttonText, imgHolder}) => {
     const data = [
