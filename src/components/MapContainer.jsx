@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useMemo } from 'react';
 import mapboxgl from 'mapbox-gl';
 import { bbox } from '@turf/turf';
 import 'mapbox-gl/dist/mapbox-gl.css';
@@ -49,6 +49,25 @@ const MapContainer = () => {
         fetchBoundaryData();
         fetchChoroplethData();
     }, []);
+    console.log(choroplethData);
+
+    const aggregatedChoroplethData = useMemo(() => {
+        return choroplethData ? choroplethData.dataView.data.reduce((acc, item) => {
+            const geoId = item.geo_id;
+
+            if (!acc[geoId]) {
+                acc[geoId] = {};
+            }
+
+            Object.keys(item).forEach(key => {
+                if (key !== 'geo_id') {
+                    acc[geoId][`${key}_${item.internet_access_type}`] = item[key];
+                }
+            });
+
+            return acc;
+        }, {}) : {};
+    }, [choroplethData]);
 
     useEffect(() => {
         if (map.current) return;
@@ -63,30 +82,22 @@ const MapContainer = () => {
     useEffect(() => {
         if (!map.current || !boundaryData || !choroplethData) return;
         console.log(boundaryData);
-        // console.log(choroplethData.dataView.data);
+        console.log(choroplethData.dataView.data);
         const boundaryDataArray = Object.values(boundaryData);
 
-        const boundaryGeoIds = boundaryDataArray.map(feature => feature.geoId);
         const choroplethGeoIds = choroplethData.dataView.data.map(item => item.geo_id);
 
         // Initialize an array to store the features
         const features = [];
-    
-        const combinedData = {};
-    
         boundaryDataArray.forEach(boundaryItem => {
             const geoId = boundaryItem.geoId;
-    
-            // Check if the geoId exists in the choropleth data
-            if (choroplethGeoIds.includes(geoId)) {
-                // Find the choropleth item that matches the geoId
-                const choroplethItem = choroplethData.dataView.data.find(item => item.geo_id === geoId);
-    
+
+            if (aggregatedChoroplethData[geoId]) {
                 features.push({
                     type: 'Feature',
                     geometry: boundaryItem.feature.geometry,
                     properties: {
-                        ...choroplethItem,
+                        ...aggregatedChoroplethData[geoId],
                         ...boundaryItem.feature.properties,
                     },
                 });
@@ -94,7 +105,7 @@ const MapContainer = () => {
                 console.log(`No matching choropleth data for geoId: ${geoId}`);
             }
         });
-    
+            
         const geojsonData = {
             type: 'FeatureCollection',
             features,
@@ -119,13 +130,13 @@ const MapContainer = () => {
                 paint: {
                     'fill-color': [
                         'step',
-                        ['to-number', ['get', 'households']], // Convert 'households' to a number
+                        ['to-number', ['get', 'households_no_internet']], // Convert 'households' to a number
                         '#ffffff',
-                        20000, '#C9DCF7',
-                        50000, '#96AFD3',
-                        70000, '#6481B0',
-                        100000, '#32548C',
-                        120000, '#002768'
+                        2000, '#C9DCF7',
+                        5000, '#96AFD3',
+                        7000, '#6481B0',
+                        10000, '#32548C',
+                        12000, '#002768'
                     ],
                     'fill-opacity': 0.75
                 }
@@ -139,17 +150,16 @@ const MapContainer = () => {
             map.current.on('mousemove', 'regionLayer', (e) => {
                 if (e.features.length > 0) {
                     const feature = e.features[0];
-                    console.log(feature.properties);
     
                     // Set tooltip contents
                     tooltip.setLngLat(e.lngLat)
-                           .setHTML(`<strong>${feature.properties.NAME} County </strong><hr />Total Households: ${feature.properties.households}`)
+                           .setHTML(`<strong>${feature.properties.NAME} County </strong><hr />Households with No Internet Subscription: ${feature.properties.households_no_internet}`)
                            .addTo(map.current);
     
                     // Highlight the hovered feature
                     map.current.setPaintProperty('regionLayer', 'fill-opacity', [
                         'case',
-                        ['==', ['get', 'households'], feature.properties.households],
+                        ['==', ['get', 'households_no_internet'], feature.properties.households_no_internet],
                         0.8, // Darken the selected region
                         0.6  // Original opacity for others
                     ]);
