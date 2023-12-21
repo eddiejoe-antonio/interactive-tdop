@@ -9,10 +9,10 @@ import dumbellA from '../assets/dumbellA.png'
 import dumbellB from '../assets/dumbellB.png'
 import swarmA from '../assets/swarmA.png'
 import swarmB from '../assets/swarmB.png'
-import Fetch from './Fetch';
-import MapContainer from './MapContainer';
-import DumbbellChart from './DumbbellChart'
-import DualMap from './DualMap';
+import Fetch from './Fetch.jsx';
+import MapContainer from './MapContainer.jsx';
+import DumbbellChart from './DumbbellChart.jsx'
+import DualMap from './DualMap.jsx';
 
 
 class ScrollytellingComponent extends PureComponent {
