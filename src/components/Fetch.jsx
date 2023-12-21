@@ -19,7 +19,7 @@ const Fetch = ({ requestBody }) => {
             body: JSON.stringify(requestBody) // Add the body here
           })
         const data = await res.json();
-        // console.log(data);
+        console.log(data);
         // console.log(data.charts[0].dataView.data[0]);
         setData(data?.charts[0].dataView.data);
       };

@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import { ScatterChart, Scatter, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import React from 'react';
+import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 
 const CustomScatter = (props) => {
@@ -18,7 +18,7 @@ const CustomScatter = (props) => {
             <text x={x} y={endY / 15} dy={0} textAnchor="middle" fontSize={12} fill="#FFF">
                 {endY}
             </text>
-            <text x={x} y={labelY} textAnchor="middle" fontSize={15} fill="#000">
+            <text x={x} y={labelY} textAnchor="middle" fontSize={12} fill="#000">
                 {payload.name}
             </text>
         </>
@@ -26,42 +26,16 @@ const CustomScatter = (props) => {
 };
 
 
-const DumbbellChart = ({data}) => {
-    // const [data, setData] = useState();
-
-
-    // useEffect(() => {
-    //   const fetchDatas = async () => {
-    //     const requestBody = [
-    //         {
-    //             "geoId": "48",
-    //             "id": "654d5449886c8eda0686e97c"
-    //         }
-    //     ]
-
-    //     const res = await fetch("https://api.hra-dashtest.com/v3/reports/6509fa55a9a3fc8b698e0cba/output/charts", {
-    //         method: 'POST',
-    //         headers: {'Content-Type': 'application/json'},
-    //         body: JSON.stringify(requestBody) // Add the body here
-    //       })
-    //     const data = await res.json();
-    //     console.log(data);
-    //     // console.log(data.charts[0].dataView.data[0]);
-    //     setData(data?.charts[0].dataView.data);
-    //   };
-    //   fetchDatas();
-    // }, []);
-    
-
+const DumbbellChart = ({ data }) => {
     return (
-        <ResponsiveContainer width="100%" height={600} className="font-sans">
+        <ResponsiveContainer width="100%" height={600}>
             <ScatterChart
                 margin={{ top: 10, right: 0, bottom: 10, left: 0 }}
             >
                 {/* <CartesianGrid /> */}
                 <XAxis type="category" dataKey="name" hide />
                 <YAxis type="number" dataKey="endValue" hide/>
-                <Tooltip cursor={false}/>
+                <Tooltip />
                 <Scatter data={data} shape={<CustomScatter />} />
             </ScatterChart>
         </ResponsiveContainer>

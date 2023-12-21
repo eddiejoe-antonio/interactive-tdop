@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import injectSheet from 'react-jss';
 import { Scrollama, Step } from 'react-scrollama';
 import ScrollContainer from './ScrollContainer';
 import TestBar from '../assets/testbar.png'
@@ -9,10 +10,9 @@ import dumbellA from '../assets/dumbellA.png'
 import dumbellB from '../assets/dumbellB.png'
 import swarmA from '../assets/swarmA.png'
 import swarmB from '../assets/swarmB.png'
-import Fetch from './Fetch.jsx';
-import MapContainer from './MapContainer.jsx';
-import DumbbellChart from './DumbbellChart.jsx'
-import DualMap from './DualMap.jsx';
+import Fetch from './Fetch';
+import MapContainer from './MapContainer';
+import DumbbellChart from './DumbbellChart'
 
 
 class ScrollytellingComponent extends PureComponent {
@@ -37,7 +37,7 @@ class ScrollytellingComponent extends PureComponent {
   render() {
     const { classes } = this.props;
     const { data } = this.state;
- 
+
     const dataDumbbell = [
       { name: "Rural Residents", startValue: 1000, endValue: 5400 },
       { name: "Veterans", startValue: 1000, endValue: 5398 },
@@ -52,6 +52,7 @@ class ScrollytellingComponent extends PureComponent {
       <ScrollContainer text='Click the map at right to learn more about the issues in your region!' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability' imgHolder={TestBar}/>,
       <ScrollContainer text='Select any two geographies to compare the issues below.  ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
       <ScrollContainer text='In particular, lack of available or adequate internet service is more prevalent among rural residents, veterans, low-income households, and aging individuals.  ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
+      <ScrollContainer text='In particular, lack of available or adequate internet service is more prevalent among rural residents, veterans, low-income households, and aging individuals. ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
       <ScrollContainer text='The State of Texas is targeting that 80% of Texans subscribe to reliable broadband in their homes by 2030.  ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
       <ScrollContainer text='The State of Texas is targeting that 80% of Texans subscribe to reliable broadband in their homes by 2030. ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
     ];
@@ -62,11 +63,10 @@ class ScrollytellingComponent extends PureComponent {
       // <img src={BlankMap} alt="Description of image one" />,
       // <img src={RegionsMap} alt="Description of image three" />,
       <MapContainer />,
-      <DualMap />,
-      // <img src={ComparativeMap} alt="Description of image two" />,
+      <img src={ComparativeMap} alt="Description of image two" />,
       <DumbbellChart data={dataDumbbell} />,
       // <img src={dumbellA} alt="Description of image three" />,
-      // <img src={dumbellB} alt="Description of image three" />,
+      <img src={dumbellB} alt="Description of image three" />,
       <img src={swarmA} alt="Description of image three" />,
       <img src={swarmB} alt="Description of image three" />,
     ];
