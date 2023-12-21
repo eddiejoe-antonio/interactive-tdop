@@ -43,22 +43,31 @@ const SingleStackedBarChart = ({ width, height }) => {
     // Background bar (100%)
     svg.append('rect')
       .attr('x', 0)
-      .attr('y', 0)
+      .attr('y', height*0.1)
       .attr('width', width)
-      .attr('height', height)
+      .attr('height', height*.8)
       .attr('fill', '#ececec');
 
     const foregroundBar = svg.append('rect')
       .attr('x', 0)
-      .attr('y', 0)
-      .attr('width', 0) // Start with a width of 0
-      .attr('height', height)
+      .attr('y', height*0.1)
+      .attr('width', 0)
+      .attr('height', height*.8)
       .attr('fill', '#666');
     
     // Animate the width of the bar
     foregroundBar.transition()
       .duration(750) // Duration of the animation in milliseconds
       .attr('width', width * (chartData / 100)) // Animate to the final width
+      .on('end', () => {
+        svg.append('line')
+        .attr('x1', width * (chartData / 100)) // x position of the line start (end of the bar)
+        .attr('y1', 0) // y position of the line start at the top of the bar
+        .attr('x2', width * (chartData / 100)) // x position of the line end (end of the bar)
+        .attr('y2', height) // y position of the line end at the bottom of the bar
+        .attr('stroke', 'black') // color of the line
+        .attr('stroke-width', 2.5); // thickness of the line
+      });
 
     // Label
     svg.append('text')
@@ -73,7 +82,7 @@ const SingleStackedBarChart = ({ width, height }) => {
     
        // Tooltip event handlers
     const handleMouseOver = () => {
-        setTooltip({ display: true, data: `Percent with Internet Subscriptions: ${Math.round(chartData)}%` });
+        setTooltip({ display: true, data: `Percent   with Internet Subscriptions: ${Math.round(chartData)}%` });
         console.log('time for tooltip!');
       };
   
@@ -81,9 +90,7 @@ const SingleStackedBarChart = ({ width, height }) => {
         const svgPosition = ref.current.getBoundingClientRect();
         setTooltip({
           display: visible, // Replace 'visible' with 'true'
-          data: `${Math.round(chartData)}%`,
-          x: e.clientX,
-          y: e.clientY
+          data: `${Math.round(chartData)}%`
         });
         console.log(tooltip.x);
 
