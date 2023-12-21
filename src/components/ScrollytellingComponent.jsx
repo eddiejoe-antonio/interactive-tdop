@@ -39,18 +39,18 @@ class ScrollytellingComponent extends PureComponent {
     const { data } = this.state;
  
     const dataDumbbell = [
-      { name: "Rural Residents", startValue: 1000, endValue: 5400 },
-      { name: "Veterans", startValue: 1000, endValue: 5398 },
-      { name: "Low-Income Households", startValue: 1000, endValue: 3500 },
-      { name: "Aging Individuals", startValue: 1000, endValue: 7500 },
+      { name: "Rural Residents", startValue: 100, endValue: 41 },
+      { name: "Veterans", startValue: 100, endValue: 43 },
+      { name: "Low-Income Households", startValue: 100, endValue: 39 },
+      { name: "Aging Individuals", startValue: 100, endValue: 53 },
       // ... more data ...
   ];
 
     const textContent = [
-      <ScrollContainer text='Today, 32% of Texan households do not subscribe to broadband internet. 
+      <ScrollContainer text='Today, 10% of Texan households do not subscribe to broadband internet. 
       Certain regions of Texas have higher rates of availability, while others are lower.' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability' imgHolder={TestBar}/> ,
       <ScrollContainer text='Click the map at right to learn more about the issues in your region!' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability' imgHolder={TestBar}/>,
-      <ScrollContainer text='Select any two geographies to compare the issues below.  ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
+      <ScrollContainer text='Select any two geographies to compare the issues at right.  ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
       <ScrollContainer text='In particular, lack of available or adequate internet service is more prevalent among rural residents, veterans, low-income households, and aging individuals.  ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
       <ScrollContainer text='The State of Texas is targeting that 80% of Texans subscribe to reliable broadband in their homes by 2030.  ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,
       <ScrollContainer text='The State of Texas is targeting that 80% of Texans subscribe to reliable broadband in their homes by 2030. ' title='Goal No. 1 | KPI 1.1' buttonText='Dive deeper into Broadband Availability'/>,

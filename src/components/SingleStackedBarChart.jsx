@@ -61,9 +61,9 @@ const SingleStackedBarChart = ({ width, height }) => {
       .attr('width', width * (chartData / 100)) // Animate to the final width
       .on('end', () => {
         svg.append('line')
-        .attr('x1', width * (chartData / 100)) // x position of the line start (end of the bar)
+        .attr('x1', width * (chartData / 95)) // x position of the line start (end of the bar)
         .attr('y1', 0) // y position of the line start at the top of the bar
-        .attr('x2', width * (chartData / 100)) // x position of the line end (end of the bar)
+        .attr('x2', width * (chartData / 95)) // x position of the line end (end of the bar)
         .attr('y2', height) // y position of the line end at the bottom of the bar
         .attr('stroke', 'black') // color of the line
         .attr('stroke-width', 2.5); // thickness of the line
@@ -117,18 +117,19 @@ const SingleStackedBarChart = ({ width, height }) => {
         <div
           style={{
             position: 'absolute',
-            // left: `${tooltip.x}px`,
-            // top: `${tooltip.y}px`,
-            backgroundColor: 'white',
-            border: '1px solid #666',
-            padding: '5px',
+            left: `${tooltip.x}px`,
+            top: `${tooltip.y}px`,
+            backgroundColor: '#111',
+            color: '#fff',
+            border: '2px solid #111',
+            padding: '8px',
             pointerEvents: 'none'
           }}
         >
           {tooltip.data}
         </div>
       )}
-      <p className='float-right py-2 text-xs'>Overall Target</p>
+      <p className='float-right py-2 text-xs'>Overall Target: 95%</p>
     </div>
   );
 };

@@ -1,71 +1,80 @@
-import React, {useState, useEffect} from 'react';
-import { ScatterChart, Scatter, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import React, { useRef, useEffect } from 'react';
+import * as d3 from 'd3';
 
+const DumbbellChart = ({ data, width = 600, height = 400 }) => {
+  const ref = useRef();
 
-const CustomScatter = (props) => {
-    const { x, y, payload } = props;
+  useEffect(() => {
+    if (!data || data.length === 0) return;
 
-    // Determine the positions for start and end values
-    const startY = payload.startValue;
-    const endY = payload.endValue;
-    const labelY = Math.min(endY, startY) / 15 - 30 // Adjust label position
+    // Clear the SVG to prevent duplication
+    d3.select(ref.current).selectAll("*").remove();
 
-    return (
-        <>
-            <line x1={x} y1={endY / 15} x2={x} y2={startY / 15} stroke="#111" strokeWidth={2} />
-            <circle cx={x} cy={startY / 15} r={20} fill="#B9B9B9" />
-            <circle cx={x} cy={endY / 15} r={20} fill="#002768" />
-            <text x={x} y={endY / 15} dy={0} textAnchor="middle" fontSize={12} fill="#FFF">
-                {endY}
-            </text>
-            <text x={x} y={labelY} textAnchor="middle" fontSize={15} fill="#000">
-                {payload.name}
-            </text>
-        </>
-    );
-};
+    // Create SVG canvas
+    const svg = d3.select(ref.current)
+      .attr('width', width)
+      .attr('height', height);
 
+    // Create the scales for x and y axes
+    const xScale = d3.scaleBand().range([0, width]).domain(data.map(d => d.name));
+    const yScale = d3.scaleLinear().range([height, 0]).domain([0, d3.max(data, d => Math.max(d.startValue, d.endValue))]);
 
-const DumbbellChart = ({data}) => {
-    // const [data, setData] = useState();
+    // Draw the dumbbells
+    data.forEach((d, i) => {
+      const x = xScale(d.name) + xScale.bandwidth() / 2;
+      const startY = yScale(d.startValue * 0.8);
+      const endY = yScale(d.endValue * 0.8);
 
+      // Line
+      svg.append('line')
+        .attr('x1', x)
+        .attr('y1', startY)
+        .attr('x2', x)
+        .attr('y2', endY)
+        .attr('stroke', '#111')
+        .attr('stroke-width', 2);
 
-    // useEffect(() => {
-    //   const fetchDatas = async () => {
-    //     const requestBody = [
-    //         {
-    //             "geoId": "48",
-    //             "id": "654d5449886c8eda0686e97c"
-    //         }
-    //     ]
+      // Start circle
+      svg.append('circle')
+        .attr('cx', x)
+        .attr('cy', startY)
+        .attr('r', 20)
+        .attr('fill', '#B9B9B9');
 
-    //     const res = await fetch("https://api.hra-dashtest.com/v3/reports/6509fa55a9a3fc8b698e0cba/output/charts", {
-    //         method: 'POST',
-    //         headers: {'Content-Type': 'application/json'},
-    //         body: JSON.stringify(requestBody) // Add the body here
-    //       })
-    //     const data = await res.json();
-    //     console.log(data);
-    //     // console.log(data.charts[0].dataView.data[0]);
-    //     setData(data?.charts[0].dataView.data);
-    //   };
-    //   fetchDatas();
-    // }, []);
-    
+      // End circle
+      const endCircle = svg.append('circle')
+        .attr('cx', x)
+        .attr('cy', startY)
+        .attr('r', 20)
+        .attr('fill', '#002768');
 
-    return (
-        <ResponsiveContainer width="100%" height={600} className="font-sans">
-            <ScatterChart
-                margin={{ top: 10, right: 0, bottom: 10, left: 0 }}
-            >
-                {/* <CartesianGrid /> */}
-                <XAxis type="category" dataKey="name" hide />
-                <YAxis type="number" dataKey="endValue" hide/>
-                <Tooltip cursor={false}/>
-                <Scatter data={data} shape={<CustomScatter />} />
-            </ScatterChart>
-        </ResponsiveContainer>
-    );
+      endCircle.transition()
+        .duration(750) // Duration of the animation in milliseconds
+        .attr('cy', endY) // Animate to the final width
+
+      // End value text
+      svg.append('text')
+        .attr('x', x)
+        .attr('y', endY)
+        .attr('dy', 5)
+        .attr('text-anchor', 'middle')
+        .attr('font-size', '12px')
+        .attr('fill', '#FFF')
+        .text(`${d.endValue} %`);
+
+      // Label text
+      svg.append('text')
+        .attr('x', x)
+        .attr('y', startY * 0.25)
+        .attr('text-anchor', 'middle')
+        .attr('font-size', '1rem')
+        .attr('fill', '#000')
+        .text(d.name);
+    });
+
+  }, [data, width, height]);
+
+  return <svg ref={ref}></svg>;
 };
 
 export default DumbbellChart;
