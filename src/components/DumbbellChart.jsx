@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import * as d3 from 'd3';
 
-const DumbbellChart = ({ data, width = window.innerWidth / 3 , height = window.innerHeight / 2 }) => {
+const DumbbellChart = ({ data, width = window.innerWidth / 2.5 , height = window.innerHeight / 2 }) => {
   const ref = useRef();
 
   useEffect(() => {

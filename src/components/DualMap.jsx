@@ -25,18 +25,18 @@ const DualMap = () => {
             }
         ]
   
-          const res = await fetch("https://api.hra-dashtest.com/v3/reports/6509fa55a9a3fc8b698e0cba/output/region-boundaries", {
+          const res = await fetch("https://api.hra-dashtest.com/v3/reports/65820ff1903ab0943c07dbc6/output/boundaries", {
               method: 'POST',
               headers: {'Content-Type': 'application/json'},
               body: JSON.stringify(requestBody) // Add the body here
             })
           const data = await res.json();
             // console.log(data);
-          setData(data?.boundaries[2021]);
+          setData(data?.boundaries[2022]);
         };
         fetchDatas();
       }, []);
-    //   console.log(data);
+      console.log(data);
 
 useEffect(() => {
     if (!map1.current) {

@@ -20,14 +20,12 @@ const SingleStackedBarChart = ({ width, height }) => {
             body: JSON.stringify(requestBody)
         });
         const data = await res.json();
-        console.log(data);
         const value = data?.charts[0].data[0].households
         const finalValue = 100 - (value/(data?.charts[0].data[6].households))
         setChartData(finalValue);
       };
     fetchData();
   }, []);
-  console.log(chartData);
 
   useEffect(() => {
     if (!ref.current || chartData === null) return;
@@ -83,7 +81,6 @@ const SingleStackedBarChart = ({ width, height }) => {
        // Tooltip event handlers
     const handleMouseOver = () => {
         setTooltip({ display: true, data: `Percent   with Internet Subscriptions: ${Math.round(chartData)}%` });
-        console.log('time for tooltip!');
       };
   
     const handleMouseMove = (e) => {
@@ -92,13 +89,10 @@ const SingleStackedBarChart = ({ width, height }) => {
           display: visible, // Replace 'visible' with 'true'
           data: `${Math.round(chartData)}%`
         });
-        console.log(tooltip.x);
-
       };
   
       const handleMouseOut = () => {
         setTooltip({ display: false, data: null });
-        console.log('end of tooltip!');
       };
   
       // Apply event listeners to the bar
