@@ -197,7 +197,7 @@ const MapContainer = () => {
         <div className='relative w-full h-screen'>
             <select value={selectedCounty} onChange={handleCountySelect}
                 className="absolute top-10 left-0 m-5 h-10 z-10 border-radius-10 shadow-xl">
-                <option value="">Select a county</option>
+                <option value="">Zoom to...</option>
                 {counties.map((county, index) => (
                     <option key={index} value={county.name}>{county.name}</option>
                 ))}

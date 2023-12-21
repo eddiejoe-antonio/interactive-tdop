@@ -1,7 +1,7 @@
 import React from "react";
 import ButtonLight from "./ButtonLight";
 import Fetch from "./Fetch.jsx";
-import SingleStackedBarChart from "./TestChart.jsx";
+import SingleStackedBarChart from "./SingleStackedBarChart.jsx";
 
 const ScrollContainer = ({title, text, buttonText, imgHolder}) => {
     return ( 
@@ -12,7 +12,7 @@ const ScrollContainer = ({title, text, buttonText, imgHolder}) => {
             </div>
             <div className="mt-[10vh] bg-red">
                 {/* <DumbbellChart data={data}/> */}
-                <SingleStackedBarChart width={400} height={50} value={68} />
+                <SingleStackedBarChart width={400} height={40} value={68} />
                {/* <Fetch /> */}
                 {/* <TestChart /> */}
                 {/* <img src={imgHolder} /> */}

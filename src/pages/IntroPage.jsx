@@ -8,7 +8,6 @@ import ScrollableTitle from '../components/ScrollableTitle';
 import IntroCards from '../components/IntroCards';
 import Fetch from '../components/Fetch';
 import MapContainer from '../components/MapContainer';
-import SingleStackedBarChart from '../components/TestChart';
 
 const IntroPage = ({handlePageChange}) => {
   const header = (
