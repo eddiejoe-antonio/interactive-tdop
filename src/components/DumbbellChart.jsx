@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import * as d3 from 'd3';
 
-const DumbbellChart = ({ data, width = 600, height = 400 }) => {
+const DumbbellChart = ({ data, width = window.innerWidth / 3 , height = window.innerHeight / 2 }) => {
   const ref = useRef();
 
   useEffect(() => {
@@ -70,8 +70,17 @@ const DumbbellChart = ({ data, width = 600, height = 400 }) => {
         .attr('font-size', '1rem')
         .attr('fill', '#000')
         .text(d.name);
+    
+    svg.append('text')
+        .attr('x', x)
+        .attr('y', height) // Adjust this value to position the label appropriately
+        .attr('dy', '-0.5em') // Adjust the position a bit above the bottom of the svg
+        .attr('text-anchor', 'middle')
+        .attr('width', '10')
+        .attr('font-size', '0.8rem')
+        .attr('fill', '#000')
+        .text(`${d.endValue}% subscribe to broadband internet.`);
     });
-
   }, [data, width, height]);
 
   return <svg ref={ref}></svg>;

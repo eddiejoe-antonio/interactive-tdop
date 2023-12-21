@@ -20,14 +20,14 @@ const SingleStackedBarChart = ({ width, height }) => {
             body: JSON.stringify(requestBody)
         });
         const data = await res.json();
-        // console.log(data);
-        const value = data?.charts[0].dataView.data[0].households
-        const finalValue = 100 - (value/(data?.charts[0].dataView.data[6].households))
+        console.log(data);
+        const value = data?.charts[0].data[0].households
+        const finalValue = 100 - (value/(data?.charts[0].data[6].households))
         setChartData(finalValue);
       };
     fetchData();
   }, []);
-  // console.log(chartData);
+  console.log(chartData);
 
   useEffect(() => {
     if (!ref.current || chartData === null) return;

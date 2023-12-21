@@ -50,23 +50,23 @@ const MapContainer = () => {
         fetchChoroplethData();
     }, []);
 
-    const aggregatedChoroplethData = useMemo(() => {
-        return choroplethData ? choroplethData.dataView.data.reduce((acc, item) => {
-            const geoId = item.geo_id;
+    // const aggregatedChoroplethData = useMemo(() => {
+    //     return choroplethData ? choroplethData.dataView.data.reduce((acc, item) => {
+    //         const geoId = item.geo_id;
 
-            if (!acc[geoId]) {
-                acc[geoId] = {};
-            }
+    //         if (!acc[geoId]) {
+    //             acc[geoId] = {};
+    //         }
 
-            Object.keys(item).forEach(key => {
-                if (key !== 'geo_id') {
-                    acc[geoId][`${key}_${item.internet_access_type}`] = item[key];
-                }
-            });
+    //         Object.keys(item).forEach(key => {
+    //             if (key !== 'geo_id') {
+    //                 acc[geoId][`${key}_${item.internet_access_type}`] = item[key];
+    //             }
+    //         });
 
-            return acc;
-        }, {}) : {};
-    }, [choroplethData]);
+    //         return acc;
+    //     }, {}) : {};
+    // }, [choroplethData]);
 
     useEffect(() => {
         if (map.current) return;
@@ -78,101 +78,101 @@ const MapContainer = () => {
         });
     }, []);
 
-    useEffect(() => {
-        if (!map.current || !boundaryData || !choroplethData) return;        
-        const boundaryDataArray = Object.values(boundaryData);
+    // useEffect(() => {
+    //     if (!map.current || !boundaryData || !choroplethData) return;        
+    //     const boundaryDataArray = Object.values(boundaryData);
 
-        // Initialize an array to store the features
-        const features = [];
-        boundaryDataArray.forEach(boundaryItem => {
-            const geoId = boundaryItem.geoId;
+    //     // Initialize an array to store the features
+    //     const features = [];
+    //     boundaryDataArray.forEach(boundaryItem => {
+    //         const geoId = boundaryItem.geoId;
 
-            if (aggregatedChoroplethData[geoId]) {
-                features.push({
-                    type: 'Feature',
-                    geometry: boundaryItem.feature.geometry,
-                    properties: {
-                        ...aggregatedChoroplethData[geoId],
-                        ...boundaryItem.feature.properties,
-                    },
-                });
-            } else {
-                console.log(`No matching choropleth data for geoId: ${geoId}`);
-            }
-        });
+    //         if (aggregatedChoroplethData[geoId]) {
+    //             features.push({
+    //                 type: 'Feature',
+    //                 geometry: boundaryItem.feature.geometry,
+    //                 properties: {
+    //                     ...aggregatedChoroplethData[geoId],
+    //                     ...boundaryItem.feature.properties,
+    //                 },
+    //             });
+    //         } else {
+    //             console.log(`No matching choropleth data for geoId: ${geoId}`);
+    //         }
+    //     });
             
-        const geojsonData = {
-            type: 'FeatureCollection',
-            features,
-        };
+    //     const geojsonData = {
+    //         type: 'FeatureCollection',
+    //         features,
+    //     };
 
-        map.current.on('load', () => {
-            if (map.current.getSource('regionData')) {
-                map.current.removeLayer('regionLayer');
-                map.current.removeSource('regionData');
-            }
+    //     map.current.on('load', () => {
+    //         if (map.current.getSource('regionData')) {
+    //             map.current.removeLayer('regionLayer');
+    //             map.current.removeSource('regionData');
+    //         }
 
-            map.current.addSource('regionData', {
-                type: 'geojson',
-                data: geojsonData
-            });
+    //         map.current.addSource('regionData', {
+    //             type: 'geojson',
+    //             data: geojsonData
+    //         });
 
-            map.current.addLayer({
-                id: 'regionLayer',
-                type: 'fill',
-                source: 'regionData',
-                paint: {
-                    'fill-color': [
-                        'step',
-                        ['to-number', ['get', 'households_no_internet']], // Convert 'households' to a number
-                        '#ffffff',
-                        2000, '#C9DCF7',
-                        5000, '#96AFD3',
-                        7000, '#6481B0',
-                        10000, '#32548C',
-                        12000, '#002768'
-                    ],
-                    'fill-opacity': 0.75
-                }
-            }, 'settlement-subdivision-label');
+    //         map.current.addLayer({
+    //             id: 'regionLayer',
+    //             type: 'fill',
+    //             source: 'regionData',
+    //             paint: {
+    //                 'fill-color': [
+    //                     'step',
+    //                     ['to-number', ['get', 'households_no_internet']], // Convert 'households' to a number
+    //                     '#ffffff',
+    //                     2000, '#C9DCF7',
+    //                     5000, '#96AFD3',
+    //                     7000, '#6481B0',
+    //                     10000, '#32548C',
+    //                     12000, '#002768'
+    //                 ],
+    //                 'fill-opacity': 0.75
+    //             }
+    //         }, 'settlement-subdivision-label');
 
-            const tooltip = new mapboxgl.Popup({
-                closeButton: false,
-                closeOnClick: false
-            });
+    //         const tooltip = new mapboxgl.Popup({
+    //             closeButton: false,
+    //             closeOnClick: false
+    //         });
 
-            map.current.on('mousemove', 'regionLayer', (e) => {
-                if (e.features.length > 0) {
-                    const feature = e.features[0];
+    //         map.current.on('mousemove', 'regionLayer', (e) => {
+    //             if (e.features.length > 0) {
+    //                 const feature = e.features[0];
     
-                    // Set tooltip contents
-                    tooltip.setLngLat(e.lngLat)
-                           .setHTML(`      
-                           <strong class="font-sans uppercase">${feature.properties.NAME} County</strong>
-                           <hr class="my-2"/>
-                           Households with No Internet Subscription: 
-                           <span class="font-bold">${feature.properties.households_no_internet}</span>
-                           `)
-                           .addTo(map.current);
+    //                 // Set tooltip contents
+    //                 tooltip.setLngLat(e.lngLat)
+    //                        .setHTML(`      
+    //                        <strong class="font-sans uppercase">${feature.properties.NAME} County</strong>
+    //                        <hr class="my-2"/>
+    //                        Households with No Internet Subscription: 
+    //                        <span class="font-bold">${feature.properties.households_no_internet}</span>
+    //                        `)
+    //                        .addTo(map.current);
     
-                    // Highlight the hovered feature
-                    map.current.setPaintProperty('regionLayer', 'fill-opacity', [
-                        'case',
-                        ['==', ['get', 'households_no_internet'], feature.properties.households_no_internet],
-                        0.8, // Darken the selected region
-                        0.6  // Original opacity for others
-                    ]);
-                }
-            });
+    //                 // Highlight the hovered feature
+    //                 map.current.setPaintProperty('regionLayer', 'fill-opacity', [
+    //                     'case',
+    //                     ['==', ['get', 'households_no_internet'], feature.properties.households_no_internet],
+    //                     0.8, // Darken the selected region
+    //                     0.6  // Original opacity for others
+    //                 ]);
+    //             }
+    //         });
     
-            map.current.on('mouseleave', 'regionLayer', () => {
-                tooltip.remove();
-                // Reset the layer style on mouse leave
-                map.current.setPaintProperty('regionLayer', 'fill-opacity', 0.6);
-            });
+    //         map.current.on('mouseleave', 'regionLayer', () => {
+    //             tooltip.remove();
+    //             // Reset the layer style on mouse leave
+    //             map.current.setPaintProperty('regionLayer', 'fill-opacity', 0.6);
+    //         });
             
-        });
-    }, [boundaryData, choroplethData]);
+    //     });
+    // }, [boundaryData, choroplethData]);
 
     const counties = boundaryData ? Object.values(boundaryData).map(item => ({
         name: item.feature.properties.NAME,
@@ -196,10 +196,10 @@ const MapContainer = () => {
     return (
         <div className='relative w-full h-screen'>
             <select value={selectedCounty} onChange={handleCountySelect}
-                className="absolute top-10 left-0 m-5 h-10 z-10 border-radius-10 shadow-xl">
-                <option value="">Zoom to...</option>
+                className="absolute top-10 left-0 m-5 h-10 z-10 shadow-xl bg-black text-white">
+                <option value="" className='bg-black'>Zoom to...</option>
                 {counties.map((county, index) => (
-                    <option key={index} value={county.name}>{county.name}</option>
+                    <option key={index} value={county.name} className='bg-black'>{county.name}</option>
                 ))}
             </select>
             <div ref={mapContainer} className="h-full w-full" />
