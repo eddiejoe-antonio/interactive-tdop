@@ -18,7 +18,11 @@ const MapContainer = () => {
             const requestBody = [
                 {
                     "geoId": "48",
-                    "id": "6582102b903ab0943c07dbf8"
+                    "id": "6582102b903ab0943c07dbf8",
+                    "regionSetup":{
+                        "peers": "none",
+                        "segments": "county"
+                    }
                 }
             ];
 

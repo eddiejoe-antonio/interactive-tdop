@@ -21,7 +21,11 @@ const DualMap = () => {
           const requestBody = [
             {
                 "geoId": "48",
-                "id": "6582102b903ab0943c07dbf8"
+                "id": "6582102b903ab0943c07dbf8",
+                "regionSetup":{
+                    "peers": "none",
+                    "segments": "county"
+                }
             }
         ]
   
@@ -264,7 +268,7 @@ useEffect(() => {
     return (
         <div className='flex w-full h-screen'>
             <select value={selectedCounty1} onChange={handleCountySelect1} 
-                    className="absolute top-10 left-0 m-5 h-10 z-10 border-radius-10 shadow-xl">
+                    className="absolute top-10 left-0 m-5 h-10 z-10 border-radius-10 shadow-xl bg-black text-white">
                 <option value="">Zoom to...</option>
                 {counties.map((county, index) => (
                     <option key={index} value={county.name}>{county.name}</option>
@@ -272,7 +276,7 @@ useEffect(() => {
             </select>
             <div ref={mapContainer1} className="h-full w-1/2 mx-4" />
             <select value={selectedCounty2} onChange={handleCountySelect2} 
-                    className="absolute top-10 right-0 m-5 h-10 z-10 border-radius-10 shadow-xl">
+                    className="absolute top-10 right-0 m-5 h-10 z-10 border-radius-10 shadow-xl bg-black text-white">
                 <option value="">Zoom to...</option>
                 {counties.map((county, index) => (
                     <option key={index} value={county.name}>{county.name}</option>
