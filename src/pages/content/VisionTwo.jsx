@@ -20,31 +20,26 @@ const VisionTwo = () => {
                     </p>
                 </div>
             </div>
-            <div className='block md:grid md:grid-cols-12 gap-2'>
-                <div className='flex flex-col col-start-4 col-span-3 items-center mb-[5vh]'>
-                <CardTerms img={VisionCards.Business.img} altText={VisionCards.Business.altText} title={VisionCards.Business.title} description={VisionCards.Business.description} />
-                </div>
-                <div className='flex flex-col col-start-7 col-span-3 items-center'>
-                <CardTerms img={VisionCards.Education.img} altText={VisionCards.Education.altText} title={VisionCards.Education.title} description={VisionCards.Education.description} />
-                </div>
+            <div className='grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 gap-2 mb-[40vh]'>
+            <div className='flex flex-col items-center mb-[5vh] md:col-start-4 md:col-span-3 lg:col-start-4 lg:col-span-2'>
+            <CardTerms img={VisionCards.Business.img} altText={VisionCards.Business.altText} title={VisionCards.Business.title} description={VisionCards.Business.description} />
             </div>
-            <div className='block md:grid md:grid-cols-12 gap-2'>
-                <div className='flex flex-col col-start-4 col-span-3 items-center'>
-                    <CardTerms img={VisionCards.Accessibility.img} altText={VisionCards.Accessibility.altText} title={VisionCards.Accessibility.title} description={VisionCards.Accessibility.description} />
-                    </div>
-                    <div className='flex flex-col col-start-7 col-span-3 items-center pt-0 md:pb-0'>
-                    <CardTerms img={VisionCards.Health.img} altText={VisionCards.Health.altText} title={VisionCards.Health.title} description={VisionCards.Health.description} />
-                    </div>
+            <div className='flex flex-col items-center mb-[5vh] md:col-start-7 md:col-span-3 lg:col-start-6 lg:col-span-2'>
+            <CardTerms img={VisionCards.Education.img} altText={VisionCards.Education.altText} title={VisionCards.Education.title} description={VisionCards.Education.description} />
             </div>
-            <div className='block md:grid md:grid-cols-12 gap-2 mb-[40vh]'>
-            <div className='flex flex-col col-start-4 col-span-3 items-center mb-[5vh]'>
-                <CardTerms img={VisionCards.Civic_Engagement.img} altText={VisionCards.Civic_Engagement.altText} title={VisionCards.Civic_Engagement.title} description={VisionCards.Civic_Engagement.description} />
-                </div>
-                <div className='flex flex-col col-start-7 col-span-3 items-center'>
-                <CardTerms img={VisionCards.Workforce.img} altText={VisionCards.Workforce.altText} title={VisionCards.Workforce.title} description={VisionCards.Workforce.description} />
-                </div>
+            <div className='flex flex-col items-center mb-[5vh] md:col-start-4 md:col-span-3 lg:col-start-8 lg:col-span-2'>
+            <CardTerms img={VisionCards.Accessibility.img} altText={VisionCards.Accessibility.altText} title={VisionCards.Accessibility.title} description={VisionCards.Accessibility.description} />
             </div>
-            
+            <div className='flex flex-col items-center mb-[5vh] md:col-start-7 md:col-span-3 lg:col-start-4 lg:col-span-2'>
+            <CardTerms img={VisionCards.Health.img} altText={VisionCards.Health.altText} title={VisionCards.Health.title} description={VisionCards.Health.description} />
+            </div>
+            <div className='flex flex-col items-center mb-[5vh] md:col-start-4 md:col-span-3 lg:col-start-6 lg:col-span-2'>
+            <CardTerms img={VisionCards.Civic_Engagement.img} altText={VisionCards.Civic_Engagement.altText} title={VisionCards.Civic_Engagement.title} description={VisionCards.Civic_Engagement.description} />
+            </div>
+            <div className='flex flex-col items-center mb-[5vh] md:col-start-7 md:col-span-3 lg:col-start-8 lg:col-span-2'>
+            <CardTerms img={VisionCards.Workforce.img} altText={VisionCards.Workforce.altText} title={VisionCards.Workforce.title} description={VisionCards.Workforce.description} />
+            </div>
+            </div>
         </div>
      );
 }
