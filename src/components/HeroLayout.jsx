@@ -4,6 +4,7 @@ import ScrollArrow from './ScrollArrow';
 import ButtonLight from './ButtonLight';
 import ButtonDark from './ButtonDark';
 import { Link, animateScroll as scroll } from 'react-scroll';
+import one from '../assets/1.jpg'
 
 const HeroLayout = () => {
   const scrollToNextSection = () => {
@@ -12,7 +13,7 @@ const HeroLayout = () => {
   };
 
   return (
-    <div className='z-50 w-full h-screen bg-[#FFFDF6] overflow-x-hidden'>
+    <div className='z-50 w-full h-screen bg-[#FFFDF6] md:overflow-x-hidden'>
       <div className='block md:grid md:grid-cols-12'>
         <div className='flex flex-col justify-center content-center p-4 md:p-0 md:col-span-5 md:col-start-2'>
           <p className='text-[#111] text-xs uppercase tracking-widest'>Texas Broadband Development Office</p>
@@ -34,7 +35,8 @@ const HeroLayout = () => {
           </div>
         </div>
         <div className='flex md:col-start-8 md:col-span-5 object-cover'>
-          <CarouselHero className='object-contain' />
+              <img src={one} className="h-screen object-cover"/>
+          {/* <CarouselHero className='object-contain' /> */}
         </div>
       </div>
     </div>
