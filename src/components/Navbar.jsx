@@ -19,7 +19,7 @@ const Navbar = () => {
       <div className='hidden md:flex ml-10 top-8 w-contain'>
         <a href="https://comptroller.texas.gov/programs/broadband/"><Logo /></a>
       </div>
-      <Link to='/'><h1 onClick={scrollToTop} className='w-full text-xs whitespace-nowrap uppercase font-bold text-[#111] tracking-widest  px-[3vw] md:px-[20vw]'>The Texas Digital Opportunity Plan</h1></Link>
+      <Link to='/'><h1 onClick={scrollToTop} className='w-full text-xs whitespace-nowrap uppercase font-bold text-[#111] tracking-widest  px-[5vw] md:px-[20vw]'>The Texas Digital Opportunity Plan</h1></Link>
       <ul className='hidden md:flex items-center'>
         <li className='p-8 uppercase tracking-widest text-xs'><NavDropDown /></li>
         <Link to='/about'><li className='p-8 uppercase tracking-widest text-xs'>About</li></Link>
