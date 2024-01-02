@@ -19,14 +19,15 @@ const HeroLayout = () => {
           <p className='text-[#111] text-xs uppercase tracking-widest'>Texas Broadband Development Office</p>
           <h1 className='md:text-6xl sm:text-2xl text-2xl font-semibold py-6 uppercase tracking-widest'>The Texas Digital Opportunity Plan</h1>
           <p className='font-sans'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos nihil, qui quisquam reprehenderit, maxime dicta officiis saepe provident, aperiam incidunt id quis dolor delectus deserunt accusamus exercitationem ipsum.
+            Explore this site to learn about the issues surrounding internet service and use across the state. Download data needed for grant applications. Support digital opportunity in Texas. 
+            {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos nihil, qui quisquam reprehenderit, maxime dicta officiis saepe provident, aperiam incidunt id quis dolor delectus deserunt accusamus exercitationem ipsum. */}
           </p>
           <div className='flex justify-between py-8 w-full font-sans'> 
             <ButtonDark text='Interactive Plan' className='flex-1'></ButtonDark>
             <ButtonLight text='Data Dashboards' className='flex-1'></ButtonLight>
           </div>
           <div className='mx-auto justify-center content-center text-center'>
-            <p className='font-sans'>Click to explore the Texas Digital Opportunity Plan</p>
+            <p className='font-sans'>Scroll to explore the Texas Digital Opportunity Plan</p>
             <div className='flex justify-center py-8'>
               <Link to='intro' smooth={true} duration={800}>
                 <ScrollArrow onClick={scrollToNextSection} />
