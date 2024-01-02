@@ -40,7 +40,7 @@ const DualMap = () => {
         };
         fetchDatas();
       }, []);
-      console.log(data);
+    //   console.log(data);
 
 useEffect(() => {
     if (!map1.current) {

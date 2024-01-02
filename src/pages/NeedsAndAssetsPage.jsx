@@ -11,20 +11,23 @@ import GoalsSection from '../components/GoalsSection';
 
 
 const NeedsAndAssetsPage = () => {
-  const header =
+  const Header = () =>(
   <ScrollableTitle 
   img={NeedsCards.Header.img}
   altText={NeedsCards.Header.altText}
   title={NeedsCards.Header.title}
-  />
-  const header2 = <GoalsSection   
+  />)
+
+  const Goals1 = () => (
+  <GoalsSection   
   img={NeedsCards.Goal1.img}
   altText={NeedsCards.Goal1.altText}
   title={NeedsCards.Goal1.title} 
   description={NeedsCards.Goal1.description}
   />
+  )
 
-  const sections = [header, <NeedsOne />, header2, <ScrollytellingComponent />];
+  const sections = [<Header />, <NeedsOne />, <Goals1 />, <ScrollytellingComponent />, <Goals1 />];
   const [activeSection, setActiveSection] = useState(0);
 
   const handleSectionClick = (index) => {

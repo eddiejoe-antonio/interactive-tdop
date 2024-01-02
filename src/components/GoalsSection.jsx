@@ -4,21 +4,6 @@ import NeedsCards from './NeedsCards'
 import ScrollElement from 'react-scroll/modules/mixins/scroll-element';
 
 const GoalsSection = ({ img, description, title }) => {
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const initialPosition = window.innerHeight / 4;
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollPosition(window.scrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   return (
     <div className="relative w-screen md:h-[110vh] h-full py-10 md:py-0" style={{ background: `url(${img})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
       <div className='px-[20%] z-10 w-full'>

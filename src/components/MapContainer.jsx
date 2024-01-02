@@ -32,7 +32,7 @@ const MapContainer = () => {
                 body: JSON.stringify(requestBody)
             });
             const data = await res.json();
-            console.log(data);
+            // console.log(data);
             setBoundaryData(data?.boundaries[2022]);
         };
 
@@ -40,7 +40,11 @@ const MapContainer = () => {
             const requestTwo = [
                 {
                     "geoId": "48",
-                    "id": "6582102b903ab0943c07dbf8"
+                    "id": "6582102b903ab0943c07dbf8",
+                    "regionSetup":{
+                        "peers": "none",
+                        "segments": "county"
+                    }
                 }
             ];
             const res = await fetch("https://api.hra-dashtest.com/v3/reports/65820ff1903ab0943c07dbc6/output/charts", {
@@ -55,7 +59,7 @@ const MapContainer = () => {
         fetchBoundaryData();
         fetchChoroplethData();
     }, []);
-    console.log(boundaryData);
+    // console.log(boundaryData);
 
     const aggregatedChoroplethData = useMemo(() => {
         return choroplethData ? choroplethData.data.reduce((acc, item) => {
@@ -95,12 +99,15 @@ const MapContainer = () => {
             const geoId = boundaryItem.geoId;
 
             if (aggregatedChoroplethData[geoId]) {
+                const noInternetProportion = aggregatedChoroplethData[geoId]['households_no_internet'] / aggregatedChoroplethData[geoId]['households_total_households'];
+
                 features.push({
                     type: 'Feature',
                     geometry: boundaryItem.feature.geometry,
                     properties: {
                         ...aggregatedChoroplethData[geoId],
                         ...boundaryItem.feature.properties,
+                        noInternetProportion: noInternetProportion  // Add the calculated proportion to the properties
                     },
                 });
             } else {
@@ -132,15 +139,15 @@ const MapContainer = () => {
                 paint: {
                     'fill-color': [
                         'step',
-                        ['to-number', ['get', 'households_no_internet']], // Convert 'households' to a number
+                        ['to-number', ['get', 'noInternetProportion']], // Convert 'households' to a number
                         '#ffffff',
-                        2000, '#C9DCF7',
-                        5000, '#96AFD3',
-                        7000, '#6481B0',
-                        10000, '#32548C',
-                        12000, '#002768'
+                        0.05, '#C9DCF7',
+                        0.15, '#96AFD3',
+                        0.25, '#6481B0',
+                        0.35, '#32548C',
+                        0.45, '#002768'
                     ],
-                    'fill-opacity': 0.75
+                    'fill-opacity': 0.9
                 }
             }, 'settlement-subdivision-label');
 
@@ -158,15 +165,15 @@ const MapContainer = () => {
                            .setHTML(`      
                            <strong class="font-sans uppercase">${feature.properties.NAME} County</strong>
                            <hr class="my-2"/>
-                           Households with No Internet Subscription: 
-                           <span class="font-bold">${feature.properties.households_no_internet}</span>
+                           Share of households with No Internet Subscription: 
+                           <span class="font-bold">${feature.properties.noInternetProportion}</span>
                            `)
                            .addTo(map.current);
     
                     // Highlight the hovered feature
                     map.current.setPaintProperty('regionLayer', 'fill-opacity', [
                         'case',
-                        ['==', ['get', 'households_no_internet'], feature.properties.households_no_internet],
+                        ['==', ['get', 'noInternetProportion'], feature.properties.noInternetProportion],
                         0.8, // Darken the selected region
                         0.6  // Original opacity for others
                     ]);
