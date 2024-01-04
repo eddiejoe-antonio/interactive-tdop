@@ -28,7 +28,7 @@ const NeedsAndAssetsPage = () => {
   />
   )
 
-  const sections = [<Header />, <NeedsOne />, <Goals1 />, <ScrollytellingComponent />, <Goals1 />];
+  const sections = [<Header />, <NeedsOne />, <NeedsTwo />];
   const [activeSection, setActiveSection] = useState(0);
 
   const handleSectionClick = (index) => {

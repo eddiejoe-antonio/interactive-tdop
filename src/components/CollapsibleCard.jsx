@@ -1,18 +1,19 @@
-import { Card, Accordion, AccordionItem, Grid, Text, Box } from '@mantine/core';
+import { Card, Accordion, AccordionItem, Grid, Text } from '@mantine/core';
+import ButtonLight from './ButtonLight'
 
-const CollapsibleCard = ({ goalNumber, taskNumber, color, goalTitle, description, leftPanelContent, rightPanelContent }) => {
+const CollapsibleCard = ({ goalNumber, taskNumber, color, goalTitle, description, targetText, leftPanelContent, rightPanelContent, strategy1, strategy2, strategy3 }) => {
 
     return (
         <Card shadow="sm" padding="0" radius="0" style={{background: '#FFFDF6'}} className='my-2'>
             <Accordion>
                 <AccordionItem value={`goal-${goalNumber}`}>
-                    <Accordion.Control style={{ display: 'flex', alignItems: 'center', background: '#ececec', border: 'none'}}>
+                    <Accordion.Control style={{ alignItems: 'center', background: '#ececec', border: 'none'}}>
                         <Grid className='uppercase font-sans' >
                             <Grid.Col span={2} style={{ display: 'flex', background: `${color}`}}>
-                                <Grid.Col span={7} style={{color: '#B9B9B9' }}>
+                                <Grid.Col span={{ base: 12, md: 7}}  style={{color: '#B9B9B9' }}>
                                     <Text size="xs" weight={300}>GOAL NO.{goalNumber} | </Text>
                                 </Grid.Col>
-                                <Grid.Col span={6} style={{color: '#FFF' }}>
+                                <Grid.Col span={{ base: 12, md: 6}}  style={{color: '#FFF' }}>
                                     <Text size="xs" weight={700}>Task {taskNumber}</Text>
                                 </Grid.Col>
                             </Grid.Col>
@@ -30,18 +31,58 @@ const CollapsibleCard = ({ goalNumber, taskNumber, color, goalTitle, description
                                 <Text className='font-bold text-xl'>{goalTitle}</Text>
                             </Grid.Col>
                         </Grid>
-                        <Grid>
-                            <Grid.Col span={6}>
+                        <Grid className='h-full'>
+                            <Grid.Col span={{ base: 12, md: 6}} className='my-4'>
                                 <Text className='text-xs mb-8'>{description}</Text>
                                 <h1 className='my-2 text-xs uppercase font-bold'>2030 Target</h1>
-                                <hr></hr>
-                                <Text className='text-xs mb-8 w-[50%]'>{description}</Text>
-                                {/* Left panel content, can be a React component */}
-                                {leftPanelContent}
-                                <Text className='text-xs'>{description}</Text>
+                                <hr className='my-2'></hr>
+                                <Grid>
+                                    <Grid.Col span={6}>
+                                    <Text className='text-xs'>{targetText}</Text>
+                                    </Grid.Col>
+                                    <Grid.Col span={6}>
+                                    {leftPanelContent}
+                                    </Grid.Col>
+                                </Grid>
+                                <h1 className='my-2 text-xs uppercase font-bold'>How will Texas get there?</h1>
+                                <hr className='my-2'></hr>
+                                <Text className='text-xs'>Texas will follow the following strategies to implement the state’s target goal: </Text>
+                                <Grid className='my-8'>
+                                    <Grid.Col span={4}>
+                                        <Grid>
+                                            <Grid.Col span={3}>
+                                                <Text className='text-lg font-bold'>1</Text>
+                                            </Grid.Col>
+                                            <Grid.Col span={9}>
+                                                <Text className='text-xs'>{strategy1}</Text>
+                                            </Grid.Col>
+                                        </Grid>
+                                    </Grid.Col>
+                                    <Grid.Col span={4}>
+                                        <Grid>
+                                            <Grid.Col span={3}>
+                                                <Text className='text-lg font-bold'>2</Text>
+                                            </Grid.Col>
+                                            <Grid.Col span={9}>
+                                                <Text className='text-xs'>{strategy2}</Text>
+                                            </Grid.Col>
+                                        </Grid>                                    
+                                    </Grid.Col>
+                                    <Grid.Col span={4}>
+                                        <Grid>
+                                            <Grid.Col span={3}>
+                                                <Text className='text-lg font-bold'>3</Text>
+                                            </Grid.Col>
+                                            <Grid.Col span={9}>
+                                                <Text className='text-xs'>{strategy3}</Text>
+                                            </Grid.Col>
+                                        </Grid>  
+                                    </Grid.Col>
+                                </Grid>
+                                <ButtonLight text='Dive deeper into broadband availability.'
+                                />             
                             </Grid.Col>
-                            <Grid.Col span={6}>
-                                {/* Right panel content, can be a React component */}
+                            <Grid.Col span={{ base: 12, md: 6}} className='my-4'>
                                 {rightPanelContent}
                             </Grid.Col>
                         </Grid>

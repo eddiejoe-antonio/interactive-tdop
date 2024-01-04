@@ -227,14 +227,14 @@ const MapContainer = () => {
     };
 
     return (
-        <div className='relative w-full h-screen'>
-            <select value={selectedCounty} onChange={handleCountySelect}
+        <div className='w-full h-full'>
+            {/* <select value={selectedCounty} onChange={handleCountySelect}
                 className="absolute top-10 left-0 m-5 h-10 z-10 shadow-xl bg-black text-white">
                 <option value="" className='bg-black'>Zoom to...</option>
                 {counties.map((county, index) => (
                     <option key={index} value={county.name} className='bg-black'>{county.name}</option>
                 ))}
-            </select>
+            </select> */}
             <div ref={mapContainer} className="h-full w-full" />
         </div>
     );
