@@ -1,8 +1,10 @@
-import TexasStripes from '../../components/TexasStripes';
 import CardTerms from '../../components/CardTerms';
 import VisionCards from '../../components/VisionCards'
 import 'react-dropdown/style.css';
 import { Menu, Button } from '@mantine/core'
+import CollapsibleCard from '../../components/CollapsibleCard';
+import MapContainer from '../../components/MapContainer';
+import SingleStackedBarChart from '../../components/SingleStackedBarChart';
 
 
 const VisionTwo = () => {

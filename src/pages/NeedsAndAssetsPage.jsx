@@ -8,6 +8,7 @@ import NeedsCards from '../components/NeedsCards';
 import ScrollableTitle from '../components/ScrollableTitle';
 import ScrollytellingComponent from '../components/ScrollytellingComponent';
 import GoalsSection from '../components/GoalsSection';
+import NeedsTwo from './content/NeedsTwo';
 
 
 const NeedsAndAssetsPage = () => {

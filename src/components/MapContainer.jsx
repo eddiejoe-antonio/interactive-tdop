@@ -99,7 +99,7 @@ const MapContainer = () => {
             const geoId = boundaryItem.geoId;
 
             if (aggregatedChoroplethData[geoId]) {
-                const noInternetProportion = aggregatedChoroplethData[geoId]['households_no_internet'] / aggregatedChoroplethData[geoId]['households_total_households'];
+                const noInternetProportion = (aggregatedChoroplethData[geoId]['households_no_internet'] / aggregatedChoroplethData[geoId]['households_total_households']).toFixed(3);
 
                 features.push({
                     type: 'Feature',
