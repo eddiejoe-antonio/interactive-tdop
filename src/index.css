@@ -8,6 +8,16 @@
   @tailwind base;
 }
 
+@layer utilities {
+  .rotate-y-180 {
+    --tw-rotate-y: 180deg;
+    transform: rotateY(var(--tw-rotate-y));
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+}
+
 body {
   font-family: 'Montserrat', Helvetica, sans-serif;
   background-color: #FFFDF6;

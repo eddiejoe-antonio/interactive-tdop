@@ -20,7 +20,7 @@ const NeedsAndAssetsPage = () => {
   />)
 
   const Goals1 = () => (
-  <GoalsSection   
+  <GoalsSection
   img={NeedsCards.Goal1.img}
   altText={NeedsCards.Goal1.altText}
   title={NeedsCards.Goal1.title} 
