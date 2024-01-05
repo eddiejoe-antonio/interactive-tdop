@@ -33,12 +33,12 @@ const CollapsibleCard = ({ goalNumber, taskNumber, color, goalTitle, description
                         </Grid>
                         <Grid className='h-full'>
                             <Grid.Col span={{ base: 12, md: 6}} className='my-4'>
-                                <Text className='text-xs mb-8'>{description}</Text>
+                                <div className='text-xs mb-8'>{description}</div> 
                                 <h1 className='my-2 text-xs uppercase font-bold'>2030 Target</h1>
                                 <hr className='my-2'></hr>
                                 <Grid>
                                     <Grid.Col span={6}>
-                                    <Text className='text-xs'>{targetText}</Text>
+                                    <div className='text-xs'>{targetText}</div>
                                     </Grid.Col>
                                     <Grid.Col span={6}>
                                     {leftPanelContent}

@@ -14,6 +14,7 @@ import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
 import DotsNav from './components/DotsNav';
 import { useInView } from 'react-intersection-observer';
+import { ScrollableTitleProvider } from './components/ScrollableTitleContext';
 
 const FadeInSection = ({ children }) => {
   const [ref, inView] = useInView({
@@ -40,7 +41,6 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState('');
   const [currentSection, setCurrentSection] = useState(0);
   const [showNav, setShowNav] = useState(false);
-  
 
   const handlePageChange = (pageName, sections) => {
     setCurrentPage({ name: pageName, sections });
@@ -61,9 +61,17 @@ const App = () => {
     };
   }, []);
 
-
+  const scrollToSection = (sectionName) => {
+    scroller.scrollTo(sectionName, {
+      duration: 800,
+      delay: 0,
+      smooth: 'easeInOutQuart',
+      offset: -50, // Adjust as needed
+    });
+  };
   return (
     <MantineProvider>
+    <ScrollableTitleProvider>
     {showNav && <Sidebar currentPage={currentPage} />}
     {showNav && <Navbar />}
     <Element name="hero">
@@ -101,11 +109,7 @@ const App = () => {
         <ConclusionPage handlePageChange={handlePageChange} />
         </FadeInSection>
       </Element>
-    {/* {sectionData.map((section, index) => (
-      <Element key={index} name={section.name}>
-        <FadeInSection>{section.component}</FadeInSection>
-      </Element>
-    ))} */}
+    </ScrollableTitleProvider>
     </MantineProvider>
   );
 };

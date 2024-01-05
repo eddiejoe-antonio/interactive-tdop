@@ -23,8 +23,7 @@ const NeedsTwo = () => {
             strategy2="Fund local partners"
             strategy3="Promote internet adoption"
         />
-
-            <CollapsibleCard
+        <CollapsibleCard
                 goalNumber="1"
                 taskNumber="2"
                 color="#002768"
@@ -34,8 +33,8 @@ const NeedsTwo = () => {
                 Certain regions of Texas have higher rates of subscription, while others are lower. At right, the map visualizes subscription rates for each of the twelve regions of the state."
                 leftPanelContent={<SingleStackedBarChart />}
                 rightPanelContent={<MapContainer />}
-            />
-            </div>
+        />
+        </div>
         </div>
     </div>
   )
