@@ -9,7 +9,7 @@ const StrategiesTwo = () => {
   return (
     <div className='w-full h-full bg-[#FFFDF6] px-4 font-sans'>
         <div className='grid md:grid-cols-12'>
-            <div className='flex flex-col col-start-4 col-span-6 justify-center items-center pb-20'>
+            <div className='flex flex-col col-start-4 col-span-6 justify-center pb-20'>
                 <p className=''>
                 Click on the images to read about the strategies that will ensure the success of the Texas Digital Opportunity Plan.
                 </p>
