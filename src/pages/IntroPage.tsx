@@ -5,7 +5,6 @@ import IntroTwo from './content/IntroTwo';
 import ScrollableTitle from '../components/ScrollableTitle';
 import IntroCards from '../static/IntroCards';
 
-
 const IntroPage = ({ handlePageChange: _ }: { handlePageChange: Function }) => {
   const header = (
     <ScrollableTitle

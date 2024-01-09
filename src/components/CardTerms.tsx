@@ -58,10 +58,10 @@ const CardTerms = ({
         onClick={handleClick}
       >
         {/* Front of the card */}
-        <div style={flipCardStyles.front} className='bg-white shadow-sm md:hover:shadow-md'>
+        <div style={flipCardStyles.front} className='bg-[#111] shadow-sm md:hover:shadow-md '>
           <img src={img} alt={title} className='w-full h-[30vh] object-cover' />
           <div className='p-4'>
-            <p className='text-md'>{title}</p> {/* Updated this line */}
+            <p className='text-white text-md'>{title}</p> {/* Updated this line */}
           </div>
         </div>
 

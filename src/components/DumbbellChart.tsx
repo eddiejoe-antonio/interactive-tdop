@@ -20,10 +20,15 @@ const DumbbellChart = ({
     if (!data || data.length === 0) return;
 
     // Clear the SVG to prevent duplication
-    d3.select(ref.current as any  ).selectAll('*').remove();
+    d3.select(ref.current as any)
+      .selectAll('*')
+      .remove();
 
     // Create SVG canvas
-    const svg = d3.select(ref.current as any).attr('width', width).attr('height', height);
+    const svg = d3
+      .select(ref.current as any)
+      .attr('width', width)
+      .attr('height', height);
 
     // Create the scales for x and y axes
     const xScale = d3
