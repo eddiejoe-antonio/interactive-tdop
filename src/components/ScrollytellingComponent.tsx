@@ -17,7 +17,7 @@ class ScrollytellingComponent extends PureComponent {
     this.setState({ data: e.data });
   };
 
-  renderCustomContent = (content) => {
+  renderCustomContent = (content: any) => {
     if (React.isValidElement(content)) {
       return content;
     } else if (typeof content === 'string') {

@@ -1,14 +1,14 @@
 // App.js
 import { useState, useEffect } from 'react';
-import { Element as ScrollElement, animateScroll as scroll } from 'react-scroll';
+import { Element as ScrollElement } from 'react-scroll';
 import '@mantine/core/styles.css';
 import StrategiesCards from '../static/StrategiesCards';
 import ScrollableTitle from '../components/ScrollableTitle';
 import StrategiesTwo from './content/StrategiesTwo';
 import StrategiesOne from './content/StrategiesOne';
 
-const StrategiesPage = ({ handlePageChange }) => {
-  const [localSections, setLocalSections] = useState(['section1', 'section2']);
+const StrategiesPage = ({ handlePageChange }: { handlePageChange: Function }) => {
+  const [localSections] = useState(['section1', 'section2']);
 
   useEffect(() => {
     // Call handlePageChange when VisionPage mounts
@@ -22,7 +22,7 @@ const StrategiesPage = ({ handlePageChange }) => {
     />
   );
   const sections = [header, <StrategiesOne />, <StrategiesTwo />];
-  const [activeSection, setActiveSection] = useState(0);
+  // const [activeSection, setActiveSection] = useState(0);
 
   return (
     <>

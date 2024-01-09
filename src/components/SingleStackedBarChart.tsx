@@ -3,9 +3,9 @@
 import { useRef, useEffect, useState } from 'react';
 import * as d3 from 'd3';
 
-const SingleStackedBarChart = ({ width, height }: { width: number; height: number }) => {
-  const ref = useRef();
-  const [chartData, setChartData] = useState(null);
+const SingleStackedBarChart = ({ width, height }: { width: number; height: number , value?: number}) => {
+  const ref = useRef<HTMLElement>(null);
+  const [chartData, setChartData] = useState<number| null>(null);
   const [tooltip, setTooltip] = useState({ display: false, data: null });
 
   useEffect(() => {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Chart from './Chart';
 
-const Fetch = ({ requestBody }) => {
+const Fetch = () => {
   const [data, setData] = useState();
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const Fetch = ({ requestBody }) => {
 
   return (
     <div>
-      <Chart data={data} />
+      <Chart data={data as any} />
     </div>
   );
 };

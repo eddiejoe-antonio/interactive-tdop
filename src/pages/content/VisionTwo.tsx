@@ -1,10 +1,10 @@
 import CardTerms from '@/components/CardTerms';
-import VisionCards from '../../static/VisionCards';
+import VisionCards from '@/static/VisionCards';
 import 'react-dropdown/style.css';
 
 const VisionTwo = () => {
-  const options = ['one', 'two', 'three'];
-  const defaultOption = options[0];
+  // const options = ['one', 'two', 'three'];
+  // const defaultOption = options[0];
 
   return (
     <div className='w-full h-full bg-[#FFFDF6] px-4 font-sans'>

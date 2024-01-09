@@ -3,15 +3,15 @@ import SidebarItems from '../static/SidebarItems';
 import { Link } from 'react-scroll';
 import { ScrollableTitleContext } from './ScrollableTitleContext';
 
-function Sidebar() {
+function Sidebar({}: { currentPage: any}) {
   const { refs } = useContext(ScrollableTitleContext);
   const [isOverlapping, setIsOverlapping] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
-  const sidebarRef = useRef();
+  const sidebarRef = useRef<HTMLDivElement>(null);
 
   const checkOverlap = () => {
     if (sidebarRef.current) {
-      const sidebarRect = sidebarRef.current.getBoundingClientRect();
+      const sidebarRect = sidebarRef.current?.getBoundingClientRect();
       let newIsOverlapping = false;
 
       refs.forEach((ref) => {

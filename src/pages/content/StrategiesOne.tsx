@@ -1,5 +1,4 @@
 import 'react-dropdown/style.css';
-import { Menu, Button } from '@mantine/core';
 import TexasStripes from '@/components/TexasStripes';
 
 const StrategiesOne = () => {

@@ -1,3 +1,5 @@
+
+
 import { useRef, useEffect, useState } from 'react';
 import mapboxgl, { Map } from 'mapbox-gl';
 import { bbox } from '@turf/turf';
@@ -7,9 +9,9 @@ mapboxgl.accessToken =
   'pk.eyJ1IjoiZWRkaWVqb2VhbnRvbmlvIiwiYSI6ImNscGhtbmo1cTAzbjcyanRiMG9wcWJuZWIifQ.yG4IQ3nHdGUlgZCBkq9-Jw';
 
 const DualMap = () => {
-  const mapContainer1 = useRef<HTMLDivElement>();
+  const mapContainer1 = useRef<HTMLElement>(null);
   const map1 = useRef<Map>(null);
-  const mapContainer2 = useRef<HTMLDivElement>();
+  const mapContainer2 = useRef<HTMLElement>(null);
   const map2 = useRef<Map>(null);
   const [data, setData] = useState(null);
   const [selectedCounty1, setSelectedCounty1] = useState('');
@@ -90,71 +92,76 @@ const DualMap = () => {
 
     // Now we wait for the map to load
     map1.current.on('load', () => {
-      // Then we add the source and layer
-      if (map1.current.getSource('regionData')) {
-        map1.current.removeLayer('regionLayer');
-        map1.current.removeSource('regionData');
-      }
 
-      map1.current.addSource('regionData', {
-        type: 'geojson',
-        data: geojsonData,
-      });
-
-      map1.current.addLayer(
-        {
-          id: 'regionLayer',
-          type: 'fill',
-          source: 'regionData',
-          paint: {
-            'fill-color': [
-              'step',
-              ['get', 'ALAND'],
-              '#ffffff',
-              2000000000,
-              '#C9DCF7',
-              5000000000,
-              '#96AFD3',
-              7500000000,
-              '#6481B0',
-              10000000000,
-              '#32548C',
-              15000000000,
-              '#002768',
-            ],
-            'fill-opacity': 0.75,
-          },
-        },
-        'settlement-subdivision-label', // Add layer below labels,
-      );
-
-      map1.current.on('mousemove', 'regionLayer', (e) => {
-        if (e.features.length > 0) {
-          const feature = e.features[0];
-
-          // Set tooltip contents
-          tooltip
-            .setLngLat(e.lngLat)
-            .setHTML(
-              `<strong>${feature.properties.NAME} County </strong><hr />Land Area: ${feature.properties.ALAND}`,
-            )
-            .addTo(map1.current);
-
-          // Highlight the hovered feature
-          map1.current.setPaintProperty('regionLayer', 'fill-opacity', [
-            'case',
-            ['==', ['get', 'NAME'], feature.properties.NAME],
-            0.8, // Darken the selected region
-            0.6, // Original opacity for others
-          ]);
+      if(map1.current && map2.current) {
+        if (map1.current.getSource('regionData')) {
+          map1.current.removeLayer('regionLayer');
+          map1.current.removeSource('regionData');
         }
-      });
+  
+        map1.current.addSource('regionData', {
+          type: 'geojson',
+          data: geojsonData,
+        });
+  
+        map1.current.addLayer(
+          {
+            id: 'regionLayer',
+            type: 'fill',
+            source: 'regionData',
+            paint: {
+              'fill-color': [
+                'step',
+                ['get', 'ALAND'],
+                '#ffffff',
+                2000000000,
+                '#C9DCF7',
+                5000000000,
+                '#96AFD3',
+                7500000000,
+                '#6481B0',
+                10000000000,
+                '#32548C',
+                15000000000,
+                '#002768',
+              ],
+              'fill-opacity': 0.75,
+            },
+          },
+          'settlement-subdivision-label', // Add layer below labels,
+        );
+  
+        map1.current.on('mousemove', 'regionLayer', (e) => {
+          if (e.features.length > 0) {
+            const feature = e.features[0];
+  
+            // Set tooltip contents
+            tooltip
+              .setLngLat(e.lngLat)
+              .setHTML(
+                `<strong>${feature.properties.NAME} County </strong><hr />Land Area: ${feature.properties.ALAND}`,
+              )
+              .addTo(map1.current);
+  
+            // Highlight the hovered feature
+            map1.current.setPaintProperty('regionLayer', 'fill-opacity', [
+              'case',
+              ['==', ['get', 'NAME'], feature.properties.NAME],
+              0.8, // Darken the selected region
+              0.6, // Original opacity for others
+            ]);
+          }
+        });
+  
+        map1.current.on('mouseleave', 'regionLayer', () => {
+          tooltip.remove();
+          // Reset the layer style on mouse leave
+          map1.current.setPaintProperty('regionLayer', 'fill-opacity', 0.6);
+        });
 
-      map1.current.on('mouseleave', 'regionLayer', () => {
-        tooltip.remove();
-        // Reset the layer style on mouse leave
-        map1.current.setPaintProperty('regionLayer', 'fill-opacity', 0.6);
-      });
+      }
+      // Then we add the source and layer
+     
     });
   }, [data]);
   useEffect(() => {

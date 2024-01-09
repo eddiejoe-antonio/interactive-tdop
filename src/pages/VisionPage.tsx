@@ -1,8 +1,6 @@
 // App.js
 import {
   Element as ScrollElement,
-  Link as ScrollLink,
-  animateScroll as scroll,
 } from 'react-scroll';
 import '@mantine/core/styles.css';
 import VisionOne from './content/VisionOne';

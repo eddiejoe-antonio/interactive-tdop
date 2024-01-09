@@ -1,5 +1,3 @@
-import React from 'react'
-
 const IntroOne = () => {
   return (
         <div className='w-screen h-full md:h-screen px-4 font-sans'>
@@ -22,6 +20,6 @@ const IntroOne = () => {
             </div>
         </div>
      );
-}
+};
  
 export default IntroOne;

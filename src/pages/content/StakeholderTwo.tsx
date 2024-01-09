@@ -1,11 +1,9 @@
-import React from 'react';
-import { useDisclosure } from '@mantine/hooks';
-import IntroCards from '../../static/IntroCards';
+// import { useDisclosure } from '@mantine/hooks';
 import StakeholderCards from '../../types/StakeholderCards';
 import CardTerms from '@/components/CardTerms';
 
 const StakeholderTwo = () => {
-  const [opened, { toggle }] = useDisclosure(false);
+  // const [opened, { toggle }] = useDisclosure(false);
 
   return (
     <div className='w-full h-full bg-[#FFFDF6] px-4 font-sans'>

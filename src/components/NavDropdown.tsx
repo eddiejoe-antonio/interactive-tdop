@@ -8,7 +8,6 @@ const NavDropDown = () => {
           color='#FFFDF6'
           radius={0}
           className='uppercase text-xs tracking-widest font-light'
-          width='target'
           styles={{ label: { color: 'black' } }}
         >
           Navigate

@@ -1,10 +1,9 @@
-import React from 'react';
-import { useDisclosure } from '@mantine/hooks';
+// import { useDisclosure } from '@mantine/hooks';
 import StrategiesCards from '../../static/StrategiesCards';
 import CardTerms from '@/components/CardTerms';
 
 const StrategiesTwo = () => {
-  const [opened, { toggle }] = useDisclosure(false);
+  // const [opened, { toggle }] = useDisclosure(false);
 
   return (
     <div className='w-full h-full bg-[#FFFDF6] px-4 font-sans'>

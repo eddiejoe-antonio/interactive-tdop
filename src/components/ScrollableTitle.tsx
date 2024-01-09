@@ -1,7 +1,7 @@
-import React, { useRef, useEffect, useContext } from 'react';
+import { useRef, useEffect, useContext } from 'react';
 import { ScrollableTitleContext } from './ScrollableTitleContext'; // This context will be created
 
-const ScrollableTitle = ({ img, altText, title }: { img: string; altText?: string; title: string}) => {
+const ScrollableTitle = ({ img, title }: { img: string; altText?: string; title: string}) => {
   const ref = useRef();
   const { refs, addScrollableTitleRef } = useContext(ScrollableTitleContext);
 

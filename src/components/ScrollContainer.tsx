@@ -1,18 +1,15 @@
-import React from 'react';
 import ButtonLight from './ButtonLight.js';
-import Fetch from './Fetch';
 import SingleStackedBarChart from './SingleStackedBarChart.js';
 
 const ScrollContainer = ({
   title,
   text,
   buttonText,
-  imgHolder,
 }: {
   title: string;
   text: string;
   buttonText: string;
-  imgHolder: string;
+  imgHolder?: string;
 }) => {
   return (
     <div className='h-screen'>

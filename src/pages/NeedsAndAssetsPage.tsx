@@ -1,17 +1,12 @@
 // App.js
-import React, { useState, useEffect } from 'react';
-import DotsNav from '../components/DotsNav';
 import {
   Element as ScrollElement,
-  Link as ScrollLink,
-  animateScroll as scroll,
 } from 'react-scroll';
 import '@mantine/core/styles.css';
 import NeedsOne from './content/NeedsOne';
 import NeedsCards from '../static/NeedsCards';
 import ScrollableTitle from '../components/ScrollableTitle';
-import ScrollytellingComponent from '../components/ScrollytellingComponent';
-import GoalsSection from '../components/GoalsSection';
+// import GoalsSection from '../components/GoalsSection';
 import NeedsTwo from './content/NeedsTwo';
 
 const NeedsAndAssetsPage = () => {
@@ -23,22 +18,22 @@ const NeedsAndAssetsPage = () => {
     />
   );
 
-  const Goals1 = () => (
-    <GoalsSection
-      img={NeedsCards.Goal1.img}
-      altText={NeedsCards.Goal1.altText}
-      title={NeedsCards.Goal1.title}
-      description={NeedsCards.Goal1.description}
-    />
-  );
+  // const Goals1 = () => (
+  //   <GoalsSection
+  //     img={NeedsCards.Goal1.img}
+  //     // altText={NeedsCards.Goal1.altText}
+  //     title={NeedsCards.Goal1.title}
+  //     description={NeedsCards.Goal1.description}
+  //   />
+  // );
 
   const sections = [<Header />, <NeedsOne />, <NeedsTwo />];
-  const [activeSection, setActiveSection] = useState(0);
+  // const [activeSection, setActiveSection] = useState(0);
 
-  const handleSectionClick = (index) => {
-    setActiveSection(index);
-    scroll.scrollTo(`section${index + 1}`, { smooth: true, duration: 500 });
-  };
+  // const handleSectionClick = (index) => {
+  //   setActiveSection(index);
+  //   scroll.scrollTo(`section${index + 1}`, { smooth: true, duration: 500 });
+  // };
 
   return (
     <>

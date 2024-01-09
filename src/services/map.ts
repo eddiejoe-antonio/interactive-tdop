@@ -4,7 +4,7 @@ import baseApi from '@/app/baseApi';
 export const MapApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
 
-    getUsers: builder.query<any[], void>({
+    getMap: builder.query<any[], void>({
       // providesTags: (result) => {
       //   if (result) {
       //     console.log(result);
@@ -27,6 +27,5 @@ export const MapApi = baseApi.injectEndpoints({
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
 export const {
-  useGetMapDataQuery,
-  useCreateMapDataMutation,
+  useGetMapQuery,
 } = MapApi;

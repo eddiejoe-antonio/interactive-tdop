@@ -1,13 +1,13 @@
-import React, { createContext, useState } from 'react';
+import  { ReactNode, createContext, useState } from 'react';
 
-export const ScrollableTitleContext = createContext();
+export const ScrollableTitleContext = createContext({});
 
-export const ScrollableTitleProvider = ({ children }) => {
+export const ScrollableTitleProvider = ({ children }: { children: ReactNode }) => {
   const [refs, setRefs] = useState([]);
 
-  const addScrollableTitleRef = (newRef) => {
+  const addScrollableTitleRef = (newRef: any) => {
     // Function to add a new ref if it's not already included
-    setRefs((prevRefs) => {
+    setRefs((prevRefs: any) => {
       // Check if the ref is already included to prevent infinite updates
       return prevRefs.includes(newRef) ? prevRefs : [...prevRefs, newRef];
     });

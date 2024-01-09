@@ -1,15 +1,12 @@
 // IntroPage.js
-import React, { useState, useEffect } from 'react';
-import DotsNav from '../components/DotsNav';
-import { Element as ScrollElement, animateScroll as scroll } from 'react-scroll';
+import { Element as ScrollElement } from 'react-scroll';
 import IntroOne from './content/IntroOne';
 import IntroTwo from './content/IntroTwo';
 import ScrollableTitle from '../components/ScrollableTitle';
 import IntroCards from '../static/IntroCards';
-import Fetch from '../components/Fetch';
-import MapContainer from '../components/MapContainer';
 
-const IntroPage = ({ handlePageChange }) => {
+
+const IntroPage = ({ handlePageChange: _ }: { handlePageChange: Function }) => {
   const header = (
     <ScrollableTitle
       img={IntroCards.Header.img}
@@ -18,12 +15,12 @@ const IntroPage = ({ handlePageChange }) => {
     />
   );
   const sections = [header, <IntroOne />, <IntroTwo />];
-  const [activeSection, setActiveSection] = useState(0);
+  // const [activeSection, setActiveSection] = useState(0);
 
-  const handleSectionClick = (index) => {
-    setActiveSection(index);
-    scroll.scrollTo(`section${index + 1}`, { smooth: true, duration: 500 });
-  };
+  // const handleSectionClick = (index) => {
+  //   setActiveSection(index);
+  //   scroll.scrollTo(`section${index + 1}`, { smooth: true, duration: 500 });
+  // };
 
   return (
     <>

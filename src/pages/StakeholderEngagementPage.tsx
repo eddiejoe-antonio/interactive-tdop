@@ -1,9 +1,6 @@
 // App.js
-import { useState } from 'react';
 import {
   Element as ScrollElement,
-  Link as ScrollLink,
-  animateScroll as scroll,
 } from 'react-scroll';
 import '@mantine/core/styles.css';
 import StakeholderTwo from './content/StakeholderTwo';
@@ -16,12 +13,12 @@ const StakeholderEngagementPage = () => {
     <ScrollableTitle img={StakeholderCards.Header.img} title={StakeholderCards.Header.title} />
   );
   const sections = [header, <StakeholderOne />, <StakeholderTwo />];
-  const [activeSection, setActiveSection] = useState(0);
+  // const [activeSection, setActiveSection] = useState(0);
 
-  const handleSectionClick = (index) => {
-    setActiveSection(index);
-    scroll.scrollTo(`section${index + 1}`, { smooth: true, duration: 500 });
-  };
+  // const handleSectionClick = (index) => {
+  //   setActiveSection(index);
+  //   scroll.scrollTo(`section${index + 1}`, { smooth: true, duration: 500 });
+  // };
 
   return (
     <>

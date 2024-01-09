@@ -6,20 +6,24 @@ const DumbbellChart = ({
   width = window.innerWidth / 2.5,
   height = window.innerHeight / 2,
 }: {
-  data: any;
+  data: {
+    name: string;
+    startValue: number;
+    endValue: number;
+  }[];
   width: number;
   height: number;
 }) => {
-  const ref = useRef();
+  const ref = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
     if (!data || data.length === 0) return;
 
     // Clear the SVG to prevent duplication
-    d3.select(ref.current).selectAll('*').remove();
+    d3.select(ref.current as any  ).selectAll('*').remove();
 
     // Create SVG canvas
-    const svg = d3.select(ref.current).attr('width', width).attr('height', height);
+    const svg = d3.select(ref.current as any).attr('width', width).attr('height', height);
 
     // Create the scales for x and y axes
     const xScale = d3

@@ -1,18 +1,15 @@
 // App.js
-import React, { useState, useEffect } from 'react';
-import DotsNav from '../components/DotsNav';
+import  { useState, useEffect } from 'react';
 import {
   Element as ScrollElement,
-  Link as ScrollLink,
-  animateScroll as scroll,
 } from 'react-scroll';
 import '@mantine/core/styles.css';
-import ConclusionCards from '../static/ConclusionCards';
-import ScrollableTitle from '../components/ScrollableTitle';
 import ConclusionOne from './content/ConclusionOne';
+import ConclusionCards from '@/static/ConclusionCards';
+import ScrollableTitle from '@/components/ScrollableTitle';
 
-const ConclusionPage = ({ handlePageChange }) => {
-  const [localSections, setLocalSections] = useState(['section1', 'section2', 'section3']);
+const ConclusionPage = ({ handlePageChange }: { handlePageChange: Function }) => {
+  const [localSections] = useState(['section1', 'section2', 'section3']);
   const header = (
     <ScrollableTitle
       img={ConclusionCards.Header.img}
@@ -21,12 +18,12 @@ const ConclusionPage = ({ handlePageChange }) => {
     />
   );
   const sections = [header, <ConclusionOne />];
-  const [activeSection, setActiveSection] = useState(0);
+  // const [activeSection, setActiveSection] = useState(0);
 
-  const handleSectionClick = (index) => {
-    setActiveSection(index);
-    scroll.scrollTo(`section${index + 1}`, { smooth: true, duration: 500 });
-  };
+  // const handleSectionClick = (index) => {
+  //   setActiveSection(index);
+  //   scroll.scrollTo(`section${index + 1}`, { smooth: true, duration: 500 });
+  // };
 
   useEffect(() => {
     // Call handlePageChange when VisionPage mounts
