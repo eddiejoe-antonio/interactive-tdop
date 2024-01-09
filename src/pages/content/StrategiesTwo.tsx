@@ -52,9 +52,8 @@ const StrategiesTwo = () => {
       <div className='grid md:grid-cols-12'>
         <div className='flex flex-col col-start-4 col-span-6 justify-center items-center pt-[10vh] pb-[40vh]'>
           <p>
-            The BDO’s four strategies will be implemented in collaboration with State agencies,
-            local partners, community members, and others from the Texas digital opportunity
-            ecosystem.{' '}
+            The BDO will implement the four strategies in collaboration with State agencies, local
+            partners, community members, and others from the Texas digital opportunity ecosystem.{' '}
           </p>
         </div>
       </div>

@@ -11,10 +11,10 @@ const CollapsibleCard = ({
   targetText,
   leftPanelContent,
   rightPanelContent,
-  strategy1,
-  strategy2,
-  strategy3,
-}) => {
+  strategies,
+}): {
+  any;
+} => {
   const [isOpen, setIsOpen] = useState(false);
   const [height, setHeight] = useState(0);
   const contentRef = useRef(null);
@@ -78,18 +78,12 @@ const CollapsibleCard = ({
               <h1 className='text-xs uppercase font-bold my-2'>How will Texas get there?</h1>
               <hr className='my-2' />
               <div className='grid grid-cols-12 gap-4 my-8'>
-                <div className='col-span-12 md:col-span-4'>
-                  <div className='text-lg font-bold'>1</div>
-                  <div className='text-xs'>{strategy1}</div>
-                </div>
-                <div className='col-span-12 md:col-span-4'>
-                  <div className='text-lg font-bold'>2</div>
-                  <div className='text-xs'>{strategy2}</div>
-                </div>
-                <div className='col-span-12 md:col-span-4'>
-                  <div className='text-lg font-bold'>3</div>
-                  <div className='text-xs'>{strategy3}</div>
-                </div>
+                {strategies.map((strategy, index) => (
+                  <div key={index} className={`col-span-12 md:col-span-${12 / strategies.length}`}>
+                    <div className='text-lg font-bold'>{index + 1}</div>
+                    <div className='text-xs'>{strategy}</div>
+                  </div>
+                ))}
               </div>
               <ButtonLight text='Dive deeper into broadband availability.' />
             </div>

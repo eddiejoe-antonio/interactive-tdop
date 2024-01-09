@@ -1,5 +1,5 @@
 // import { useDisclosure } from '@mantine/hooks';
-import StakeholderCards from '../../types/StakeholderCards';
+import StakeholderCards from '@/static/StakeholderCards';
 import CardTerms from '@/components/CardTerms';
 
 const StakeholderTwo = () => {
@@ -11,7 +11,7 @@ const StakeholderTwo = () => {
         <div className='flex flex-col col-start-4 col-span-6 justify-center pb-20'>
           <p className=''>
             Click on the images to read about the stakeholders who took part in this plan or scroll
-            on to learn more about the Texas Digital Opportunity Plan. 
+            on to learn more about the Texas Digital Opportunity Plan.
           </p>
         </div>
       </div>

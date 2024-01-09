@@ -1,8 +1,8 @@
 const NeedsCards = {
   Header: {
     img: 'NeedsAndAssets.jpeg',
-    altText: 'Needs and Assets',
-    title: 'DIGITAL OPPORTUNITY NEEDS AND ASSETS',
+    altText: 'Goals, Targets and Tasks ',
+    title: 'Goals, Targets and Tasks ',
     description: '',
   },
   Goal1: {

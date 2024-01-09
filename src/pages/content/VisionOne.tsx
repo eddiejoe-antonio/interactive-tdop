@@ -10,13 +10,14 @@ const VisionOne = () => {
             {/* <h1 className='md:text-6xl sm:text-2xl text-2xl py-6 font-light uppercase tracking-widest'>Vision and Purpose</h1> */}
             <TexasStripes />
             <p className='py-12 font-sans'>
-              The TDOP sets the BDO’s vision and goals for digital opportunity in the state,
-              assesses the current state of access and barriers to digital opportunities, outlines
-              how the BDO will collaborate with stakeholders to address challenges, and describes
-              the strategies and actions the BDO will take to realize its vision and goals.  
+              The Texas Digital Opportunity Plan sets the BDO’s vision and goals for digital
+              opportunity in the state, assesses the current state of access and barriers to digital
+              opportunity, outlines how the BDO will collaborate with stakeholders to address
+              challenges and describes the strategies and actions the BDO will take to realize its
+              vision and goals.
             </p>
             <p className='py-12'>
-              The BDO’s vision for digital opportunity is:
+              Texas’ vision for digital opportunity:
               <br />
               <br />
               <strong>
