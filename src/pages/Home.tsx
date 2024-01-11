@@ -78,9 +78,7 @@ const Home = () => {
           </FadeInSection>
         </Element>
         <Element name='intro'>
-          <FadeInSection>
-            <IntroPage handlePageChange={handlePageChange} />
-          </FadeInSection>
+          <IntroPage handlePageChange={handlePageChange} />
         </Element>
         <Element name='vision'>
           <FadeInSection>

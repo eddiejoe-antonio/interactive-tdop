@@ -6,9 +6,9 @@ const IntroTwo = () => {
   // const [opened, { toggle }] = useDisclosure(false);
 
   return (
-    <div className='w-full h-full bg-[#FFFDF6] px-4 font-sans'>
+    <div className='w-full h-full bg-[#ececec] font-sans'>
       <div className='grid md:grid-cols-12'>
-        <div className='flex flex-col col-start-4 col-span-6 justify-center pt-20 pb-20'>
+        <div className='flex flex-col col-start-3 col-span-9 justify-center pt-20 pb-20'>
           <p className=''>
             The Digital Opportunity Plan contains some technical language to refer to proven methods
             to expand digital opportunity.
@@ -20,7 +20,7 @@ const IntroTwo = () => {
         </div>
       </div>
       <div className='grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 gap-2 mb-[40vh]'>
-        <div className='flex flex-col items-center mb-[5vh] md:col-start-4 md:col-span-3 lg:col-start-4 lg:col-span-2'>
+        <div className='flex flex-col items-center mb-[5vh] md:col-start-4 md:col-span-3 lg:col-start-3 lg:col-span-3'>
           <CardTerms
             img={IntroCards.Broadband.img}
             altText={IntroCards.Broadband.altText}
@@ -28,7 +28,7 @@ const IntroTwo = () => {
             description={IntroCards.Broadband.description}
           />
         </div>
-        <div className='flex flex-col items-center mb-[5vh] md:col-start-7 md:col-span-3 lg:col-start-6 lg:col-span-2'>
+        <div className='flex flex-col items-center mb-[5vh] md:col-start-7 md:col-span-3 lg:col-start-6 lg:col-span-3'>
           <CardTerms
             img={IntroCards.Affordable_Access.img}
             altText={IntroCards.Affordable_Access.altText}
@@ -36,7 +36,7 @@ const IntroTwo = () => {
             description={IntroCards.Affordable_Access.description}
           />
         </div>
-        <div className='flex flex-col items-center mb-[5vh] md:col-start-4 md:col-span-3 lg:col-start-8 lg:col-span-2'>
+        <div className='flex flex-col items-center mb-[5vh] md:col-start-4 md:col-span-3 lg:col-start-9 lg:col-span-3'>
           <CardTerms
             img={IntroCards.Digital_Literacy.img}
             altText={IntroCards.Digital_Literacy.altText}

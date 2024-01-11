@@ -23,13 +23,13 @@ const Navbar = () => {
       <Link to='/'>
         <h1
           onClick={scrollToTop}
-          className='w-full text-xs whitespace-nowrap uppercase font-bold text-[#111] tracking-widest  px-[5vw] md:px-[20vw]'
+          className='w-full text-xs whitespace-nowrap uppercase font-bold text-[#111] tracking-widest  px-[5vw] md:pl-[12vw]'
         >
           The Texas Digital Opportunity Plan
         </h1>
       </Link>
       <ul className='hidden md:flex items-center'>
-        <li className='p-8 uppercase tracking-widest text-xs'>
+        <li className='pl-[20vw] p-8 uppercase tracking-widest text-xs'>
           <NavDropDown />
         </li>
         <Link to='/about'>

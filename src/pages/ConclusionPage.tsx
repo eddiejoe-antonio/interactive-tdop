@@ -1,8 +1,6 @@
 // App.js
-import  { useState, useEffect } from 'react';
-import {
-  Element as ScrollElement,
-} from 'react-scroll';
+import { useState, useEffect } from 'react';
+import { Element as ScrollElement } from 'react-scroll';
 import '@mantine/core/styles.css';
 import ConclusionOne from './content/ConclusionOne';
 import ConclusionCards from '@/static/ConclusionCards';

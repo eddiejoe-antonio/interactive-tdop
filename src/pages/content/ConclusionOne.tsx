@@ -6,7 +6,7 @@ import ButtonLight from '@/components/ButtonLight';
 
 const ConclusionOne = () => {
   return (
-    <div className='w-full h-screen px-4 font-sans'>
+    <div className='bg-[#FFFDF6] w-full h-screen px-4 font-sans'>
       <div className='grid md:grid-cols-12 font-sans'>
         <div className='font-sans flex flex-col md:col-start-4 md:col-span-6 justify-center pt-[10vh]'>
           <TexasStripes />
