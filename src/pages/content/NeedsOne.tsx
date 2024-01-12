@@ -5,10 +5,6 @@ import 'react-dropdown/style.css';
 const NeedsOne = () => {
   return (
     <div>
-      <ScrollytellingWithFixedBackground
-        id='unique-id-2'
-        backgroundImagePath='DigitalLiteracy.jpg'
-      />
       <div className='w-full h-full bg-[#FFFDF6] px-4 font-sans'>
         <div className='grid md:grid-cols-12'>
           <div className='flex flex-col md:col-start-4 md:col-span-6 justify-center items-center py-[10vh]'>
