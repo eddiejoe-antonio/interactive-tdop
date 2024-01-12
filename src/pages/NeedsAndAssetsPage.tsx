@@ -16,7 +16,7 @@ const NeedsAndAssetsPage = () => {
     />
   );
 
-  const sections = [<Header />, <NeedsOne />, <NeedsTwo />];
+  const sections = [<NeedsOne />, <NeedsTwo />];
 
   return (
     <>

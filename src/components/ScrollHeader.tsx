@@ -4,52 +4,53 @@ import { Scrollama, Step } from 'react-scrollama';
 class ScrollytellingWithFixedBackground extends PureComponent {
   state = {
     activeStepIndex: 0,
-    pastLastStep: false, // New state to determine when we've scrolled past the last step
+    isBackgroundVisible: false,
+  };
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll = () => {
+    const { id } = this.props;
+    const element = document.getElementById(id);
+    const rect = element.getBoundingClientRect();
+    const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+    this.setState({ isBackgroundVisible: isVisible });
   };
 
   onStepEnter = ({ data }) => {
-    // If we're entering any step, the background should be fixed
-    this.setState({ activeStepIndex: data, pastLastStep: false });
-  };
-
-  onStepExit = ({ direction, data }) => {
-    const { steps } = this.props;
-    // When exiting the last step going down, we'll set `pastLastStep` to true
-    if (data === steps.length - 1 && direction === 'down') {
-      this.setState({ pastLastStep: true });
-    }
-    // When scrolling back up at the first step, we should no longer be past the last step
-    if (data === 0 && direction === 'up') {
-      this.setState({ pastLastStep: false });
-    }
+    this.setState({ activeStepIndex: data });
   };
 
   render() {
-    const { activeStepIndex, pastLastStep } = this.state;
-    const { steps, backgroundImagePath } = this.props;
+    const { activeStepIndex, isBackgroundVisible } = this.state;
+    const { steps, backgroundImagePath, id } = this.props;
 
     return (
-      <div style={{ position: 'relative', overflow: 'hidden' }}>
-        {/* Background image */}
-        <div
-          style={{
-            position: 'fixed',
-            width: '100%',
-            height: '100vh',
-            backgroundImage: `url(${backgroundImagePath})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center center',
-            top: 0,
-            left: 0,
-            zIndex: -1,
-            // When past the last step, we prepare the background to be covered
-            transform: pastLastStep ? 'translateY(-100vh)' : 'none',
-            transition: 'transform 0.5s ease-in-out',
-          }}
-        />
-
-        {/* Scrollytelling content */}
-        <Scrollama onStepEnter={this.onStepEnter} onStepExit={this.onStepExit} offset={0.5}>
+      <div id={id} style={{ position: 'relative', overflow: 'hidden' }}>
+        {isBackgroundVisible && (
+          <div
+            style={{
+              position: 'fixed',
+              width: '100%',
+              height: '100vh',
+              backgroundImage: `url(${backgroundImagePath})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center center',
+              top: 0,
+              left: 0,
+              zIndex: -1,
+              transform: activeStepIndex === steps.length - 1 ? 'translateY(0)' : 'none',
+              transition: 'transform 0.5s ease-in-out',
+            }}
+          />
+        )}
+        <Scrollama onStepEnter={this.onStepEnter}>
           {steps.map((stepContent, index) => (
             <Step data={index} key={index}>
               <div
@@ -63,11 +64,11 @@ class ScrollytellingWithFixedBackground extends PureComponent {
               >
                 <div
                   style={{
-                    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                    backgroundColor: 'rgba(0, 0, 0, 0.9)',
                     color: 'white',
-                    padding: '20px',
-                    maxWidth: '600px',
-                    textAlign: 'center',
+                    padding: '2rem',
+                    maxWidth: '35rem',
+                    margin: '2rem',
                   }}
                 >
                   {stepContent}
@@ -76,9 +77,7 @@ class ScrollytellingWithFixedBackground extends PureComponent {
             </Step>
           ))}
         </Scrollama>
-
-        {/* The following content on the page */}
-        <div style={{ minHeight: '100vh' }}></div>
+        <div style={{ minHeight: '50vh' }}></div>
       </div>
     );
   }
@@ -86,112 +85,47 @@ class ScrollytellingWithFixedBackground extends PureComponent {
 
 ScrollytellingWithFixedBackground.defaultProps = {
   steps: [
-    <div>Your text or component for step 1</div>,
-    <div>Your text or component for step 2</div>,
-    <div>Your text or component for step 3</div>,
-    // Add as many steps as needed
+    <div>
+      {/* <h1 className='uppercase py-2'>Introduction</h1> */}
+      <p>
+        More and more each day, our lives depend on using the internet. Once a luxury, the internet
+        has now become{' '}
+        <strong>a necessity for access to health, education, employment, and many services.</strong>
+      </p>
+    </div>,
+    <div>
+      <p>
+        Yet <strong>not all Texas residents experience the same digital opportunity.</strong> Some
+        Texans thrive in the digital world, while others struggle just to find an internet
+        connection.
+      </p>
+    </div>,
+    <div>
+      <p>
+        In 2023, the Texas Broadband Development Office (BDO) brought together people and
+        communities from across the state to ask about the barriers and challenges that Texans face
+        when they try to get online and use the internet. They also asked about who is already
+        working to support the digital needs of Texas communities, and how they’re doing it.
+      </p>
+    </div>,
+    <div>
+      <p>
+        <strong>Based on what the BDO heard from you,</strong> they built a plan for a new state of
+        digital opportunity in Texas, in which every Texan has access to:
+      </p>
+      <ul className='list-disc my-4 mx-4'>
+        <li>high-quality, affordable broadband internet service</li>
+        <li>high-quality, affordable internet-enabled devices;</li>
+        <li>digital skills liaining;</li>
+        <li>and cybersecurity protection.</li>
+      </ul>
+    </div>,
+    <div>
+      <p>Scroll on to learn more about the Texas Digital Opportunity Plan!</p>
+    </div>,
   ],
-  backgroundImagePath:
-    'https://thumbnails.texastribune.org/SyIpz8gqP5L5JHeM298apD40-fs=/850x478/smart/https://static.texastribune.org/media/files/19c99721b34223c55f9367bb5a1c7a3c/0320%20Rural%20WiFi%20MF%2001%20TT.jpg',
+  backgroundImagePath: '', // Default background image path
+  id: 'scrollytelling-component', // Default ID
 };
 
 export default ScrollytellingWithFixedBackground;
-
-// import React, { PureComponent } from 'react';
-// import { Scrollama, Step } from 'react-scrollama';
-
-// class ScrollytellingWithFixedBackground extends PureComponent {
-//   state = {
-//     activeStepIndex: 0,
-//     pastLastStep: false, // New state to determine when we've scrolled past the last step
-//   };
-
-//   onStepEnter = ({ data }) => {
-//     // If we're entering any step, the background should be fixed
-//     this.setState({ activeStepIndex: data, pastLastStep: false });
-//   };
-
-//   onStepExit = ({ direction, data }) => {
-//     const { steps } = this.props;
-//     // When exiting the last step going down, we'll set `pastLastStep` to true
-//     if (data === steps.length - 1 && direction === 'down') {
-//       this.setState({ pastLastStep: true });
-//     }
-//     // When scrolling back up at the first step, we should no longer be past the last step
-//     if (data === 0 && direction === 'up') {
-//       this.setState({ pastLastStep: false });
-//     }
-//   };
-
-//   render() {
-//     const { activeStepIndex, pastLastStep } = this.state;
-//     const { steps, backgroundImagePath } = this.props;
-
-//     return (
-//       <div style={{ position: 'relative', overflow: 'hidden' }}>
-//         {/* Background image */}
-//         <div
-//           style={{
-//             position: 'fixed',
-//             width: '100%',
-//             height: '100vh',
-//             backgroundImage: `url(${backgroundImagePath})`,
-//             backgroundSize: 'cover',
-//             backgroundPosition: 'center center',
-//             top: 0,
-//             left: 0,
-//             zIndex: -1,
-//             // When past the last step, we prepare the background to be covered
-//             transform: pastLastStep ? 'translateY(-100vh)' : 'none',
-//             transition: 'transform 0.5s ease-in-out',
-//           }}
-//         />
-
-//         {/* Scrollytelling content */}
-//         <Scrollama onStepEnter={this.onStepEnter} onStepExit={this.onStepExit} offset={0.5}>
-//           {steps.map((stepContent, index) => (
-//             <Step data={index} key={index}>
-//               <div
-//                 style={{
-//                   minHeight: '100vh',
-//                   display: 'flex',
-//                   alignItems: 'center',
-//                   justifyContent: 'center',
-//                   zIndex: 2,
-//                 }}
-//               >
-//                 <div
-//                   style={{
-//                     backgroundColor: 'rgba(0, 0, 0, 0.5)',
-//                     color: 'white',
-//                     padding: '20px',
-//                     maxWidth: '600px',
-//                     textAlign: 'center',
-//                   }}
-//                 >
-//                   {stepContent}
-//                 </div>
-//               </div>
-//             </Step>
-//           ))}
-//         </Scrollama>
-
-//         {/* The following content on the page */}
-//         <div style={{ minHeight: '100vh' }}></div>
-//       </div>
-//     );
-//   }
-// }
-
-// ScrollytellingWithFixedBackground.defaultProps = {
-//   steps: [
-//     <div>Your text or component for step 1</div>,
-//     <div>Your text or component for step 2</div>,
-//     <div>Your text or component for step 3</div>,
-//     // Add as many steps as needed
-//   ],
-//   backgroundImagePath:
-//     'https://thumbnails.texastribune.org/SyIpz8gqP5L5JHeM298apD40-fs=/850x478/smart/https://static.texastribune.org/media/files/19c99721b34223c55f9367bb5a1c7a3c/0320%20Rural%20WiFi%20MF%2001%20TT.jpg',
-// };
-
-// export default ScrollytellingWithFixedBackground;

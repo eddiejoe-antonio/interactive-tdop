@@ -4,7 +4,8 @@ import SectionHeader from '@/components/SectionHeader';
 const IntroOne = () => {
   return (
     <div>
-      <SectionHeader title='Vision and Purpose of Digital Opportunity' img='Vision.jpg' />
+      <ScrollytellingWithBackground id='unique-id-1' backgroundImagePath='Capitol.jpg' />
+      {/* <SectionHeader title='Vision and Purpose of Digital Opportunity' img='Vision.jpg' /> */}
       {/* <div className='bg-[#FFFDF6] w-screen h-full md:h-screen px-4 font-sans'>
         <div className=' grid md:grid-cols-12'>
           <div className='flex flex-col md:col-start-4 md:col-span-6 pt-[10vh]'>
