@@ -4,6 +4,7 @@ import IntroOne from './content/IntroOne';
 import IntroTwo from './content/IntroTwo';
 import ScrollableTitle from '../components/ScrollableTitle';
 import IntroCards from '../static/IntroCards';
+import ScrollytellingWithFixedBackground from '@/components/ScrollHeader';
 
 const IntroPage = ({ handlePageChange: _ }: { handlePageChange: Function }) => {
   const header = (
@@ -13,13 +14,7 @@ const IntroPage = ({ handlePageChange: _ }: { handlePageChange: Function }) => {
       title={IntroCards.Header.title}
     />
   );
-  const sections = [header, <IntroOne />, <IntroTwo />];
-  // const [activeSection, setActiveSection] = useState(0);
-
-  // const handleSectionClick = (index) => {
-  //   setActiveSection(index);
-  //   scroll.scrollTo(`section${index + 1}`, { smooth: true, duration: 500 });
-  // };
+  const sections = [<IntroOne />, <IntroTwo />];
 
   return (
     <>

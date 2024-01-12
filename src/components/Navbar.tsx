@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import Logo from './Logo';
+import { Menu, Button } from '@mantine/core';
 import NavDropDown from './NavDropdown';
 import { Link } from 'react-router-dom';
 

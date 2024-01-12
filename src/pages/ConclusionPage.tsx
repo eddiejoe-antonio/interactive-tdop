@@ -1,8 +1,6 @@
 // App.js
-import  { useState, useEffect } from 'react';
-import {
-  Element as ScrollElement,
-} from 'react-scroll';
+import { useState, useEffect } from 'react';
+import { Element as ScrollElement } from 'react-scroll';
 import '@mantine/core/styles.css';
 import ConclusionOne from './content/ConclusionOne';
 import ConclusionCards from '@/static/ConclusionCards';
@@ -17,7 +15,7 @@ const ConclusionPage = ({ handlePageChange }: { handlePageChange: Function }) =>
       title={ConclusionCards.Header.title}
     />
   );
-  const sections = [header, <ConclusionOne />];
+  const sections = [<ConclusionOne />];
   // const [activeSection, setActiveSection] = useState(0);
 
   // const handleSectionClick = (index) => {

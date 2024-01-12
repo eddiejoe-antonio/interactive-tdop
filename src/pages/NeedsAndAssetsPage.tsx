@@ -1,4 +1,3 @@
-// App.js
 import { Element as ScrollElement } from 'react-scroll';
 import '@mantine/core/styles.css';
 import NeedsOne from './content/NeedsOne';
@@ -16,22 +15,7 @@ const NeedsAndAssetsPage = () => {
     />
   );
 
-  // const Goals1 = () => (
-  //   <GoalsSection
-  //     img={NeedsCards.Goal1.img}
-  //     // altText={NeedsCards.Goal1.altText}
-  //     title={NeedsCards.Goal1.title}
-  //     description={NeedsCards.Goal1.description}
-  //   />
-  // );
-
-  const sections = [<Header />, <NeedsOne />, <NeedsTwo />];
-  // const [activeSection, setActiveSection] = useState(0);
-
-  // const handleSectionClick = (index) => {
-  //   setActiveSection(index);
-  //   scroll.scrollTo(`section${index + 1}`, { smooth: true, duration: 500 });
-  // };
+  const sections = [<NeedsOne />, <NeedsTwo />];
 
   return (
     <>
